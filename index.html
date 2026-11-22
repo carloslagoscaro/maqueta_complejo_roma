@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Complejo Deportivo ROMA | 6 Canchas de Futbolito en Huechuraba</title>
-  <meta name="description" content="Complejo Deportivo ROMA en Huechuraba. 6 canchas de futbolito, camarines, cumpleaños, eventos de empresas y campeonatos. Agenda tu hora online." />
+  <meta name="description" content="Complejo Deportivo ROMA en Huechuraba. 6 canchas de futbolito, camarines, espacio de eventos, cumpleaños, eventos de empresas y campeonatos. Agenda tu hora online." />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <script>
-    // Función global de fallback SVG definida antes del renderizado del DOM
+    // Función global de fallback SVG definida antes del renderizado del DOM para evitar ReferenceError
     window.renderEmblemFallback = function(imgEl) {
       if (!imgEl || imgEl.dataset.fallbackApplied) return;
       imgEl.dataset.fallbackApplied = 'true';
@@ -69,7 +69,7 @@
           }
         }
       }
-    }
+    };
   </script>
 
   <style>
@@ -87,11 +87,7 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .border-gold-subtle {
-      border-color: rgba(212, 175, 55, 0.28);
-    }
-
-    /* Ribbon estilo banner promocional */
+    /* Cinta dorada diagonal del banner */
     .roma-ribbon {
       background: linear-gradient(90deg, #b38728 0%, #fcf6ba 35%, #d4af37 70%, #aa771c 100%);
       clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);
@@ -253,7 +249,6 @@
       </defs>
       <circle cx="120" cy="120" r="112" fill="#09090b" stroke="url(#romaGoldGrad)" stroke-width="2.5"/>
       <circle cx="120" cy="120" r="102" fill="none" stroke="url(#romaGoldGrad)" stroke-width="0.8" stroke-dasharray="4 3"/>
-      <!-- Laureles Izquierdo y Derecho -->
       <path d="M52 145 C36 115, 42 75, 68 52" fill="none" stroke="url(#romaGoldGrad)" stroke-width="3" stroke-linecap="round"/>
       <path d="M188 145 C204 115, 198 75, 172 52" fill="none" stroke="url(#romaGoldGrad)" stroke-width="3" stroke-linecap="round"/>
       <g fill="url(#romaGoldGrad)">
@@ -266,10 +261,8 @@
         <ellipse cx="195" cy="85" rx="7" ry="3.5" transform="rotate(-10 195 85)"/>
         <ellipse cx="185" cy="67" rx="7" ry="3.5" transform="rotate(-35 185 67)"/>
       </g>
-      <!-- Balón Superior -->
       <circle cx="120" cy="46" r="13" fill="#111113" stroke="url(#romaGoldGrad)" stroke-width="2"/>
       <polygon points="120,39 126,44 124,51 116,51 114,44" fill="url(#romaGoldGrad)"/>
-      <!-- Silueta Coliseo Romano -->
       <path d="M72 128 L72 86 L98 78 L122 88 L168 94 L168 128 Z" fill="none" stroke="url(#romaGoldGrad)" stroke-width="2.2" stroke-linejoin="round"/>
       <line x1="66" y1="128" x2="174" y2="128" stroke="url(#romaGoldGrad)" stroke-width="2.5"/>
       <g fill="url(#romaGoldGrad)">
@@ -284,7 +277,6 @@
         <rect x="141" y="110" width="6" height="14" rx="3"/>
         <rect x="154" y="110" width="6" height="14" rx="3"/>
       </g>
-      <!-- Textos Oficiales -->
       <text x="120" y="148" text-anchor="middle" fill="#f3e5ab" font-family="Oswald, sans-serif" font-size="9" letter-spacing="2.2" font-weight="600">COMPLEJO DEPORTIVO</text>
       <text x="120" y="182" text-anchor="middle" fill="url(#romaGoldGrad)" font-family="Cinzel, serif" font-size="34" letter-spacing="4" font-weight="800">ROMA</text>
       <line x1="65" y1="191" x2="175" y2="191" stroke="url(#romaGoldGrad)" stroke-width="1.5"/>
@@ -297,7 +289,6 @@
   <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-roma-black/85 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <!-- Logo + Nombre -->
         <a href="#inicio" class="flex items-center gap-3 group">
           <div class="w-14 h-14 rounded-full overflow-hidden bg-black flex items-center justify-center border border-roma-gold/40 shadow-lg shadow-roma-gold/10 group-hover:border-roma-gold transition-all">
             <img
@@ -317,7 +308,6 @@
           </div>
         </a>
 
-        <!-- Navegación Desktop -->
         <nav class="hidden lg:flex items-center gap-7">
           <a href="#inicio" class="text-sm font-medium text-zinc-300 hover:text-roma-gold transition-colors">Inicio</a>
           <a href="#instalaciones" class="text-sm font-medium text-zinc-300 hover:text-roma-gold transition-colors">Instalaciones</a>
@@ -326,7 +316,6 @@
           <a href="#ubicacion" class="text-sm font-medium text-zinc-300 hover:text-roma-gold transition-colors">Ubicación</a>
         </nav>
 
-        <!-- Botones Acción Desktop (Sin duplicar botón WhatsApp en header) -->
         <div class="hidden md:flex items-center gap-2.5">
           <button type="button" onclick="openAdminAccess()"
                   class="px-3.5 py-2.5 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 hover:border-roma-gold/60 text-zinc-300 hover:text-roma-goldLight text-xs font-semibold tracking-wider uppercase transition-all flex items-center gap-1.5"
@@ -338,7 +327,6 @@
           </a>
         </div>
 
-        <!-- Botón Menú Móvil -->
         <div class="flex items-center gap-2 md:hidden">
           <button type="button" onclick="openAdminAccess()" aria-label="Acceso Administrador" class="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-roma-gold hover:bg-zinc-800 transition">
             <i class="fa-solid fa-shield-halved text-base"></i>
@@ -350,7 +338,6 @@
       </div>
     </div>
 
-    <!-- Menú Desplegable Móvil -->
     <div id="mobile-menu" class="hidden md:hidden bg-roma-dark border-b border-zinc-800 px-4 pt-3 pb-6 space-y-2 shadow-2xl">
       <a href="#inicio" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-200 hover:bg-zinc-900 hover:text-roma-gold">Inicio</a>
       <a href="#instalaciones" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-200 hover:bg-zinc-900 hover:text-roma-gold">6 Canchas e Instalaciones</a>
@@ -372,27 +359,21 @@
        2. HERO SECTION (INSPIRADO EN BANNER PROMOCIONAL ROMA)
   ========================================================== -->
   <section id="inicio" class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 hero-stadium-bg border-b border-zinc-900 overflow-hidden">
-    <!-- Reflectores de Estadio en Movimiento y Luces Ambientales -->
     <div class="stadium-beam-left"></div>
     <div class="stadium-beam-right"></div>
     <div class="aurora-orb absolute top-16 left-6 w-[440px] h-[440px] bg-gold-glow pointer-events-none"></div>
     <div class="aurora-orb absolute bottom-6 right-6 w-[540px] h-[540px] bg-turf-glow pointer-events-none" style="animation-delay: -4s;"></div>
-    <!-- Partículas Doradas Flotantes -->
     <div id="hero-particles" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
 
-        <!-- Columna Izquierda: Emblema + Slogan Principal -->
         <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
-
-          <!-- Badge Ubicación -->
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-roma-gold/30 text-xs font-semibold tracking-wider uppercase text-roma-goldLight mb-6 shadow-md">
             <span class="w-2 h-2 rounded-full bg-roma-turf animate-pulse"></span>
             Huechuraba, Santiago • Abierto Todos los Días
           </div>
 
-          <!-- Logo Central + Tipografía Banner -->
           <div class="flex flex-col sm:flex-row items-center gap-6 mb-6">
             <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden bg-black/90 border border-roma-gold/35 shadow-2xl shadow-black flex-shrink-0 p-1">
               <img
@@ -416,7 +397,6 @@
             </div>
           </div>
 
-          <!-- Cinta Dorada del Banner -->
           <div class="roma-ribbon px-7 py-2.5 mb-6 shadow-xl inline-block">
             <span class="font-display font-bold text-xl sm:text-2xl tracking-widest uppercase text-black">
               6 CANCHAS DE FUTBOLITO
@@ -424,10 +404,9 @@
           </div>
 
           <p class="text-zinc-300 text-base sm:text-lg max-w-2xl leading-relaxed mb-8">
-            Vive el fútbol en instalaciones de primer nivel en <strong class="text-white">Huechuraba</strong>. Contamos con <strong class="text-roma-goldLight">6 canchas de pasto sintético</strong>, camarines equipados, iluminación LED profesional y espacios ideales para partidos amistosos, <span class="text-roma-turf font-medium">cumpleaños, eventos de empresas y campeonatos</span>.
+            Vive el fútbol en instalaciones de primer nivel en <strong class="text-white">Huechuraba</strong>. Contamos con <strong class="text-roma-goldLight">6 canchas de pasto sintético</strong> con horario independiente por cancha, camarines equipados y un <span class="text-roma-turf font-medium">espacio aparte para cumpleaños, eventos de empresas y campeonatos</span> (con opción de asignar una cancha disponible si el espacio está ocupado).
           </p>
 
-          <!-- Botones CTA Principales -->
           <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <a href="#agendar" class="btn-shine w-full sm:w-auto px-8 py-4 rounded-2xl bg-gold-gradient text-black font-display font-bold text-lg tracking-wider uppercase shadow-xl shadow-roma-gold/25 hover:scale-[1.02] transition-all text-center">
               <i class="fa-solid fa-futbol mr-2"></i> Agendar Cancha o Evento
@@ -438,7 +417,6 @@
           </div>
         </div>
 
-        <!-- Columna Derecha: Frase Emblemática + Tarjeta Destacada -->
         <div class="lg:col-span-5 flex flex-col items-center lg:items-end justify-between">
           <div class="w-full max-w-md rounded-3xl bg-roma-card/90 backdrop-blur-md border border-roma-gold/30 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
             <div class="absolute -top-12 -right-12 w-36 h-36 rounded-full bg-roma-gold/10 blur-2xl"></div>
@@ -453,7 +431,6 @@
               </p>
             </div>
 
-            <!-- Resumen Rápido del Complejo -->
             <div class="space-y-3 border-t border-zinc-800 pt-5">
               <div class="flex items-center justify-between text-sm">
                 <span class="text-zinc-400"><i class="fa-solid fa-location-dot text-roma-gold mr-2"></i>Comuna</span>
@@ -464,8 +441,8 @@
                 <span class="font-semibold text-white">6 Canchas Futbolito (7v7)</span>
               </div>
               <div class="flex items-center justify-between text-sm">
-                <span class="text-zinc-400"><i class="fa-solid fa-shower text-roma-gold mr-2"></i>Infraestructura</span>
-                <span class="font-semibold text-white">Camarines + Estacionamiento</span>
+                <span class="text-zinc-400"><i class="fa-solid fa-champagne-glasses text-roma-gold mr-2"></i>Eventos</span>
+                <span class="font-semibold text-white">Espacio Aparte + Cancha</span>
               </div>
               <div class="flex items-center justify-between text-sm">
                 <span class="text-zinc-400"><i class="fa-solid fa-clock text-roma-turf mr-2"></i>Horario</span>
@@ -534,32 +511,22 @@
   <div class="bg-gradient-to-r from-zinc-950 via-[#121814] to-zinc-950 border-b border-roma-gold/30 py-3.5 relative overflow-hidden shadow-lg">
     <div class="marquee-wrapper">
       <div class="marquee-track flex items-center gap-10 font-display font-bold text-sm sm:text-base tracking-[0.2em] uppercase">
-        <!-- Bloque 1 -->
-        <span class="flex items-center gap-3 text-roma-goldLight"><i class="fa-solid fa-futbol text-roma-turf"></i> 6 CANCHAS DE FUTBOLITO PASTO SINTÉTICO</span>
+        <span class="flex items-center gap-3 text-roma-goldLight"><i class="fa-solid fa-futbol text-roma-turf"></i> 6 CANCHAS DE FUTBOLITO CON HORARIO INDEPENDIENTE</span>
         <span class="text-roma-gold">•</span>
-        <span class="flex items-center gap-3 text-white"><i class="fa-solid fa-bolt text-roma-gold"></i> ILUMINACIÓN LED PROFESIONAL</span>
+        <span class="flex items-center gap-3 text-white"><i class="fa-solid fa-champagne-glasses text-roma-gold"></i> ESPACIO APARTE PARA CUMPLEAÑOS, EMPRESAS Y CAMPEONATOS</span>
         <span class="text-roma-turf">•</span>
-        <span class="flex items-center gap-3 text-roma-goldLight"><i class="fa-solid fa-cake-candles text-roma-turf"></i> CUMPLEAÑOS DEPORTIVOS</span>
+        <span class="flex items-center gap-3 text-roma-goldLight"><i class="fa-solid fa-shield-halved text-roma-turf"></i> RESPALDO EN CANCHA SI EL ESPACIO DE EVENTOS ESTÁ OCUPADO</span>
         <span class="text-roma-gold">•</span>
-        <span class="flex items-center gap-3 text-white"><i class="fa-solid fa-briefcase text-roma-gold"></i> EVENTOS Y COPAS EMPRESAS</span>
-        <span class="text-roma-turf">•</span>
-        <span class="flex items-center gap-3 text-roma-goldLight"><i class="fa-solid fa-trophy text-roma-turf"></i> CAMPEONATOS Y LIGAS EN HUECHURABA</span>
-        <span class="text-roma-gold">•</span>
-        <span class="flex items-center gap-3 text-white"><i class="fa-solid fa-shower text-roma-gold"></i> CAMARINES Y ESTACIONAMIENTO PRIVADO</span>
+        <span class="flex items-center gap-3 text-white"><i class="fa-solid fa-shower text-roma-gold"></i> CAMARINES EQUIPADOS E ILUMINACIÓN LED</span>
         <span class="text-roma-turf mr-10">•</span>
 
-        <!-- Bloque 2 (Duplicado para bucle infinito fluido) -->
-        <span class="flex items-center gap-3 text-roma-goldLight"><i class="fa-solid fa-futbol text-roma-turf"></i> 6 CANCHAS DE FUTBOLITO PASTO SINTÉTICO</span>
+        <span class="flex items-center gap-3 text-roma-goldLight"><i class="fa-solid fa-futbol text-roma-turf"></i> 6 CANCHAS DE FUTBOLITO CON HORARIO INDEPENDIENTE</span>
         <span class="text-roma-gold">•</span>
-        <span class="flex items-center gap-3 text-white"><i class="fa-solid fa-bolt text-roma-gold"></i> ILUMINACIÓN LED PROFESIONAL</span>
+        <span class="flex items-center gap-3 text-white"><i class="fa-solid fa-champagne-glasses text-roma-gold"></i> ESPACIO APARTE PARA CUMPLEAÑOS, EMPRESAS Y CAMPEONATOS</span>
         <span class="text-roma-turf">•</span>
-        <span class="flex items-center gap-3 text-roma-goldLight"><i class="fa-solid fa-cake-candles text-roma-turf"></i> CUMPLEAÑOS DEPORTIVOS</span>
+        <span class="flex items-center gap-3 text-roma-goldLight"><i class="fa-solid fa-shield-halved text-roma-turf"></i> RESPALDO EN CANCHA SI EL ESPACIO DE EVENTOS ESTÁ OCUPADO</span>
         <span class="text-roma-gold">•</span>
-        <span class="flex items-center gap-3 text-white"><i class="fa-solid fa-briefcase text-roma-gold"></i> EVENTOS Y COPAS EMPRESAS</span>
-        <span class="text-roma-turf">•</span>
-        <span class="flex items-center gap-3 text-roma-goldLight"><i class="fa-solid fa-trophy text-roma-turf"></i> CAMPEONATOS Y LIGAS EN HUECHURABA</span>
-        <span class="text-roma-gold">•</span>
-        <span class="flex items-center gap-3 text-white"><i class="fa-solid fa-shower text-roma-gold"></i> CAMARINES Y ESTACIONAMIENTO PRIVADO</span>
+        <span class="flex items-center gap-3 text-white"><i class="fa-solid fa-shower text-roma-gold"></i> CAMARINES EQUIPADOS E ILUMINACIÓN LED</span>
         <span class="text-roma-turf mr-10">•</span>
       </div>
     </div>
@@ -571,18 +538,16 @@
   <section id="instalaciones" class="py-20 bg-roma-dark border-b border-zinc-900 relative overflow-hidden">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[750px] h-[300px] bg-turf-glow pointer-events-none opacity-60"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <!-- Encabezado Sección -->
       <div class="text-center max-w-3xl mx-auto mb-14">
         <span class="text-roma-turf font-semibold text-sm uppercase tracking-widest">Infraestructura de Primer Nivel</span>
         <h2 class="font-display font-bold text-4xl sm:text-5xl uppercase tracking-tight text-white mt-2">
           Nuestras <span class="text-gold-metallic">6 Canchas</span> & Camarines
         </h2>
         <p class="text-zinc-400 mt-3 text-base">
-          Césped sintético de última generación con amortiguación profesional, iluminación LED sin sombras y camarines cómodos para todo tu equipo.
+          Césped sintético de última generación, horario independiente por cancha, camarines cómodos y un espacio aparte para eventos con respaldo en cancha si está ocupado.
         </p>
       </div>
 
-      <!-- Amenidades Destacadas -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
         <div class="glow-card p-5 rounded-2xl bg-roma-card border border-zinc-800 flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-roma-turf/15 text-roma-turf flex items-center justify-center flex-shrink-0 text-xl">
@@ -616,18 +581,38 @@
 
         <div class="glow-card p-5 rounded-2xl bg-roma-card border border-zinc-800 flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-roma-gold/15 text-roma-gold flex items-center justify-center flex-shrink-0 text-xl">
-            <i class="fa-solid fa-square-parking"></i>
+            <i class="fa-solid fa-champagne-glasses"></i>
           </div>
           <div>
-            <h3 class="font-display font-bold text-lg uppercase text-white">Estacionamiento y Tercer Tiempo</h3>
-            <p class="text-xs text-zinc-400 mt-1">Recinto cerrado en Huechuraba con zona de descanso y celebración.</p>
+            <h3 class="font-display font-bold text-lg uppercase text-white">Espacio de Eventos</h3>
+            <p class="text-xs text-zinc-400 mt-1">Área aparte para celebraciones; si está ocupada, habilitamos una cancha.</p>
           </div>
         </div>
       </div>
 
-      <!-- Grilla Interactiva de las 6 Canchas -->
-      <div id="courts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Renderizado dinámico mediante JavaScript -->
+      <div id="courts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <div class="mt-8 rounded-3xl bg-gradient-to-r from-roma-card via-[#18150e] to-roma-card border border-roma-gold/35 p-6 sm:p-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-xl">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-roma-gold/15 border border-roma-gold/40 text-roma-gold flex items-center justify-center text-2xl flex-shrink-0">
+            <i class="fa-solid fa-champagne-glasses"></i>
+          </div>
+          <div>
+            <span class="px-2.5 py-0.5 rounded-full bg-roma-gold/15 border border-roma-gold/30 text-roma-goldLight text-[10px] font-bold uppercase tracking-wider">
+              Espacio Aparte del Complejo
+            </span>
+            <h3 class="font-display font-bold text-2xl sm:text-3xl uppercase text-white mt-1.5">
+              Espacio de Eventos <span class="text-gold-metallic">Cumpleaños, Empresas y Campeonatos</span>
+            </h3>
+            <p class="text-xs sm:text-sm text-zinc-300 mt-1.5 max-w-2xl leading-relaxed">
+              Contamos con un espacio aparte para reservar en cumpleaños, eventos de empresas y campeonatos. Si el <strong class="text-white">Espacio de Eventos</strong> está ocupado en la hora elegida, puedes utilizar una <strong class="text-roma-turf">cancha disponible para eventos</strong>.
+            </p>
+          </div>
+        </div>
+        <button type="button" onclick="selectEventSpaceAndScroll()"
+                class="btn-shine w-full lg:w-auto px-6 py-3.5 rounded-2xl bg-gold-gradient text-black font-display font-bold text-sm uppercase tracking-wider shadow-lg shadow-roma-gold/20 hover:scale-[1.02] transition-all flex-shrink-0 text-center">
+          <i class="fa-solid fa-calendar-star mr-1.5"></i> Agendar Espacio de Eventos
+        </button>
       </div>
     </div>
   </section>
@@ -650,7 +635,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Card 1: Arriendo de Canchas -->
         <div class="glow-card rounded-3xl bg-roma-card border border-zinc-800 hover:border-roma-gold/50 p-6 flex flex-col justify-between group">
           <div>
             <div class="w-14 h-14 rounded-2xl bg-roma-turf/15 border border-roma-turf/30 text-roma-turf flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
@@ -658,7 +642,7 @@
             </div>
             <h3 class="font-display font-bold text-2xl uppercase text-white">Arriendo de Canchas</h3>
             <p class="text-zinc-400 text-sm mt-2 leading-relaxed">
-              Reserva por hora o abono mensual fijo para tu equipo en cualquiera de nuestras 6 canchas de futbolito 7v7.
+              Reserva por hora en cualquiera de las 6 canchas de futbolito 7v7 con disponibilidad independiente por cancha.
             </p>
             <ul class="mt-4 space-y-2 text-xs text-zinc-300">
               <li><i class="fa-solid fa-check text-roma-turf mr-2"></i>Balón y petos disponibles</li>
@@ -671,7 +655,6 @@
           </button>
         </div>
 
-        <!-- Card 2: Cumpleaños -->
         <div class="glow-card rounded-3xl bg-roma-card border border-zinc-800 hover:border-roma-gold/50 p-6 flex flex-col justify-between group relative overflow-hidden">
           <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-roma-gold/20 border border-roma-gold/40 text-roma-goldLight text-[10px] font-bold uppercase tracking-wider">
             Popular
@@ -682,11 +665,11 @@
             </div>
             <h3 class="font-display font-bold text-2xl uppercase text-white">Cumpleaños Deportivos</h3>
             <p class="text-zinc-400 text-sm mt-2 leading-relaxed">
-              Celebra un cumpleaños inolvidable jugando fútbol con amigos y familia en un ambiente seguro y controlado.
+              Celebra en nuestro espacio aparte para eventos o usa una cancha disponible para el evento si el espacio está ocupado.
             </p>
             <ul class="mt-4 space-y-2 text-xs text-zinc-300">
-              <li><i class="fa-solid fa-check text-roma-gold mr-2"></i>Cancha exclusiva + zona celebración</li>
-              <li><i class="fa-solid fa-check text-roma-gold mr-2"></i>Mini torneo entre invitados</li>
+              <li><i class="fa-solid fa-check text-roma-gold mr-2"></i>Elige la cantidad de horas</li>
+              <li><i class="fa-solid fa-check text-roma-gold mr-2"></i>Espacio de eventos o cancha asignada</li>
               <li><i class="fa-solid fa-check text-roma-gold mr-2"></i>Estacionamiento para apoderados</li>
             </ul>
           </div>
@@ -695,7 +678,6 @@
           </button>
         </div>
 
-        <!-- Card 3: Empresas -->
         <div class="glow-card rounded-3xl bg-roma-card border border-zinc-800 hover:border-roma-gold/50 p-6 flex flex-col justify-between group">
           <div>
             <div class="w-14 h-14 rounded-2xl bg-roma-turf/15 border border-roma-turf/30 text-roma-turf flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
@@ -703,12 +685,12 @@
             </div>
             <h3 class="font-display font-bold text-2xl uppercase text-white">Eventos Empresas</h3>
             <p class="text-zinc-400 text-sm mt-2 leading-relaxed">
-              Potencia el trabajo en equipo con jornadas recreativas, pausas activas o campeonatos corporativos en Huechuraba.
+              Potencia el trabajo en equipo con jornadas corporativas en nuestro espacio de eventos o canchas libres en Huechuraba.
             </p>
             <ul class="mt-4 space-y-2 text-xs text-zinc-300">
-              <li><i class="fa-solid fa-check text-roma-turf mr-2"></i>Arriendo simultáneo de hasta 6 canchas</li>
+              <li><i class="fa-solid fa-check text-roma-turf mr-2"></i>Selección libre de cantidad de horas</li>
               <li><i class="fa-solid fa-check text-roma-turf mr-2"></i>A minutos de Ciudad Empresarial</li>
-              <li><i class="fa-solid fa-check text-roma-turf mr-2"></i>Facturación y coordinación integral</li>
+              <li><i class="fa-solid fa-check text-roma-turf mr-2"></i>Camarines y coordinación integral</li>
             </ul>
           </div>
           <button type="button" onclick="selectServiceAndScroll('Evento Empresas')" class="mt-6 w-full py-3 rounded-xl bg-zinc-900 hover:bg-roma-gold hover:text-black border border-zinc-700 hover:border-roma-gold text-white font-display font-bold uppercase tracking-wider text-sm transition-all">
@@ -716,7 +698,6 @@
           </button>
         </div>
 
-        <!-- Card 4: Campeonatos -->
         <div class="glow-card rounded-3xl bg-roma-card border border-zinc-800 hover:border-roma-gold/50 p-6 flex flex-col justify-between group">
           <div>
             <div class="w-14 h-14 rounded-2xl bg-roma-gold/15 border border-roma-gold/30 text-roma-gold flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
@@ -724,11 +705,11 @@
             </div>
             <h3 class="font-display font-bold text-2xl uppercase text-white">Campeonatos & Torneos</h3>
             <p class="text-zinc-400 text-sm mt-2 leading-relaxed">
-              Inscribe a tu equipo en nuestras ligas oficiales o arrienda el complejo para realizar tu propio campeonato relámpago.
+              Coordina partidos por cancha y reserva el espacio de eventos para reuniones, premios o uso de cancha disponible.
             </p>
             <ul class="mt-4 space-y-2 text-xs text-zinc-300">
-              <li><i class="fa-solid fa-check text-roma-gold mr-2"></i>Torneos diurnos, vespertinos y finde</li>
-              <li><i class="fa-solid fa-check text-roma-gold mr-2"></i>Arbitraje y premiación opcional</li>
+              <li><i class="fa-solid fa-check text-roma-gold mr-2"></i>Cantidad de horas a tu medida</li>
+              <li><i class="fa-solid fa-check text-roma-gold mr-2"></i>Horario independiente por cancha</li>
               <li><i class="fa-solid fa-check text-roma-gold mr-2"></i>6 canchas operando en paralelo</li>
             </ul>
           </div>
@@ -746,10 +727,9 @@
   <section id="agendar" class="py-20 bg-roma-dark border-b border-zinc-900 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <!-- Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>
-          <span class="text-roma-turf font-semibold text-sm uppercase tracking-widest">Disponibilidad en Tiempo Real</span>
+          <span class="text-roma-turf font-semibold text-sm uppercase tracking-widest">Disponibilidad en Tiempo Real por Cancha y Eventos</span>
           <h2 class="font-display font-bold text-4xl sm:text-5xl uppercase tracking-tight text-white mt-1">
             Agenda Tu Hora en <span class="text-gold-metallic">ROMA</span>
           </h2>
@@ -764,25 +744,23 @@
         </div>
       </div>
 
-      <!-- Aviso Informativo de Reserva Temporal vs Confirmada -->
       <div class="mb-8 p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-500/35 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div class="flex items-start gap-3.5">
           <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
             <i class="fa-solid fa-clock-rotate-left text-lg"></i>
           </div>
           <div>
-            <h4 class="font-bold text-amber-300 text-sm uppercase tracking-wider">¿Cómo funciona la confirmación de cancha?</h4>
+            <h4 class="font-bold text-amber-300 text-sm uppercase tracking-wider">¿Cómo funciona la selección única, prioridad por orden y confirmación?</h4>
             <p class="text-xs sm:text-sm text-zinc-300 mt-1 leading-relaxed">
-              Al agendar en la web tu horario queda como <strong class="text-amber-300">Reserva Temporal (Pendiente de Pago)</strong>. La cancha pasa a estado <strong class="text-roma-turf">Reservada (Pagada)</strong> una vez que envíes tu comprobante de abono/pago por WhatsApp y sea validado por administración.
+              Solo puedes mantener <strong class="text-roma-goldLight">una selección horaria activa</strong> a la vez entre las secciones. Si dos personas agendan el mismo horario, se respeta a quien lo registró primero y se bloquean conflictos. Al agendar, queda como <strong class="text-amber-300">Reserva Temporal</strong> hasta validar el pago por WhatsApp.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Contenedor Principal Split-View -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-        <!-- PANEL IZQUIERDO: Configuración de Servicio, Cancha, Fecha y Bloques Horarios (7 cols) -->
+        <!-- PANEL IZQUIERDO: Configuración de Servicio, Cancha/Eventos, Fecha, Scroll de Horas y Bloques (7 cols) -->
         <div class="lg:col-span-7 space-y-6 bg-roma-card border border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
 
           <!-- PASO 1: Tipo de Servicio -->
@@ -792,16 +770,16 @@
               Selecciona el Tipo de Reserva
             </label>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="service-selector">
-              <button type="button" data-service="Arriendo de Cancha" class="service-btn active-service p-3 rounded-xl border text-left transition-all">
+              <button type="button" data-service="Arriendo de Cancha" class="service-btn active-service p-3 rounded-xl border border-roma-gold bg-roma-gold/15 text-left transition-all">
                 <i class="fa-solid fa-futbol text-roma-turf block text-lg mb-1"></i>
                 <span class="font-semibold text-xs sm:text-sm block text-white">Arriendo Cancha</span>
-                <span class="text-[11px] text-zinc-400">Partido 1 hr</span>
+                <span class="text-[11px] text-zinc-400">Partido por hora</span>
               </button>
 
               <button type="button" data-service="Cumpleaños" class="service-btn p-3 rounded-xl border border-zinc-800 bg-zinc-900/70 text-left hover:border-zinc-600 transition-all">
                 <i class="fa-solid fa-cake-candles text-roma-gold block text-lg mb-1"></i>
                 <span class="font-semibold text-xs sm:text-sm block text-white">Cumpleaños</span>
-                <span class="text-[11px] text-zinc-400">Cancha + Zona</span>
+                <span class="text-[11px] text-zinc-400">Cancha / Espacio</span>
               </button>
 
               <button type="button" data-service="Evento Empresas" class="service-btn p-3 rounded-xl border border-zinc-800 bg-zinc-900/70 text-left hover:border-zinc-600 transition-all">
@@ -818,21 +796,28 @@
             </div>
           </div>
 
-          <!-- PASO 2: Selección de Cancha y Fecha -->
+          <!-- PASO 2 y 3: Selección de Cancha / Espacio de Eventos y Fecha -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             <div>
               <label for="court-select" class="block font-display font-bold text-base uppercase tracking-wider text-white mb-2">
                 <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-roma-gold text-black text-xs font-sans font-bold mr-2">2</span>
-                Elige la Cancha
+                Elige Cancha o Espacio de Eventos
               </label>
               <select id="court-select" class="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white font-medium focus:outline-none focus:border-roma-gold transition">
-                <option value="Cancha 1">Cancha 1 (Futbolito 7v7 - Sector Norte)</option>
-                <option value="Cancha 2">Cancha 2 (Futbolito 7v7 - Central)</option>
-                <option value="Cancha 3">Cancha 3 (Futbolito 7v7 - Central)</option>
-                <option value="Cancha 4">Cancha 4 (Futbolito 7v7 - Sur)</option>
-                <option value="Cancha 5">Cancha 5 (Futbolito 7v7 - VIP Camarines)</option>
-                <option value="Cancha 6">Cancha 6 (Futbolito 7v7 - Zona Eventos)</option>
-                <option value="Todas las Canchas">Todas las Canchas (Evento Completo)</option>
+                <optgroup label="6 Canchas de Futbolito (Horario Independiente)">
+                  <option value="Cancha 1">Cancha 1 (Futbolito 7v7 - Sector Norte)</option>
+                  <option value="Cancha 2">Cancha 2 (Futbolito 7v7 - Central)</option>
+                  <option value="Cancha 3">Cancha 3 (Futbolito 7v7 - Central)</option>
+                  <option value="Cancha 4">Cancha 4 (Futbolito 7v7 - Sur)</option>
+                  <option value="Cancha 5">Cancha 5 (Futbolito 7v7 - VIP Camarines)</option>
+                  <option value="Cancha 6">Cancha 6 (Futbolito 7v7 - Zona Eventos)</option>
+                </optgroup>
+                <optgroup label="Espacio Aparte para Eventos y Respaldo en Cancha">
+                  <option value="Espacio de Eventos">Espacio de Eventos (Cumpleaños / Empresas / Torneos)</option>
+                  <option value="Cancha para Evento (Respaldo)">Cancha para Evento (Alternativa si Espacio Ocupado)</option>
+                  <option value="Espacio de Eventos + Cancha">Espacio de Eventos + Cancha Futbolito</option>
+                  <option value="Todas las Canchas">Todas las Canchas (Evento Completo)</option>
+                </optgroup>
               </select>
             </div>
 
@@ -845,25 +830,68 @@
             </div>
           </div>
 
-          <!-- Duración (Bloques) -->
-          <div>
-            <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Duración del Bloque</label>
-            <div class="flex flex-wrap gap-2" id="duration-selector">
-              <button type="button" data-hours="1" class="duration-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-roma-gold text-black border border-roma-gold">1 Hora</button>
-              <button type="button" data-hours="2" class="duration-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-300 border border-zinc-700 hover:border-zinc-500">2 Horas</button>
-              <button type="button" data-hours="3" class="duration-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-300 border border-zinc-700 hover:border-zinc-500">3 Horas (Eventos)</button>
-              <button type="button" data-hours="4" class="duration-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-300 border border-zinc-700 hover:border-zinc-500">4 Horas (Torneo)</button>
+          <!-- Selector Desplegable (Scroll) de Cantidad de Horas a Utilizar -->
+          <div class="p-4 rounded-2xl bg-zinc-900/80 border border-zinc-800">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <label for="hours-scroll-select" class="block font-display font-bold text-base uppercase tracking-wider text-white">
+                  <i class="fa-solid fa-hourglass-half text-roma-gold mr-1.5"></i> Cantidad de Horas a Utilizar
+                </label>
+                <p class="text-xs text-zinc-400 mt-0.5">
+                  Elige cuántas horas utilizarás. Si el rango topa con una hora reservada o temporal, te avisaremos de inmediato.
+                </p>
+              </div>
+              <div class="sm:w-52 flex-shrink-0">
+                <select id="hours-scroll-select" aria-label="Cantidad de horas a utilizar"
+                        class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-roma-gold/50 text-roma-goldLight font-bold text-sm focus:outline-none focus:border-roma-gold transition cursor-pointer">
+                  <option value="1">1 hora</option>
+                  <option value="2">2 horas</option>
+                  <option value="3">3 horas</option>
+                  <option value="4">4 horas</option>
+                  <option value="5">5 horas</option>
+                  <option value="6">6 horas</option>
+                  <option value="7">7 horas</option>
+                  <option value="8">8 horas</option>
+                </select>
+              </div>
             </div>
+
+            <div id="hours-collision-alert" class="hidden mt-3 p-3 rounded-xl bg-red-950/60 border border-red-500/50 text-xs text-red-200 flex items-start gap-2.5">
+              <i class="fa-solid fa-triangle-exclamation text-red-400 text-sm mt-0.5 flex-shrink-0"></i>
+              <p id="hours-collision-message" class="leading-snug"></p>
+            </div>
+          </div>
+
+          <!-- Aviso Dinámico de Respaldo en Cancha para Eventos -->
+          <div id="event-fallback-banner" class="hidden p-4 rounded-2xl bg-roma-gold/10 border border-roma-gold/40 text-xs sm:text-sm text-zinc-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="flex items-start gap-2.5">
+              <i class="fa-solid fa-champagne-glasses text-roma-gold text-base mt-0.5 flex-shrink-0"></i>
+              <div id="event-fallback-text">
+                Si el Espacio de Eventos está ocupado, puedes asignar una cancha libre para tu evento.
+              </div>
+            </div>
+            <button type="button" id="apply-fallback-court-btn" class="px-3.5 py-2 rounded-xl bg-gold-gradient text-black font-display font-bold text-xs uppercase tracking-wider flex-shrink-0 hover:scale-[1.02] transition">
+              Usar Cancha para Evento
+            </button>
           </div>
 
           <!-- PASO 4: Grilla Dinámica de Horarios con 3 Estados -->
           <div class="pt-2">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <label class="font-display font-bold text-lg uppercase tracking-wider text-white">
-                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-roma-gold text-black text-xs font-sans font-bold mr-2">4</span>
-                Horarios (10:00 - 23:00 hrs)
-              </label>
-              <!-- Leyenda de 3 Estados + Selección -->
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <label class="font-display font-bold text-lg uppercase tracking-wider text-white">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-roma-gold text-black text-xs font-sans font-bold mr-2">4</span>
+                    Horarios de <span id="slot-grid-target-label" class="text-roma-goldLight">Cancha 1</span> (10:00 - 23:00 hrs)
+                  </label>
+                  <span id="single-selection-pill" class="hidden px-2.5 py-0.5 rounded-full bg-roma-gold/15 border border-roma-gold/40 text-roma-goldLight text-[10px] font-bold uppercase tracking-wider">
+                    Selección única activa
+                  </span>
+                </div>
+                <p id="slot-grid-subhint" class="text-[11px] text-zinc-400 mt-0.5">
+                  Horario exclusivo de Cancha 1. Las demás canchas y el Espacio de Eventos tienen disponibilidad independiente.
+                </p>
+              </div>
               <div class="flex flex-wrap items-center gap-3 text-xs">
                 <span class="flex items-center gap-1.5 text-zinc-300"><span class="w-2.5 h-2.5 rounded-full bg-roma-turf"></span> Disponible</span>
                 <span class="flex items-center gap-1.5 text-amber-300"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Temporal</span>
@@ -872,8 +900,26 @@
               </div>
             </div>
 
-            <div id="time-slots-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2.5">
-              <!-- Generado dinámicamente por JS -->
+            <div id="time-slots-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2.5"></div>
+
+            <!-- Matriz Independiente por Cancha (1 a 6) y Espacio de Eventos -->
+            <div class="mt-6 pt-5 border-t border-zinc-800/90">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-roma-goldLight">
+                  <i class="fa-solid fa-table-cells mr-1.5 text-roma-turf"></i>Horario Independiente por Cancha (1 a 6) y Espacio de Eventos
+                </span>
+                <span id="matrix-date-badge" class="text-[11px] text-zinc-400">Selección única: haz clic en un bloque libre</span>
+              </div>
+              <div class="overflow-x-auto rounded-2xl border border-zinc-800 bg-zinc-950/75">
+                <table class="w-full text-left border-collapse min-w-[680px]">
+                  <thead>
+                    <tr id="per-court-matrix-head" class="border-b border-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-400 bg-zinc-900/90">
+                      <th class="py-2.5 px-3 sticky left-0 bg-zinc-900 z-10 border-r border-zinc-800">Cancha / Espacio</th>
+                    </tr>
+                  </thead>
+                  <tbody id="per-court-matrix-body" class="divide-y divide-zinc-800/70 text-[11px]"></tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -889,14 +935,13 @@
             </span>
           </div>
 
-          <!-- Tarjeta Resumen Dinámico -->
           <div class="p-4 rounded-2xl bg-zinc-900/90 border border-zinc-800 space-y-2.5 mb-6 text-sm">
             <div class="flex justify-between">
               <span class="text-zinc-400">Actividad:</span>
               <span id="summary-service" class="font-bold text-roma-goldLight">Arriendo de Cancha</span>
             </div>
             <div class="flex justify-between">
-              <span class="text-zinc-400">Cancha:</span>
+              <span class="text-zinc-400">Cancha / Espacio:</span>
               <span id="summary-court" class="font-semibold text-white">Cancha 1</span>
             </div>
             <div class="flex justify-between">
@@ -904,7 +949,7 @@
               <span id="summary-date" class="font-semibold text-white">-</span>
             </div>
             <div class="flex justify-between">
-              <span class="text-zinc-400">Horario y Duración:</span>
+              <span class="text-zinc-400">Horario y Horas:</span>
               <span id="summary-time" class="font-bold text-roma-turf">Selecciona una hora</span>
             </div>
             <div class="flex justify-between items-center">
@@ -920,7 +965,6 @@
             </p>
           </div>
 
-          <!-- Formulario Datos del Solicitante -->
           <form id="booking-form" class="space-y-4">
             <div>
               <label for="client-name" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">Nombre y Apellido / Empresa *</label>
@@ -943,18 +987,24 @@
 
             <div>
               <label for="client-notes" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">Comentarios (Cumpleaños, N° jugadores, petos, etc.)</label>
-              <textarea id="client-notes" rows="2" placeholder="Ej: Necesitamos petos y balón, o espacio para torta de cumpleaños..."
+              <textarea id="client-notes" rows="2" maxlength="300" placeholder="Ej: Cumpleaños, espacio de eventos o cancha alternativa (máx. 300 caracteres)..."
                         class="w-full px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold"></textarea>
+              <div class="flex justify-end mt-1">
+                <span id="client-notes-counter" class="text-[11px] text-zinc-400">0 / 300 caracteres</span>
+              </div>
             </div>
 
-            <!-- Botones de Acción -->
             <div class="pt-2 space-y-3">
-              <button type="submit" id="btn-confirm-whatsapp" class="btn-shine w-full py-4 px-5 rounded-2xl bg-roma-turf hover:bg-roma-turfDark text-black font-display font-bold text-lg uppercase tracking-wider shadow-lg shadow-roma-turf/25 transition-all flex items-center justify-center gap-2">
-                <i class="fa-brands fa-whatsapp text-xl"></i> Agendar Temporal y Enviar Pago
+              <button type="submit" id="btn-confirm-whatsapp" class="btn-shine w-full py-4 px-5 rounded-2xl bg-roma-turf hover:bg-roma-turfDark text-black font-display font-bold text-lg uppercase tracking-wider shadow-lg shadow-roma-turf/25 transition-all flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-wait">
+                <span id="btn-whatsapp-spinner" class="hidden"><i class="fa-solid fa-circle-notch fa-spin text-lg"></i></span>
+                <span id="btn-whatsapp-icon"><i class="fa-brands fa-whatsapp text-xl"></i></span>
+                <span id="btn-whatsapp-label">Agendar Temporal y Enviar Pago</span>
               </button>
 
-              <button type="button" id="btn-save-local" class="w-full py-3 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-300 font-semibold text-sm transition-all flex items-center justify-center gap-2">
-                <i class="fa-regular fa-clock"></i> Dejar Reserva Temporal en Calendario
+              <button type="button" id="btn-save-local" class="w-full py-3 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-300 font-semibold text-sm transition-all flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-wait">
+                <span id="btn-local-spinner" class="hidden"><i class="fa-solid fa-circle-notch fa-spin text-sm"></i></span>
+                <span id="btn-local-icon"><i class="fa-regular fa-clock"></i></span>
+                <span id="btn-local-label">Dejar Reserva Temporal en Calendario</span>
               </button>
             </div>
           </form>
@@ -970,7 +1020,6 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
-        <!-- Información de Ubicación + Navegación Waze & Google Maps -->
         <div class="lg:col-span-6 space-y-6 flex flex-col justify-between">
           <div>
             <span class="text-roma-gold font-semibold text-sm uppercase tracking-widest">¿Cómo Llegar?</span>
@@ -982,7 +1031,6 @@
             </p>
           </div>
 
-          <!-- Tarjeta de Dirección y Botones Waze / Google Maps -->
           <div class="p-5 sm:p-6 rounded-3xl bg-roma-card border border-roma-gold/30 space-y-5 shadow-xl">
             <div class="flex items-start gap-3.5">
               <div class="w-11 h-11 rounded-2xl bg-roma-gold/15 border border-roma-gold/40 text-roma-gold flex items-center justify-center text-lg flex-shrink-0">
@@ -998,7 +1046,6 @@
               </div>
             </div>
 
-            <!-- Botones Directos GPS: Waze y Google Maps -->
             <div class="pt-3 border-t border-zinc-800">
               <p class="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-3">Iniciar ruta GPS directa en tu teléfono:</p>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1015,7 +1062,6 @@
                 </a>
               </div>
 
-              <!-- Botón Copiar Enlace de Ubicación para el Equipo -->
               <button type="button" onclick="copyLocationLink()"
                       class="mt-3 w-full py-2.5 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-roma-gold/50 text-zinc-300 hover:text-roma-goldLight text-xs font-semibold transition-all flex items-center justify-center gap-2">
                 <i class="fa-regular fa-copy text-roma-gold"></i> Copiar dirección y enlaces GPS para WhatsApp
@@ -1024,7 +1070,6 @@
           </div>
         </div>
 
-        <!-- Mapa Visual Interactivo de Referencia (José Joaquín Aguirre Luco 849, Huechuraba) -->
         <div class="lg:col-span-6 flex flex-col">
           <div class="relative flex-1 min-h-[340px] lg:min-h-full rounded-3xl overflow-hidden border border-roma-gold/30 bg-roma-card shadow-2xl">
             <iframe
@@ -1035,7 +1080,6 @@
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
 
-            <!-- Etiqueta flotante superior sobre el mapa -->
             <div class="absolute top-4 left-4 right-4 sm:right-auto pointer-events-none">
               <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-roma-black/90 backdrop-blur-md border border-roma-gold/40 shadow-lg">
                 <span class="w-2.5 h-2.5 rounded-full bg-roma-turf animate-ping"></span>
@@ -1053,7 +1097,6 @@
        FOOTER CON CINTA LEMA DEL BANNER + REDES + WHATSAPP PRINCIPAL
   ========================================================== -->
   <footer class="bg-roma-dark border-t border-zinc-800">
-    <!-- Cinta Inferior estilo Banner -->
     <div class="bg-gradient-to-r from-zinc-950 via-roma-turf/15 to-zinc-950 border-b border-roma-gold/20 py-3.5 px-4">
       <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs sm:text-sm font-display font-bold tracking-widest uppercase text-roma-goldLight">
         <span><i class="fa-solid fa-star text-roma-turf mr-1.5"></i> DIVERSIÓN GARANTIZADA</span>
@@ -1065,27 +1108,25 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-        <!-- Marca -->
         <div class="flex items-center gap-4">
           <div class="w-16 h-16 rounded-full overflow-hidden border border-roma-gold/40 bg-black flex-shrink-0">
             <img src="logo_2.jfif" alt="Logo Complejo Deportivo ROMA" class="w-full h-full object-cover logo-blend" onerror="renderEmblemFallback(this)" />
           </div>
           <div>
             <p class="font-cinzel font-bold text-xl sm:text-2xl tracking-wider text-white">COMPLEJO DEPORTIVO <span class="text-roma-gold">ROMA</span></p>
-            <p class="text-xs text-zinc-400">José Joaquín Aguirre Luco 849, Huechuraba • Canchas, Cumpleaños, Empresas y Campeonatos.</p>
+            <p class="text-xs text-zinc-400">José Joaquín Aguirre Luco 849, Huechuraba • 6 Canchas, Espacio de Eventos, Camarines y Torneos.</p>
           </div>
         </div>
 
-        <!-- Redes y Botón WhatsApp Principal -->
         <div class="flex flex-wrap items-center justify-center gap-2.5">
           <div class="flex items-center gap-2" aria-label="Redes Sociales">
-            <span class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 text-roma-goldLight flex items-center justify-center" title="Facebook">
+            <span class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 text-roma-goldLight flex items-center justify-center select-none" title="Facebook">
               <i class="fa-brands fa-facebook-f text-base"></i>
             </span>
-            <span class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 text-roma-goldLight flex items-center justify-center" title="TikTok">
+            <span class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 text-roma-goldLight flex items-center justify-center select-none" title="TikTok">
               <i class="fa-brands fa-tiktok text-base"></i>
             </span>
-            <span class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 text-roma-goldLight flex items-center justify-center" title="Instagram">
+            <span class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 text-roma-goldLight flex items-center justify-center select-none" title="Instagram">
               <i class="fa-brands fa-instagram text-base"></i>
             </span>
           </div>
@@ -1115,9 +1156,7 @@
         </button>
       </div>
 
-      <div id="saved-bookings-list" class="space-y-3 max-h-80 overflow-y-auto pr-1">
-        <!-- Lista dinámica -->
-      </div>
+      <div id="saved-bookings-list" class="space-y-3 max-h-80 overflow-y-auto pr-1"></div>
 
       <div class="mt-6 pt-4 border-t border-zinc-800 flex justify-end items-center">
         <button id="close-modal-footer-btn" class="px-5 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white text-sm font-semibold">Cerrar</button>
@@ -1139,7 +1178,7 @@
           <i class="fa-solid fa-shield-halved"></i>
         </div>
         <h3 class="font-cinzel font-bold text-2xl uppercase text-white">Panel Administrador</h3>
-        <p class="text-xs text-zinc-400 mt-1">Gestión de pagos, confirmación de canchas y anulación de horas.</p>
+        <p class="text-xs text-zinc-400 mt-1">Gestión de pagos, confirmación de canchas/eventos y anulación de horas.</p>
       </div>
 
       <form id="admin-login-form" class="space-y-4">
@@ -1165,7 +1204,6 @@
   <div id="admin-dashboard-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md overflow-y-auto p-3 sm:p-6">
     <div class="max-w-7xl mx-auto bg-roma-dark border border-roma-gold/40 rounded-3xl shadow-2xl overflow-hidden my-2">
 
-      <!-- Barra Superior Admin -->
       <div class="bg-roma-card border-b border-zinc-800 px-5 sm:px-8 py-5 flex flex-wrap items-center justify-between gap-4">
         <div class="flex items-center gap-3">
           <div class="w-11 h-11 rounded-xl bg-roma-gold/15 border border-roma-gold/40 text-roma-gold flex items-center justify-center text-xl">
@@ -1176,7 +1214,7 @@
               <h2 class="font-cinzel font-bold text-xl sm:text-2xl uppercase text-white">Administración ROMA</h2>
               <span class="px-2.5 py-0.5 rounded-full bg-roma-turf/15 border border-roma-turf/30 text-roma-turf text-[10px] font-bold uppercase">En Vivo</span>
             </div>
-            <p class="text-xs text-zinc-400">Valida pagos para confirmar canchas o anula horas para liberar disponibilidad.</p>
+            <p class="text-xs text-zinc-400">Valida pagos para confirmar canchas/eventos o anula horas para liberar disponibilidad.</p>
           </div>
         </div>
 
@@ -1193,7 +1231,67 @@
         </div>
       </div>
 
-      <!-- Formulario Desplegable: Cambiar PIN -->
+      <!-- Bloque Operativo de Bloqueo Rápido de Horas en Admin -->
+      <div class="bg-zinc-950/85 border-b border-roma-gold/25 px-5 sm:px-8 py-4">
+        <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-4">
+          <div class="space-y-1">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-roma-gold">
+              <i class="fa-solid fa-ban mr-1"></i> Control Operativo de Canchas y Eventos
+            </span>
+            <h4 class="font-display font-bold text-base uppercase text-white">
+              Bloquear Horas en el Calendario
+            </h4>
+            <p class="text-[11px] text-zinc-400">
+              Bloquea de inmediato un tramo horario por mantención, liga interna, evento privado o cierre de recinto.
+            </p>
+          </div>
+
+          <form id="admin-quick-block-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 flex-1 max-w-4xl">
+            <div>
+              <label for="admin-qb-court" class="block text-[10px] font-semibold uppercase text-zinc-400 mb-1">Cancha / Espacio</label>
+              <select id="admin-qb-court" class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold">
+                <option value="Cancha 1">Cancha 1</option>
+                <option value="Cancha 2">Cancha 2</option>
+                <option value="Cancha 3">Cancha 3</option>
+                <option value="Cancha 4">Cancha 4</option>
+                <option value="Cancha 5">Cancha 5</option>
+                <option value="Cancha 6">Cancha 6</option>
+                <option value="Espacio de Eventos">Espacio de Eventos</option>
+                <option value="Todas las Canchas">Todas las Canchas (1-6)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="admin-qb-date" class="block text-[10px] font-semibold uppercase text-zinc-400 mb-1">Fecha</label>
+              <input type="date" id="admin-qb-date" required class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs [color-scheme:dark] focus:outline-none focus:border-roma-gold" />
+            </div>
+
+            <div>
+              <label for="admin-qb-time" class="block text-[10px] font-semibold uppercase text-zinc-400 mb-1">Hora Inicio</label>
+              <select id="admin-qb-time" class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold"></select>
+            </div>
+
+            <div>
+              <label for="admin-qb-duration" class="block text-[10px] font-semibold uppercase text-zinc-400 mb-1">Horas a Bloquear</label>
+              <select id="admin-qb-duration" class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold"></select>
+            </div>
+
+            <div>
+              <label for="admin-qb-reason" class="block text-[10px] font-semibold uppercase text-zinc-400 mb-1">Motivo *</label>
+              <input type="text" id="admin-qb-reason" maxlength="120" required placeholder="Ingresa motivo (ej: Mantención)"
+                     class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold" />
+            </div>
+
+            <div class="flex items-end">
+              <button type="submit" id="admin-qb-submit-btn" disabled aria-disabled="true"
+                      class="btn-shine w-full py-2 px-3 rounded-xl bg-red-600/40 text-red-200/60 border border-red-500/20 font-display font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-1.5 disabled:cursor-not-allowed">
+                <i class="fa-solid fa-lock"></i> Bloquear Hora
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <div id="admin-pin-settings-box" class="hidden bg-zinc-900/90 border-b border-zinc-800 px-5 sm:px-8 py-4">
         <form id="change-pin-form" class="flex flex-wrap items-end gap-3 max-w-xl">
           <div class="flex-1 min-w-[180px]">
@@ -1206,11 +1304,10 @@
         </form>
       </div>
 
-      <!-- Formulario Desplegable: Agendar / Bloquear Manualmente como Admin -->
       <div id="admin-manual-booking-box" class="hidden bg-zinc-900/95 border-b border-roma-gold/30 px-5 sm:px-8 py-6">
         <div class="flex items-center justify-between mb-4">
           <h4 class="font-display font-bold text-lg uppercase text-roma-goldLight">
-            <i class="fa-solid fa-calendar-plus mr-1.5"></i> Agendar Reserva Directa o Bloquear Cancha
+            <i class="fa-solid fa-calendar-plus mr-1.5"></i> Agendar Reserva Directa o Bloquear Cancha / Evento
           </h4>
           <button type="button" onclick="toggleAdminManualForm()" class="text-zinc-400 hover:text-white text-sm"><i class="fa-solid fa-xmark"></i></button>
         </div>
@@ -1226,7 +1323,7 @@
             </select>
           </div>
           <div>
-            <label class="block text-[11px] font-semibold uppercase text-zinc-400 mb-1">Cancha</label>
+            <label class="block text-[11px] font-semibold uppercase text-zinc-400 mb-1">Cancha / Espacio</label>
             <select id="admin-m-court" class="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-xs">
               <option value="Cancha 1">Cancha 1</option>
               <option value="Cancha 2">Cancha 2</option>
@@ -1234,6 +1331,7 @@
               <option value="Cancha 4">Cancha 4</option>
               <option value="Cancha 5">Cancha 5</option>
               <option value="Cancha 6">Cancha 6</option>
+              <option value="Espacio de Eventos">Espacio de Eventos</option>
               <option value="Todas las Canchas">Todas las Canchas</option>
             </select>
           </div>
@@ -1248,12 +1346,7 @@
             </div>
             <div>
               <label class="block text-[11px] font-semibold uppercase text-zinc-400 mb-1">Duración</label>
-              <select id="admin-m-duration" class="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-xs">
-                <option value="1">1 hr</option>
-                <option value="2">2 hrs</option>
-                <option value="3">3 hrs</option>
-                <option value="4">4 hrs</option>
-              </select>
+              <select id="admin-m-duration" class="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-xs"></select>
             </div>
           </div>
           <div>
@@ -1280,7 +1373,6 @@
         </form>
       </div>
 
-      <!-- KPIs Rápidos -->
       <div class="p-5 sm:p-8 space-y-6">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div class="p-4 sm:p-5 rounded-2xl bg-roma-card border border-zinc-800">
@@ -1296,9 +1388,9 @@
           </div>
 
           <div class="p-4 sm:p-5 rounded-2xl bg-roma-card border border-roma-turf/30">
-            <span class="text-xs font-semibold uppercase tracking-wider text-roma-turf">Confirmadas (Pagadas)</span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-roma-turf">Confirmadas / Bloqueadas</span>
             <p id="kpi-confirmed" class="font-display font-bold text-3xl sm:text-4xl text-roma-turf mt-1">0</p>
-            <span class="text-[11px] text-roma-turf/70">Canchas aseguradas</span>
+            <span id="kpi-confirmed-sub" class="text-[11px] text-roma-turf/70">Pagadas y bloqueos operativos</span>
           </div>
 
           <div class="p-4 sm:p-5 rounded-2xl bg-roma-card border border-roma-gold/30">
@@ -1308,7 +1400,6 @@
           </div>
         </div>
 
-        <!-- Barra de Filtros Rápidos -->
         <div class="p-4 rounded-2xl bg-roma-card border border-zinc-800 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-center">
           <div>
             <label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1">Filtrar por Fecha</label>
@@ -1319,25 +1410,27 @@
           </div>
 
           <div>
-            <label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1">Filtrar por Cancha</label>
+            <label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1">Filtrar por Cancha / Espacio</label>
             <select id="admin-filter-court" class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs">
-              <option value="ALL">Todas las Canchas (1-6)</option>
+              <option value="ALL">Todas las Canchas (1-6) y Eventos</option>
               <option value="Cancha 1">Cancha 1</option>
               <option value="Cancha 2">Cancha 2</option>
               <option value="Cancha 3">Cancha 3</option>
               <option value="Cancha 4">Cancha 4</option>
               <option value="Cancha 5">Cancha 5</option>
               <option value="Cancha 6">Cancha 6</option>
+              <option value="Espacio de Eventos">Espacio de Eventos</option>
               <option value="Todas las Canchas">Evento Completo (Todas)</option>
             </select>
           </div>
 
           <div>
-            <label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1">Estado de Pago</label>
+            <label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1">Estado / Tipo</label>
             <select id="admin-filter-status" class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs">
               <option value="ALL">Todos los Estados</option>
               <option value="TEMPORAL">Reserva Temporal (Pendiente)</option>
               <option value="CONFIRMADA">Reservada (Pagada)</option>
+              <option value="BLOQUEADA">Bloqueo Operativo (No Disponible)</option>
             </select>
           </div>
 
@@ -1345,16 +1438,13 @@
             <label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1">Buscar Cliente / Teléfono / Código</label>
             <div class="relative">
               <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
-              <input type="text" id="admin-search-input" placeholder="Ej: Matías, 93229..., ROMA-1041..."
+              <input type="text" id="admin-search-input" placeholder="Ej: Matías, 93229..., ROMA-1041, BLOQ-..."
                      class="w-full pl-9 pr-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold" />
             </div>
           </div>
         </div>
 
-        <!-- Lista / Tabla de Agendamientos -->
-        <div id="admin-bookings-container" class="space-y-3">
-          <!-- Renderizado dinámicamente por JS -->
-        </div>
+        <div id="admin-bookings-container" class="space-y-3"></div>
       </div>
     </div>
   </div>
@@ -1385,7 +1475,7 @@
   </div>
 
   <!-- =========================================================
-       NOTIFICACIÓN TOAST PERSONALIZADA (REEMPLAZA ALERT())
+       NOTIFICACIÓN TOAST PERSONALIZADA
   ========================================================== -->
   <div id="toast-container" class="fixed top-24 right-4 z-[70] flex flex-col gap-3 max-w-sm w-full pointer-events-none"></div>
 
@@ -1419,15 +1509,19 @@
       }
 
       // -------------------------------------------------------
-      // 1. DATOS DE LAS 6 CANCHAS DE FUTBOLITO
+      // 1. DATOS DE LAS 6 CANCHAS DE FUTBOLITO Y ESPACIO DE EVENTOS
       // -------------------------------------------------------
+      const INDIVIDUAL_COURTS = ['Cancha 1', 'Cancha 2', 'Cancha 3', 'Cancha 4', 'Cancha 5', 'Cancha 6'];
+      const EVENT_SPACE = 'Espacio de Eventos';
+      const MATRIX_ROWS = [...INDIVIDUAL_COURTS, EVENT_SPACE];
+
       const courtsData = [
-        { id: 'Cancha 1', name: 'Cancha 1 • Norte', type: 'Futbolito 7 vs 7', surface: 'Pasto Sintético FIFA Pro', lighting: 'LED Alta Potencia', badge: 'Ideal Partidos', desc: 'Cancha rápida con excelente rebote, ubicada junto al acceso principal y estacionamientos.' },
+        { id: 'Cancha 1', name: 'Cancha 1 • Norte', type: 'Futbolito 7 vs 7', surface: 'Pasto Sintético FIFA Pro', lighting: 'LED Alta Potencia', badge: 'Horario Propio', desc: 'Cancha rápida con excelente rebote, ubicada junto al acceso principal y estacionamientos.' },
         { id: 'Cancha 2', name: 'Cancha 2 • Central', type: 'Futbolito 7 vs 7', surface: 'Pasto Sintético FIFA Pro', lighting: 'LED Alta Potencia', badge: 'Más Solicitada', desc: 'Ubicación central con vista panorámica y cercanía directa a la zona de camarines.' },
         { id: 'Cancha 3', name: 'Cancha 3 • Central', type: 'Futbolito 7 vs 7', surface: 'Pasto Sintético FIFA Pro', lighting: 'LED Alta Potencia', badge: 'Torneos', desc: 'Dimensiones reglamentarias ideales para ligas competitivas y partidos de alta intensidad.' },
         { id: 'Cancha 4', name: 'Cancha 4 • Sur', type: 'Futbolito 7 vs 7', surface: 'Pasto Sintético Caucho SBR', lighting: 'LED Alta Potencia', badge: 'Amistosos', desc: 'Mayor amortiguación articular, recomendada para grupos semanales y ligas senior.' },
         { id: 'Cancha 5', name: 'Cancha 5 • Camarines', type: 'Futbolito 7 vs 7', surface: 'Pasto Sintético FIFA Pro', lighting: 'LED Alta Potencia', badge: 'Empresas', desc: 'Acceso inmediato a vestidores y duchas, perfecta para jornadas deportivas corporativas.' },
-        { id: 'Cancha 6', name: 'Cancha 6 • Eventos', type: 'Futbolito 7 vs 7', surface: 'Pasto Sintético FIFA Pro', lighting: 'LED Alta Potencia', badge: 'Cumpleaños', desc: 'Contigua al área de celebración y tercer tiempo, ideal para cumpleaños infantiles y adultos.' }
+        { id: 'Cancha 6', name: 'Cancha 6 • Eventos', type: 'Futbolito 7 vs 7', surface: 'Pasto Sintético FIFA Pro', lighting: 'LED Alta Potencia', badge: 'Respaldo Evento', desc: 'Contigua al área de eventos; ideal para cumpleaños y como alternativa si el espacio está ocupado.' }
       ];
 
       const courtsGrid = document.getElementById('courts-grid');
@@ -1473,7 +1567,7 @@
       });
 
       // -------------------------------------------------------
-      // 2. PERSISTENCIA Y DATOS INICIALES (TEMPORAL VS CONFIRMADA)
+      // 2. PERSISTENCIA Y DATOS INICIALES (ORDEN DE LLEGADA + ESTADOS)
       // -------------------------------------------------------
       const timeSlots = [
         '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00',
@@ -1483,6 +1577,7 @@
       const STORAGE_KEY = 'roma_huechuraba_bookings_v2';
       const CLIENT_IDS_KEY = 'roma_client_my_ids_v2';
       const ADMIN_PIN_KEY = 'roma_admin_pin_v1';
+      const ADMIN_SESSION_KEY = 'roma_admin_session_active_v1';
 
       const todayDate = new Date();
       const todayStr = todayDate.toISOString().split('T')[0];
@@ -1490,7 +1585,6 @@
       tomorrowDate.setDate(todayDate.getDate() + 1);
       const tomorrowStr = tomorrowDate.toISOString().split('T')[0];
 
-      // Cargar reservas o inicializar datos de demostración realistas
       let allBookings = [];
       const rawSaved = localStorage.getItem(STORAGE_KEY);
       if (rawSaved === null) {
@@ -1508,22 +1602,24 @@
             phone: '+56 9 8412 3390',
             email: 'cmendoza@gmail.com',
             notes: 'Pago transferido y confirmado. Solicitan petos.',
-            createdAt: 'Hoy, 11:20'
+            createdAt: 'Hoy, 11:20',
+            createdTimestamp: Date.now() - 3600000 * 5
           },
           {
             id: 'ROMA-1042',
             service: 'Cumpleaños',
-            court: 'Cancha 6',
+            court: EVENT_SPACE,
             date: todayStr,
             time: '17:00',
             duration: 2,
-            amount: 130000,
+            amount: 187500,
             status: 'TEMPORAL',
             name: 'Camila Rojas',
             phone: '+56 9 7654 2210',
             email: 'camila.rojas@correo.cl',
-            notes: 'Cumpleaños infantil 10 años, 16 niños. Pendiente abono 50%.',
-            createdAt: 'Hoy, 14:05'
+            notes: 'Reserva temporal del Espacio de Eventos. Pendiente abono.',
+            createdAt: 'Hoy, 14:05',
+            createdTimestamp: Date.now() - 3600000 * 2
           },
           {
             id: 'ROMA-1043',
@@ -1534,38 +1630,63 @@
             duration: 2,
             amount: 220000,
             status: 'CONFIRMADA',
-            name: 'Logística Norte SpA (Ciudad Empresarial)',
+            name: 'Logística Norte SpA (Huechuraba)',
             phone: '+56 9 9120 8845',
             email: 'rrhh@logisticanorte.cl',
-            notes: 'Cuadrangular interno con camarines.',
-            createdAt: 'Ayer, 18:30'
+            notes: 'Jornada deportiva corporativa con camarines.',
+            createdAt: 'Ayer, 18:30',
+            createdTimestamp: Date.now() - 86400000
           }
         ];
         localStorage.setItem(STORAGE_KEY, JSON.stringify(allBookings));
       } else {
-        allBookings = JSON.parse(rawSaved);
+        try {
+          allBookings = JSON.parse(rawSaved) || [];
+        } catch (err) {
+          allBookings = [];
+        }
       }
 
-      let myClientBookingIds = JSON.parse(localStorage.getItem(CLIENT_IDS_KEY) || '[]');
+      // Normaliza timestamp para ordenar por prioridad de selección / llegada
+      allBookings = allBookings.map((b, idx) => ({
+        ...b,
+        createdTimestamp: Number(b.createdTimestamp) || (Date.now() - (allBookings.length - idx) * 1000)
+      }));
+
+      let myClientBookingIds = [];
+      try {
+        myClientBookingIds = JSON.parse(localStorage.getItem(CLIENT_IDS_KEY) || '[]') || [];
+      } catch (err) {
+        myClientBookingIds = [];
+      }
 
       function persistBookings() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(allBookings));
       }
 
       // -------------------------------------------------------
-      // 3. LÓGICA DE DETECCIÓN DE CONFLICTOS Y ESTADOS DE BLOQUE
+      // 3. ESTADO ÚNICO DELIMITADO ENTRE SECCIONES Y LÓGICA DE BLOQUEO
       // -------------------------------------------------------
       const dateInput = document.getElementById('booking-date');
       dateInput.value = todayStr;
       dateInput.min = todayStr;
+
+      const hoursSelect = document.getElementById('hours-scroll-select');
+      const collisionAlertEl = document.getElementById('hours-collision-alert');
+      const collisionMsgEl = document.getElementById('hours-collision-message');
+      const singleSelectionPill = document.getElementById('single-selection-pill');
 
       let state = {
         service: 'Arriendo de Cancha',
         court: 'Cancha 1',
         date: todayStr,
         time: null,
-        duration: 1
+        duration: 1,
+        selectedAt: null
       };
+
+      // Cerrojo atómico para evitar condiciones de carrera al agendar
+      let isSubmittingBooking = false;
 
       const baseRates = {
         'Arriendo de Cancha': { day: 28000, night: 35000 },
@@ -1578,111 +1699,503 @@
         return '$' + Number(amount || 0).toLocaleString('es-CL');
       }
 
-      // Devuelve el objeto de reserva si la cancha y bloque están ocupados (TEMPORAL o CONFIRMADA), o null si está libre
-      function getSlotBookingStatus(court, date, time) {
+      function isAdminBlockedEntry(entry) {
+        if (!entry) return false;
+        const idStr = String(entry.id || '').toUpperCase();
+        const serviceStr = String(entry.service || '').toLowerCase();
+        const nameStr = String(entry.name || '').toLowerCase();
+        return (
+          Boolean(entry.isAdminBlock) ||
+          idStr.startsWith('BLOQ-') ||
+          serviceStr.includes('bloqueo') ||
+          nameStr.startsWith('bloqueo admin')
+        );
+      }
+
+      function syncHoursSelectUI() {
+        if (hoursSelect) {
+          hoursSelect.value = String(state.duration);
+        }
+      }
+
+      function setBookingSubmittingUI(submitting, mode = 'whatsapp') {
+        isSubmittingBooking = submitting;
+        const waBtn = document.getElementById('btn-confirm-whatsapp');
+        const localBtn = document.getElementById('btn-save-local');
+        const waSpinner = document.getElementById('btn-whatsapp-spinner');
+        const waIcon = document.getElementById('btn-whatsapp-icon');
+        const waLabel = document.getElementById('btn-whatsapp-label');
+        const localSpinner = document.getElementById('btn-local-spinner');
+        const localIcon = document.getElementById('btn-local-icon');
+        const localLabel = document.getElementById('btn-local-label');
+
+        if (waBtn) waBtn.disabled = submitting;
+        if (localBtn) localBtn.disabled = submitting;
+
+        if (submitting && mode === 'whatsapp') {
+          waSpinner?.classList.remove('hidden');
+          waIcon?.classList.add('hidden');
+          if (waLabel) waLabel.textContent = 'Validando y Agendando...';
+        } else {
+          waSpinner?.classList.add('hidden');
+          waIcon?.classList.remove('hidden');
+          if (waLabel) waLabel.textContent = 'Agendar Temporal y Enviar Pago';
+        }
+
+        if (submitting && mode === 'local') {
+          localSpinner?.classList.remove('hidden');
+          localIcon?.classList.add('hidden');
+          if (localLabel) localLabel.textContent = 'Registrando Reserva...';
+        } else {
+          localSpinner?.classList.add('hidden');
+          localIcon?.classList.remove('hidden');
+          if (localLabel) localLabel.textContent = 'Dejar Reserva Temporal en Calendario';
+        }
+      }
+
+      function findAvailableCourtForEvent(dateStr, startTime, duration) {
+        const preferredOrder = ['Cancha 6', 'Cancha 5', 'Cancha 4', 'Cancha 3', 'Cancha 2', 'Cancha 1'];
+        for (const courtName of preferredOrder) {
+          if (checkRangeCollision(courtName, dateStr, startTime, duration).ok) {
+            return courtName;
+          }
+        }
+        return null;
+      }
+
+      function expandTargetResources(courtLabel, dateStr, startTime, duration) {
+        if (courtLabel === 'Todas las Canchas') {
+          return [...INDIVIDUAL_COURTS];
+        }
+        if (courtLabel === EVENT_SPACE) {
+          return [EVENT_SPACE];
+        }
+        if (courtLabel === 'Espacio de Eventos + Cancha') {
+          const freeCourt = findAvailableCourtForEvent(dateStr, startTime, duration);
+          return [EVENT_SPACE, freeCourt || 'Cancha 6'];
+        }
+        if (courtLabel === 'Cancha para Evento (Respaldo)') {
+          const freeCourt = findAvailableCourtForEvent(dateStr, startTime, duration);
+          return [freeCourt || 'Cancha 6'];
+        }
+        return [courtLabel];
+      }
+
+      function resolveEffectiveCourt(courtLabel, dateStr, startTime, duration) {
+        if (courtLabel === 'Cancha para Evento (Respaldo)') {
+          const freeCourt = findAvailableCourtForEvent(dateStr, startTime, duration);
+          return freeCourt ? `${freeCourt} (Evento)` : 'Cancha 6 (Evento)';
+        }
+        if (courtLabel === 'Espacio de Eventos + Cancha') {
+          const freeCourt = findAvailableCourtForEvent(dateStr, startTime, duration);
+          return freeCourt ? `${EVENT_SPACE} + ${freeCourt}` : EVENT_SPACE;
+        }
+        return courtLabel;
+      }
+
+      // Evalúa el estado de un recurso en una hora y duración dadas, ordenando reservas por antigüedad (quien llegó primero prevalece)
+      function getResourceSlotStatus(resourceName, dateStr, startTime, duration = 1) {
+        const startIdx = timeSlots.indexOf(startTime);
+        if (startIdx === -1) return 'AVAILABLE';
+
+        const endIdx = Math.min(startIdx + duration - 1, timeSlots.length - 1);
+        const targetResources = expandTargetResources(resourceName, dateStr, startTime, duration);
+        const cleanTargetList = targetResources.map(r => String(r || '').replace(/\s*\(Evento\)$/i, '').trim());
+
+        const orderedBookings = [...allBookings]
+          .filter(b => b.date === dateStr)
+          .sort((a, b) => (Number(a.createdTimestamp) || 0) - (Number(b.createdTimestamp) || 0));
+
+        let foundTemporal = false;
+        let foundBlocked = false;
+
+        for (const b of orderedBookings) {
+          const bStartIdx = timeSlots.indexOf(b.time);
+          if (bStartIdx === -1) continue;
+          const bDur = Math.max(1, parseInt(b.duration, 10) || 1);
+          const bEndIdx = Math.min(bStartIdx + bDur - 1, timeSlots.length - 1);
+
+          const overlapsTime = bStartIdx <= endIdx && bEndIdx >= startIdx;
+          if (!overlapsTime) continue;
+
+          const bookingResources = expandTargetResources(b.court, b.date, b.time, bDur);
+          const cleanBookingCourt = String(b.court || '').replace(/\s*\(Evento\)$/i, '').trim();
+
+          const overlapsResource = cleanTargetList.some(cleanTarget =>
+            bookingResources.some(r => String(r || '').replace(/\s*\(Evento\)$/i, '').trim() === cleanTarget) ||
+            cleanBookingCourt === cleanTarget ||
+            cleanBookingCourt.startsWith(cleanTarget + ' ') ||
+            cleanTarget.startsWith(cleanBookingCourt + ' ')
+          );
+
+          if (!overlapsResource) continue;
+
+          const normalizedStatus = String(b.status || '').toUpperCase().trim();
+          const blockedByAdmin = isAdminBlockedEntry(b);
+
+          if (blockedByAdmin) {
+            foundBlocked = true;
+          } else if (normalizedStatus === 'CONFIRMADA') {
+            return 'CONFIRMED';
+          } else if (normalizedStatus === 'TEMPORAL') {
+            foundTemporal = true;
+          }
+        }
+
+        if (foundBlocked) return 'BLOCKED';
+        return foundTemporal ? 'TEMPORAL' : 'AVAILABLE';
+      }
+
+      // Verifica la reserva o bloqueo existente en una hora puntual (duration = 1) respetando prioridad de registro
+      function getExactHourBooking(court, date, time) {
         const slotIdx = timeSlots.indexOf(time);
         if (slotIdx === -1) return null;
 
-        const dayBookings = allBookings.filter(b => b.date === date);
-        let foundTemporal = null;
+        const targetResources = expandTargetResources(court, date, time, 1);
+        const cleanTargetList = targetResources.map(r => String(r || '').replace(/\s*\(Evento\)$/i, '').trim());
 
-        for (const b of dayBookings) {
+        const orderedBookings = [...allBookings]
+          .filter(b => b.date === date)
+          .sort((a, b) => (Number(a.createdTimestamp) || 0) - (Number(b.createdTimestamp) || 0));
+
+        let foundTemporal = null;
+        let foundBlocked = null;
+
+        for (const b of orderedBookings) {
           const bStartIdx = timeSlots.indexOf(b.time);
           if (bStartIdx === -1) continue;
-          const bEndIdx = bStartIdx + (Number(b.duration) || 1) - 1;
+          const bDur = Math.max(1, parseInt(b.duration, 10) || 1);
+          const bEndIdx = Math.min(bStartIdx + bDur - 1, timeSlots.length - 1);
 
-          const coversTime = slotIdx >= bStartIdx && slotIdx <= bEndIdx;
-          if (!coversTime) continue;
+          if (slotIdx < bStartIdx || slotIdx > bEndIdx) continue;
 
-          const courtMatches =
-            b.court === court ||
-            b.court === 'Todas las Canchas' ||
-            court === 'Todas las Canchas';
+          const bookingResources = expandTargetResources(b.court, b.date, b.time, bDur);
+          const cleanBookingCourt = String(b.court || '').replace(/\s*\(Evento\)$/i, '').trim();
+
+          const courtMatches = cleanTargetList.some(cleanTarget =>
+            bookingResources.some(r => String(r || '').replace(/\s*\(Evento\)$/i, '').trim() === cleanTarget) ||
+            cleanBookingCourt === cleanTarget ||
+            cleanBookingCourt.startsWith(cleanTarget + ' ') ||
+            cleanTarget.startsWith(cleanBookingCourt + ' ')
+          );
 
           if (courtMatches) {
-            if (b.status === 'CONFIRMADA') return b;
-            if (b.status === 'TEMPORAL') foundTemporal = b;
+            const normStatus = String(b.status || '').toUpperCase().trim();
+            const blockedByAdmin = isAdminBlockedEntry(b);
+            if (blockedByAdmin && !foundBlocked) foundBlocked = b;
+            else if (normStatus === 'CONFIRMADA' && !blockedByAdmin) return b;
+            else if (normStatus === 'TEMPORAL' && !foundTemporal) foundTemporal = b;
           }
         }
-        return foundTemporal;
+
+        return foundBlocked || foundTemporal;
       }
 
-      // Verifica si un rango completo (startTime + duration) está libre
-      function isRangeAvailable(court, date, startTime, duration) {
+      // Revisa si a partir de startTime y con la cantidad de horas elegida se topa con alguna hora ocupada, bloqueada o temporal
+      function checkRangeCollision(court, date, startTime, duration) {
         const startIdx = timeSlots.indexOf(startTime);
-        if (startIdx === -1) return { ok: false, reason: 'Horario inválido.' };
-        if (startIdx + duration > timeSlots.length) {
-          return { ok: false, reason: `La duración de ${duration} hrs excede el horario de cierre (24:00 hrs).` };
+        if (startIdx === -1) {
+          return { ok: false, reason: 'Horario inválido.' };
         }
 
-        for (let i = 0; i < duration; i++) {
-          const checkTime = timeSlots[startIdx + i];
-          const existing = getSlotBookingStatus(court, date, checkTime);
+        const endIdx = Math.min(startIdx + duration - 1, timeSlots.length - 1);
+        for (let i = startIdx; i <= endIdx; i++) {
+          const checkTime = timeSlots[i];
+          const existing = getExactHourBooking(court, date, checkTime);
           if (existing) {
-            const label = existing.status === 'CONFIRMADA' ? 'Reservada (Pagada)' : 'Reserva Temporal';
+            const estadoTexto = isAdminBlockedEntry(existing)
+              ? 'no disponible (bloqueado por administración)'
+              : (existing.status === 'CONFIRMADA' ? 'reservada' : 'en reserva temporal');
             return {
               ok: false,
-              reason: `El bloque de las ${checkTime} hrs ya tiene estado "${label}" en ${existing.court}.`
+              collisionTime: checkTime,
+              booking: existing,
+              reason: `No se puede seleccionar ${duration} hora${duration > 1 ? 's' : ''} desde las ${startTime} hrs porque topa con el horario de las ${checkTime} hrs (${estadoTexto} en ${existing.court || court}).`
             };
           }
         }
+
         return { ok: true };
       }
 
-      // Renderizar grilla pública de horarios con 3 estados diferenciados
+      function setCollisionAlert(message) {
+        if (!collisionAlertEl || !collisionMsgEl) return;
+        if (message) {
+          collisionMsgEl.textContent = message;
+          collisionAlertEl.classList.remove('hidden');
+        } else {
+          collisionMsgEl.textContent = '';
+          collisionAlertEl.classList.add('hidden');
+        }
+      }
+
+      // Aplica una única selección sincronizada entre grilla principal, matriz y selector de cancha
+      function setSingleSelection(targetCourt, targetTime, notifyText = '') {
+        state.court = targetCourt;
+        state.time = targetTime;
+        state.selectedAt = targetTime ? Date.now() : null;
+
+        const courtSelect = document.getElementById('court-select');
+        if (courtSelect && courtSelect.value !== targetCourt) {
+          courtSelect.value = targetCourt;
+        }
+
+        setCollisionAlert('');
+        renderTimeSlots();
+        updateSummary();
+        updateEventFallbackBanner();
+
+        if (notifyText) {
+          showToast(notifyText, 'info');
+        }
+      }
+
+      function updateEventFallbackBanner() {
+        const banner = document.getElementById('event-fallback-banner');
+        const textEl = document.getElementById('event-fallback-text');
+        const btn = document.getElementById('apply-fallback-court-btn');
+        if (!banner || !textEl || !btn) return;
+
+        const isEventRelated = ['Cumpleaños', 'Evento Empresas', 'Campeonato / Torneo'].includes(state.service) ||
+          state.court === EVENT_SPACE ||
+          state.court === 'Cancha para Evento (Respaldo)';
+
+        if (!isEventRelated) {
+          banner.classList.add('hidden');
+          return;
+        }
+
+        const checkSlot = state.time || '17:00';
+        const eventBooking = getExactHourBooking(EVENT_SPACE, state.date, checkSlot);
+        const freeCourt = findAvailableCourtForEvent(state.date, checkSlot, 1);
+
+        if (state.court === EVENT_SPACE && eventBooking) {
+          banner.classList.remove('hidden');
+          if (freeCourt) {
+            textEl.innerHTML = `<strong class="text-roma-goldLight">Espacio de Eventos ocupado a las ${checkSlot} hrs:</strong> puedes realizar tu evento en <strong class="text-roma-turf">${freeCourt}</strong> (libre en este horario).`;
+            btn.textContent = `Usar ${freeCourt} para Evento`;
+            btn.onclick = () => {
+              setSingleSelection(freeCourt, state.time, `Selección única actualizada: ${freeCourt} para tu evento.`);
+            };
+          } else {
+            textEl.innerHTML = `<strong class="text-amber-300">Espacio de Eventos ocupado a las ${checkSlot} hrs:</strong> revisa otro horario en la matriz.`;
+            btn.textContent = 'Ver Horarios';
+            btn.onclick = () => renderTimeSlots();
+          }
+        } else if (state.court === 'Cancha para Evento (Respaldo)') {
+          banner.classList.remove('hidden');
+          textEl.innerHTML = freeCourt
+            ? `Respaldo de cancha activo: se asignará <strong class="text-roma-turf">${freeCourt}</strong> disponible para tu evento.`
+            : `Respaldo de cancha activo: selecciona un horario con canchas disponibles.`;
+          btn.textContent = 'Volver a Espacio de Eventos';
+          btn.onclick = () => {
+            setSingleSelection(EVENT_SPACE, state.time);
+          };
+        } else if (!eventBooking) {
+          banner.classList.remove('hidden');
+          textEl.innerHTML = `<strong class="text-roma-turf">Espacio de Eventos disponible</strong> a las ${checkSlot} hrs. Si se ocupara, también puedes usar una cancha disponible para el evento.`;
+          btn.textContent = 'Elegir Espacio de Eventos';
+          btn.onclick = () => {
+            setSingleSelection(EVENT_SPACE, state.time);
+          };
+        } else {
+          banner.classList.add('hidden');
+        }
+      }
+
+      // Renderizar grilla pública de horarios con selección única delimitada
       function renderTimeSlots() {
         const grid = document.getElementById('time-slots-grid');
         grid.innerHTML = '';
 
+        const targetLabelEl = document.getElementById('slot-grid-target-label');
+        const subHintEl = document.getElementById('slot-grid-subhint');
+        if (targetLabelEl) targetLabelEl.textContent = state.court;
+
+        if (singleSelectionPill) {
+          if (state.time) {
+            singleSelectionPill.classList.remove('hidden');
+            singleSelectionPill.textContent = `Única selección: ${state.court} • ${state.time}`;
+          } else {
+            singleSelectionPill.classList.add('hidden');
+          }
+        }
+
+        if (subHintEl) {
+          if (state.court === EVENT_SPACE) {
+            subHintEl.textContent = 'Horario independiente del Espacio de Eventos. Solo se mantiene una selección activa a la vez.';
+          } else if (state.court === 'Cancha para Evento (Respaldo)') {
+            subHintEl.textContent = 'Asigna una cancha libre (priorizando Cancha 6) para realizar tu evento.';
+          } else if (state.court === 'Todas las Canchas') {
+            subHintEl.textContent = 'Disponibilidad de las 6 canchas de futbolito en el horario seleccionado.';
+          } else if (state.court === 'Espacio de Eventos + Cancha') {
+            subHintEl.textContent = 'Disponibilidad conjunta del Espacio de Eventos y una cancha libre.';
+          } else {
+            subHintEl.textContent = `Horario exclusivo de ${state.court}. Las demás canchas y el Espacio de Eventos tienen disponibilidad independiente.`;
+          }
+        }
+
         if (state.time) {
-          const check = isRangeAvailable(state.court, state.date, state.time, state.duration);
+          const check = checkRangeCollision(state.court, state.date, state.time, state.duration);
           if (!check.ok) {
+            setCollisionAlert(check.reason);
             state.time = null;
+            state.selectedAt = null;
           }
         }
 
         const selStartIdx = state.time ? timeSlots.indexOf(state.time) : -1;
-        const selEndIdx = selStartIdx !== -1 ? selStartIdx + state.duration - 1 : -1;
+        const selEndIdx = selStartIdx !== -1 ? Math.min(selStartIdx + state.duration - 1, timeSlots.length - 1) : -1;
 
         timeSlots.forEach((time, idx) => {
-          const existingBooking = getSlotBookingStatus(state.court, state.date, time);
+          const existingBooking = getExactHourBooking(state.court, state.date, time);
+          const isBlockedByAdmin = isAdminBlockedEntry(existingBooking);
           const isSelected = selStartIdx !== -1 && idx >= selStartIdx && idx <= selEndIdx;
 
           const btn = document.createElement('button');
           btn.type = 'button';
 
-          if (existingBooking && existingBooking.status === 'CONFIRMADA') {
+          if (existingBooking && isBlockedByAdmin) {
             btn.disabled = true;
-            btn.className = 'py-3 px-2 rounded-xl bg-red-950/50 border border-red-500/40 text-red-300/70 text-xs font-semibold cursor-not-allowed flex flex-col items-center';
+            btn.setAttribute('aria-disabled', 'true');
+            btn.className = 'py-3 px-2 rounded-xl bg-zinc-900/90 border border-zinc-600/50 text-zinc-400 text-xs font-semibold cursor-not-allowed opacity-85 flex flex-col items-center';
+            btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-zinc-400 font-bold uppercase mt-0.5"><i class="fa-solid fa-ban text-[9px] mr-0.5"></i>No disponible</span>`;
+          } else if (existingBooking && existingBooking.status === 'CONFIRMADA') {
+            btn.disabled = true;
+            btn.setAttribute('aria-disabled', 'true');
+            btn.className = 'py-3 px-2 rounded-xl bg-red-950/55 border border-red-500/45 text-red-300/75 text-xs font-semibold cursor-not-allowed opacity-85 flex flex-col items-center';
             btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-red-400 font-bold uppercase mt-0.5"><i class="fa-solid fa-lock text-[9px] mr-0.5"></i>Reservada</span>`;
           } else if (existingBooking && existingBooking.status === 'TEMPORAL') {
             btn.disabled = true;
-            btn.className = 'py-3 px-2 rounded-xl bg-amber-500/15 border border-amber-500/45 text-amber-200 text-xs font-semibold cursor-not-allowed flex flex-col items-center';
+            btn.setAttribute('aria-disabled', 'true');
+            btn.className = 'py-3 px-2 rounded-xl bg-amber-500/15 border border-amber-500/45 text-amber-200 text-xs font-semibold cursor-not-allowed opacity-85 flex flex-col items-center';
             btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-amber-400 font-bold uppercase mt-0.5"><i class="fa-regular fa-clock text-[9px] mr-0.5"></i>Temporal</span>`;
           } else if (isSelected) {
+            const blockLabel = idx === selStartIdx ? 'Elegido' : `Hora +${idx - selStartIdx}`;
             btn.className = 'py-3 px-2 rounded-xl bg-roma-gold text-black border border-roma-goldLight text-xs font-bold shadow-lg shadow-roma-gold/25 flex flex-col items-center scale-[1.03] transition-all';
-            btn.innerHTML = `<span>${time}</span><span class="text-[10px] font-extrabold uppercase mt-0.5">Elegido</span>`;
+            btn.innerHTML = `<span>${time}</span><span class="text-[10px] font-extrabold uppercase mt-0.5">${blockLabel}</span>`;
             btn.addEventListener('click', () => {
               state.time = null;
+              state.selectedAt = null;
+              setCollisionAlert('');
               renderTimeSlots();
               updateSummary();
+              updateEventFallbackBanner();
             });
           } else {
             btn.className = 'py-3 px-2 rounded-xl bg-zinc-900 hover:bg-roma-turf/15 border border-zinc-800 hover:border-roma-turf text-white text-xs font-semibold transition-all flex flex-col items-center';
             btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-roma-turf mt-0.5">Disponible</span>`;
             btn.addEventListener('click', () => {
-              const validation = isRangeAvailable(state.court, state.date, time, state.duration);
+              const validation = checkRangeCollision(state.court, state.date, time, state.duration);
               if (!validation.ok) {
+                setCollisionAlert(validation.reason);
                 showToast(validation.reason, 'error');
                 return;
               }
-              state.time = time;
-              renderTimeSlots();
-              updateSummary();
+              setSingleSelection(state.court, time);
             });
           }
 
           grid.appendChild(btn);
+        });
+
+        renderPerCourtMatrix();
+        updateEventFallbackBanner();
+      }
+
+      function renderPerCourtMatrix() {
+        const headRow = document.getElementById('per-court-matrix-head');
+        const bodyEl = document.getElementById('per-court-matrix-body');
+        const badgeEl = document.getElementById('matrix-date-badge');
+        if (!headRow || !bodyEl) return;
+
+        if (badgeEl) {
+          const [y, m, d] = state.date.split('-');
+          badgeEl.textContent = `${d}/${m}/${y} • ${state.duration} hr${state.duration > 1 ? 's' : ''} (Selección única)`;
+        }
+
+        headRow.innerHTML = '<th class="py-2.5 px-3 sticky left-0 bg-zinc-900 z-10 border-r border-zinc-800">Cancha / Espacio</th>';
+        timeSlots.forEach(slot => {
+          const th = document.createElement('th');
+          th.className = 'py-2.5 px-2 text-center whitespace-nowrap';
+          th.textContent = slot;
+          headRow.appendChild(th);
+        });
+
+        bodyEl.innerHTML = '';
+
+        const activeStartIdx = state.time ? timeSlots.indexOf(state.time) : -1;
+        const activeEndIdx = activeStartIdx !== -1 ? Math.min(activeStartIdx + state.duration - 1, timeSlots.length - 1) : -1;
+
+        MATRIX_ROWS.forEach(rowResource => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-zinc-900/40 transition';
+
+          const isEventRow = rowResource === EVENT_SPACE;
+          const nameTd = document.createElement('td');
+          nameTd.className = `py-2 px-3 font-semibold whitespace-nowrap sticky left-0 bg-zinc-950 z-10 border-r border-zinc-800 ${isEventRow ? 'text-roma-goldLight' : 'text-zinc-200'}`;
+          nameTd.innerHTML = isEventRow
+            ? `<i class="fa-solid fa-champagne-glasses text-roma-gold mr-1.5"></i>${rowResource}`
+            : `<i class="fa-solid fa-futbol text-roma-turf mr-1.5"></i>${rowResource}`;
+          tr.appendChild(nameTd);
+
+          timeSlots.forEach((slot, slotIdx) => {
+            const st = getResourceSlotStatus(rowResource, state.date, slot, 1);
+            const isChosen =
+              activeStartIdx !== -1 &&
+              slotIdx >= activeStartIdx &&
+              slotIdx <= activeEndIdx &&
+              (state.court === rowResource ||
+                state.court === 'Todas las Canchas' ||
+                (state.court === 'Espacio de Eventos + Cancha' && isEventRow));
+
+            const td = document.createElement('td');
+            td.className = 'py-1.5 px-1 text-center';
+
+            const cellBtn = document.createElement('button');
+            cellBtn.type = 'button';
+
+            if (st === 'BLOCKED') {
+              cellBtn.className = 'w-full py-1 px-1.5 rounded bg-zinc-800/90 border border-zinc-600/50 text-zinc-300 text-[10px] font-semibold cursor-not-allowed';
+              cellBtn.textContent = 'No disp.';
+              cellBtn.disabled = true;
+            } else if (st === 'CONFIRMED') {
+              cellBtn.className = 'w-full py-1 px-1.5 rounded bg-red-950/50 border border-red-500/40 text-red-300 text-[10px] font-bold cursor-not-allowed';
+              cellBtn.textContent = 'Ocup.';
+              cellBtn.disabled = true;
+            } else if (st === 'TEMPORAL') {
+              cellBtn.className = 'w-full py-1 px-1.5 rounded bg-amber-500/20 border border-amber-400/50 text-amber-200 cursor-not-allowed text-[10px] font-semibold';
+              cellBtn.textContent = 'Temp.';
+              cellBtn.disabled = true;
+            } else if (isChosen) {
+              cellBtn.className = 'w-full py-1 px-1.5 rounded bg-roma-gold text-black text-[10px] font-extrabold shadow';
+              cellBtn.textContent = 'Elegido';
+            } else {
+              cellBtn.className = 'w-full py-1 px-1.5 rounded bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-800/40 text-[10px] font-semibold transition';
+              cellBtn.textContent = 'Libre';
+            }
+
+            if (!cellBtn.disabled) {
+              cellBtn.addEventListener('click', () => {
+                const validation = checkRangeCollision(rowResource, state.date, slot, state.duration);
+                if (!validation.ok) {
+                  setCollisionAlert(validation.reason);
+                  showToast(validation.reason, 'error');
+                  return;
+                }
+                setSingleSelection(
+                  rowResource,
+                  slot,
+                  `Selección única: ${rowResource} desde las ${slot} hrs (${state.duration} hr${state.duration > 1 ? 's' : ''}).`
+                );
+              });
+            }
+
+            td.appendChild(cellBtn);
+            tr.appendChild(td);
+          });
+
+          bodyEl.appendChild(tr);
         });
       }
 
@@ -1690,21 +2203,32 @@
         const hourNum = state.time ? parseInt(state.time.split(':')[0], 10) : 19;
         const rateObj = baseRates[state.service] || baseRates['Arriendo de Cancha'];
         const unitPrice = hourNum >= 18 ? rateObj.night : rateObj.day;
-        const multiplier = state.court === 'Todas las Canchas' ? 4 : 1;
-        return unitPrice * state.duration * multiplier;
+        let multiplier = 1;
+        if (state.court === 'Todas las Canchas') multiplier = 4;
+        else if (state.court === EVENT_SPACE || state.court === 'Cancha para Evento (Respaldo)') multiplier = 1.25;
+        else if (state.court === 'Espacio de Eventos + Cancha') multiplier = 1.65;
+        return Math.round((unitPrice * state.duration * multiplier) / 500) * 500;
       }
 
       function updateSummary() {
         document.getElementById('summary-service').textContent = state.service;
-        document.getElementById('summary-court').textContent = state.court;
+        const effectiveCourt = state.time
+          ? resolveEffectiveCourt(state.court, state.date, state.time, state.duration)
+          : state.court;
+        document.getElementById('summary-court').textContent = effectiveCourt;
 
         const [y, m, d] = state.date.split('-');
         document.getElementById('summary-date').textContent = `${d}/${m}/${y}`;
 
         const durationLabel = `${state.duration} hr${state.duration > 1 ? 's' : ''}`;
-        document.getElementById('summary-time').textContent = state.time
-          ? `${state.time} hrs (${durationLabel})`
-          : 'Selecciona un bloque horario';
+        if (state.time) {
+          const startHour = parseInt(state.time.split(':')[0], 10);
+          const endHour = startHour + state.duration;
+          const endLabel = endHour >= 24 ? `${String(endHour - 24).padStart(2, '0')}:00 (día sig.)` : `${String(endHour).padStart(2, '0')}:00`;
+          document.getElementById('summary-time').textContent = `${state.time} a ${endLabel} hrs (${durationLabel})`;
+        } else {
+          document.getElementById('summary-time').textContent = `Selecciona un horario (${durationLabel})`;
+        }
 
         const total = calculateCurrentAmount();
         document.getElementById('summary-price').textContent = state.service === 'Arriendo de Cancha'
@@ -1712,25 +2236,39 @@
           : `Desde ${formatCLP(total)}`;
       }
 
-      // Limpia el formulario del cliente y restablece el bloque horario tras agendar
+      const notesTextarea = document.getElementById('client-notes');
+      const notesCounter = document.getElementById('client-notes-counter');
+
+      function updateNotesCounter() {
+        if (!notesTextarea || !notesCounter) return;
+        const len = notesTextarea.value.length;
+        notesCounter.textContent = `${len} / 300 caracteres`;
+        notesCounter.className = len >= 300
+          ? 'text-[11px] font-semibold text-amber-400'
+          : 'text-[11px] text-zinc-400';
+      }
+
+      if (notesTextarea) {
+        notesTextarea.addEventListener('input', updateNotesCounter);
+      }
+
       function resetBookingFormAfterSubmit() {
         document.getElementById('booking-form').reset();
         state.time = null;
-        state.duration = 1;
-        durationBtns.forEach(b => {
-          const isFirst = parseInt(b.dataset.hours, 10) === 1;
-          b.className = isFirst
-            ? 'duration-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-roma-gold text-black border border-roma-gold'
-            : 'duration-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-300 border border-zinc-700 hover:border-zinc-500';
-        });
+        state.selectedAt = null;
+        setCollisionAlert('');
+        syncHoursSelectUI();
+        updateNotesCounter();
         renderTimeSlots();
         updateSummary();
+        updateEventFallbackBanner();
       }
 
-      // Listeners de Servicio
       const serviceBtns = document.querySelectorAll('.service-btn');
       function setActiveService(serviceName) {
         state.service = serviceName;
+        state.time = null;
+        state.selectedAt = null;
         serviceBtns.forEach(btn => {
           if (btn.dataset.service === serviceName) {
             btn.className = 'service-btn active-service p-3 rounded-xl border border-roma-gold bg-roma-gold/15 text-left transition-all';
@@ -1738,68 +2276,100 @@
             btn.className = 'service-btn p-3 rounded-xl border border-zinc-800 bg-zinc-900/70 text-left hover:border-zinc-600 transition-all';
           }
         });
+        setCollisionAlert('');
         renderTimeSlots();
         updateSummary();
+        updateEventFallbackBanner();
       }
 
       serviceBtns.forEach(btn => {
         btn.addEventListener('click', () => setActiveService(btn.dataset.service));
       });
 
-      // Listeners de Duración
-      const durationBtns = document.querySelectorAll('.duration-btn');
-      durationBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const newDur = parseInt(btn.dataset.hours, 10);
+      if (hoursSelect) {
+        hoursSelect.addEventListener('change', (e) => {
+          const newDur = Math.max(1, parseInt(e.target.value, 10) || 1);
           if (state.time) {
-            const check = isRangeAvailable(state.court, state.date, state.time, newDur);
+            const check = checkRangeCollision(state.court, state.date, state.time, newDur);
             if (!check.ok) {
+              setCollisionAlert(check.reason);
               showToast(check.reason, 'error');
+              state.duration = newDur;
+              renderTimeSlots();
+              updateSummary();
+              updateEventFallbackBanner();
               return;
             }
           }
+          setCollisionAlert('');
           state.duration = newDur;
-          durationBtns.forEach(b => {
-            b.className = 'duration-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-300 border border-zinc-700 hover:border-zinc-500';
-          });
-          btn.className = 'duration-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-roma-gold text-black border border-roma-gold';
           renderTimeSlots();
           updateSummary();
+          updateEventFallbackBanner();
         });
-      });
+      }
 
       document.getElementById('court-select').addEventListener('change', (e) => {
-        state.court = e.target.value;
-        state.time = null;
-        renderTimeSlots();
-        updateSummary();
+        setSingleSelection(e.target.value, null);
       });
 
       dateInput.addEventListener('change', (e) => {
         state.date = e.target.value || todayStr;
         state.time = null;
+        state.selectedAt = null;
+        setCollisionAlert('');
         renderTimeSlots();
         updateSummary();
+        updateEventFallbackBanner();
       });
 
       window.selectServiceAndScroll = (serviceName) => {
         setActiveService(serviceName);
+        if (['Cumpleaños', 'Evento Empresas', 'Campeonato / Torneo'].includes(serviceName)) {
+          const checkSlot = '17:00';
+          const evBooking = getExactHourBooking(EVENT_SPACE, state.date, checkSlot);
+          if (evBooking) {
+            const freeCourt = findAvailableCourtForEvent(state.date, checkSlot, 1);
+            state.court = freeCourt || EVENT_SPACE;
+            document.getElementById('court-select').value = state.court;
+            renderTimeSlots();
+            updateSummary();
+          }
+        }
         document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' });
-        showToast(`Servicio "${serviceName}" seleccionado. Elige fecha y hora.`, 'info');
+        showToast(`Servicio "${serviceName}" seleccionado. Selección única habilitada.`, 'info');
       };
 
       window.selectCourtAndScroll = (courtName) => {
-        const courtSelect = document.getElementById('court-select');
-        courtSelect.value = courtName;
-        state.court = courtName;
-        state.time = null;
-        renderTimeSlots();
-        updateSummary();
+        setSingleSelection(courtName, null);
         document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' });
-        showToast(`${courtName} seleccionada. Escoge tu bloque horario.`, 'info');
+        showToast(`${courtName} seleccionada. Escoge cantidad de horas y horario.`, 'info');
       };
 
-      // Copiar indicaciones + enlaces de Waze y Google Maps al portapapeles
+      window.selectEventSpaceAndScroll = () => {
+        if (state.service === 'Arriendo de Cancha') {
+          state.service = 'Cumpleaños';
+          serviceBtns.forEach(btn => {
+            if (btn.dataset.service === state.service) {
+              btn.className = 'service-btn active-service p-3 rounded-xl border border-roma-gold bg-roma-gold/15 text-left transition-all';
+            } else {
+              btn.className = 'service-btn p-3 rounded-xl border border-zinc-800 bg-zinc-900/70 text-left hover:border-zinc-600 transition-all';
+            }
+          });
+        }
+
+        const checkSlot = '17:00';
+        const evBooking = getExactHourBooking(EVENT_SPACE, state.date, checkSlot);
+        const freeCourt = findAvailableCourtForEvent(state.date, checkSlot, 1);
+
+        if (evBooking && freeCourt) {
+          setSingleSelection(freeCourt, null, `Espacio de Eventos ocupado a las ${checkSlot} hrs; se asignó ${freeCourt} como selección única.`);
+        } else {
+          setSingleSelection(EVENT_SPACE, null, 'Espacio de Eventos seleccionado como selección única.');
+        }
+        document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' });
+      };
+
       window.copyLocationLink = () => {
         const shareText = [
           '⚽ *Complejo Deportivo ROMA*',
@@ -1822,16 +2392,31 @@
       };
 
       // -------------------------------------------------------
-      // 4. CREACIÓN DE RESERVA TEMPORAL POR EL CLIENTE
+      // 4. CREACIÓN DE RESERVA TEMPORAL POR ORDEN DE LLEGADA + SPINNER
       // -------------------------------------------------------
-      function createClientTemporalBooking() {
+      function syncLatestBookingsFromStorage() {
+        try {
+          const latest = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+          if (Array.isArray(latest) && latest.length > 0) {
+            allBookings = latest;
+          }
+        } catch (err) {
+          // Mantener estado actual si no hay cambios externos
+        }
+      }
+
+      async function createClientTemporalBookingWithPriority() {
+        if (isSubmittingBooking) {
+          setBookingSubmittingUI(false);
+        }
+
         const name = document.getElementById('client-name').value.trim();
         const phone = document.getElementById('client-phone').value.trim();
         const email = document.getElementById('client-email').value.trim();
-        const notes = document.getElementById('client-notes').value.trim();
+        const notes = document.getElementById('client-notes').value.trim().slice(0, 300);
 
         if (!state.time) {
-          showToast('Selecciona un bloque horario disponible en el paso 4.', 'error');
+          showToast('Selecciona un horario disponible en el paso 4.', 'error');
           return null;
         }
         if (!name || !phone) {
@@ -1839,81 +2424,122 @@
           return null;
         }
 
-        const check = isRangeAvailable(state.court, state.date, state.time, state.duration);
-        if (!check.ok) {
-          showToast(check.reason, 'error');
+        isSubmittingBooking = true;
+        setBookingSubmittingUI(true, 'local');
+
+        try {
+          await new Promise(resolve => setTimeout(resolve, 250));
+
+          // Sincroniza registros existentes para respetar estrictamente el orden de llegada
+          syncLatestBookingsFromStorage();
+
+          const check = checkRangeCollision(state.court, state.date, state.time, state.duration);
+          if (!check.ok) {
+            setCollisionAlert(check.reason);
+            showToast(`Otro registro tomó o reservó primero este horario: ${check.reason}`, 'error');
+            renderTimeSlots();
+            updateSummary();
+            return null;
+          }
+
+          setCollisionAlert('');
+          const effectiveCourt = resolveEffectiveCourt(state.court, state.date, state.time, state.duration);
+          const arrivalTimestamp = state.selectedAt || Date.now();
+
+          const booking = {
+            id: 'ROMA-' + Math.floor(1000 + Math.random() * 9000),
+            service: state.service,
+            court: effectiveCourt,
+            date: state.date,
+            time: state.time,
+            duration: state.duration,
+            amount: calculateCurrentAmount(),
+            status: 'TEMPORAL',
+            name,
+            phone,
+            email,
+            notes,
+            createdAt: new Date().toLocaleString('es-CL', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }),
+            createdTimestamp: arrivalTimestamp
+          };
+
+          allBookings.unshift(booking);
+          allBookings.sort((a, b) => (Number(b.createdTimestamp) || 0) - (Number(a.createdTimestamp) || 0));
+          persistBookings();
+
+          myClientBookingIds.unshift(booking.id);
+          localStorage.setItem(CLIENT_IDS_KEY, JSON.stringify(myClientBookingIds));
+
+          updateClientBookingsUI();
           renderTimeSlots();
+          return booking;
+        } catch (err) {
+          showToast('Ocurrió un inconveniente al registrar la reserva. Inténtalo nuevamente.', 'error');
           return null;
+        } finally {
+          isSubmittingBooking = false;
+          setBookingSubmittingUI(false);
         }
-
-        const booking = {
-          id: 'ROMA-' + Math.floor(1000 + Math.random() * 9000),
-          service: state.service,
-          court: state.court,
-          date: state.date,
-          time: state.time,
-          duration: state.duration,
-          amount: calculateCurrentAmount(),
-          status: 'TEMPORAL',
-          name,
-          phone,
-          email,
-          notes,
-          createdAt: new Date().toLocaleString('es-CL', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })
-        };
-
-        allBookings.unshift(booking);
-        persistBookings();
-
-        myClientBookingIds.unshift(booking.id);
-        localStorage.setItem(CLIENT_IDS_KEY, JSON.stringify(myClientBookingIds));
-
-        updateClientBookingsUI();
-        renderTimeSlots();
-        return booking;
       }
 
-      document.getElementById('btn-save-local').addEventListener('click', () => {
-        const booking = createClientTemporalBooking();
+      document.getElementById('btn-save-local').addEventListener('click', async () => {
+        const booking = await createClientTemporalBookingWithPriority();
         if (booking) {
-          showToast(`Reserva Temporal ${booking.id} registrada. Recuerda enviar tu comprobante de pago por WhatsApp para confirmarla.`, 'warning');
+          showToast(`Reserva Temporal ${booking.id} registrada en ${booking.court} (${booking.duration} hr${booking.duration > 1 ? 's' : ''}). Envía tu comprobante por WhatsApp para confirmarla.`, 'warning');
           resetBookingFormAfterSubmit();
         }
       });
 
-      document.getElementById('booking-form').addEventListener('submit', (e) => {
+      document.getElementById('booking-form').addEventListener('submit', async (e) => {
         e.preventDefault();
-        const booking = createClientTemporalBooking();
-        if (!booking) return;
+        if (isSubmittingBooking) {
+          isSubmittingBooking = false;
+          setBookingSubmittingUI(false);
+        }
 
-        const [y, m, d] = booking.date.split('-');
-        const formattedDate = `${d}/${m}/${y}`;
-        const durText = `${booking.duration} hora(s)`;
+        isSubmittingBooking = true;
+        setBookingSubmittingUI(true, 'whatsapp');
 
-        const message = [
-          `⚽ *RESERVA TEMPORAL - COMPLEJO DEPORTIVO ROMA* 🏆`,
-          `• *Código:* ${booking.id}`,
-          `• *Estado:* RESERVA TEMPORAL (Pendiente de Pago)`,
-          `• *Actividad:* ${booking.service}`,
-          `• *Cancha:* ${booking.court}`,
-          `• *Fecha:* ${formattedDate}`,
-          `• *Horario:* ${booking.time} hrs (${durText})`,
-          `• *Monto Ref.:* ${formatCLP(booking.amount)}`,
-          `• *Cliente:* ${booking.name}`,
-          `• *Teléfono:* ${booking.phone}`,
-          booking.notes ? `• *Notas:* ${booking.notes}` : '',
-          ``,
-          `Hola Complejo ROMA, adjunto/envío mi comprobante de pago para confirmar definitivamente esta cancha.`
-        ].filter(Boolean).join('\n');
+        try {
+          const booking = await createClientTemporalBookingWithPriority();
+          if (!booking) return;
 
-        const whatsappUrl = `https://wa.me/56932291414?text=${encodeURIComponent(message)}`;
-        showToast(`Reserva Temporal ${booking.id} creada. Abriendo WhatsApp para envío de comprobante...`, 'success');
+          const [y, m, d] = booking.date.split('-');
+          const formattedDate = `${d}/${m}/${y}`;
+          const durText = `${booking.duration} hora(s)`;
 
-        resetBookingFormAfterSubmit();
+          const message = [
+            `⚽ *RESERVA TEMPORAL - COMPLEJO DEPORTIVO ROMA* 🏆`,
+            `• *Código:* ${booking.id}`,
+            `• *Estado:* RESERVA TEMPORAL (Pendiente de Pago)`,
+            `• *Actividad:* ${booking.service}`,
+            `• *Cancha / Espacio:* ${booking.court}`,
+            `• *Fecha:* ${formattedDate}`,
+            `• *Horario:* ${booking.time} hrs (${durText})`,
+            `• *Monto Ref.:* ${formatCLP(booking.amount)}`,
+            `• *Cliente:* ${booking.name}`,
+            `• *Teléfono:* ${booking.phone}`,
+            booking.notes ? `• *Notas:* ${booking.notes}` : '',
+            ``,
+            `Hola Complejo ROMA, adjunto/envío mi comprobante de pago para confirmar definitivamente esta reserva.`
+          ].filter(Boolean).join('\n');
 
-        setTimeout(() => {
-          window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-        }, 450);
+          const whatsappUrl = `https://wa.me/56932291414?text=${encodeURIComponent(message)}`;
+          showToast(`Reserva Temporal ${booking.id} creada. Abriendo WhatsApp para envío de comprobante...`, 'success');
+
+          resetBookingFormAfterSubmit();
+
+          setTimeout(() => {
+            try {
+              window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            } catch (openErr) {
+              // Ignorar si el navegador bloquea ventanas emergentes en vista previa
+            }
+          }, 250);
+        } finally {
+          isSubmittingBooking = false;
+          setBookingSubmittingUI(false);
+        }
       });
 
       // -------------------------------------------------------
@@ -1952,7 +2578,7 @@
               <p class="text-sm font-semibold text-white">${b.court} • ${b.date} a las ${b.time} hrs (${b.duration} hr${b.duration > 1 ? 's' : ''})</p>
               <div class="flex items-center justify-between text-xs text-zinc-400 pt-1 border-t border-zinc-800">
                 <span>Monto: <strong class="text-white">${formatCLP(b.amount)}</strong></span>
-                ${!isConfirmed ? `<a href="https://wa.me/56932291414?text=${encodeURIComponent('Hola ROMA, envío comprobante de pago para confirmar reserva ' + b.id)}" target="_blank" rel="noopener noreferrer" class="text-roma-turf hover:underline font-semibold"><i class="fa-brands fa-whatsapp mr-1"></i>Enviar Comprobante</a>` : '<span class="text-roma-turf font-medium">¡Cancha Asegurada!</span>'}
+                ${!isConfirmed ? `<a href="https://wa.me/56932291414?text=${encodeURIComponent('Hola ROMA, envío comprobante de pago para confirmar reserva ' + b.id)}" target="_blank" rel="noopener noreferrer" class="text-roma-turf hover:underline font-semibold"><i class="fa-brands fa-whatsapp mr-1"></i>Enviar Comprobante</a>` : '<span class="text-roma-turf font-medium">¡Reserva Asegurada!</span>'}
               </div>
             </div>
           `;
@@ -1974,9 +2600,9 @@
       modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
       // -------------------------------------------------------
-      // 6. PANEL DE ADMINISTRACIÓN (AUTENTICACIÓN, KPIS, CONFIRMAR PAGO, ANULAR)
+      // 6. PANEL DE ADMINISTRACIÓN (ACCESO EN CUALQUIER MOMENTO + BLOQUEO DE HORAS)
       // -------------------------------------------------------
-      let isAdminAuthenticated = false;
+      let isAdminAuthenticated = sessionStorage.getItem(ADMIN_SESSION_KEY) === 'true';
       let pendingDeleteId = null;
 
       function getAdminPin() {
@@ -1984,72 +2610,246 @@
       }
 
       const adminManualTimeSelect = document.getElementById('admin-m-time');
+      const adminManualDurationSelect = document.getElementById('admin-m-duration');
+      const adminQuickBlockCourtSelect = document.getElementById('admin-qb-court');
+      const adminQuickBlockDateInput = document.getElementById('admin-qb-date');
+      const adminQuickBlockTimeSelect = document.getElementById('admin-qb-time');
+      const adminQuickBlockDurationSelect = document.getElementById('admin-qb-duration');
+
+      // Calcula el máximo de horas consecutivas permitidas desde startTime considerando el cierre (00:00 hrs) y topes existentes
+      function getMaxAllowedHoursForBlock(court, dateStr, startTime) {
+        const startIdx = timeSlots.indexOf(startTime);
+        if (startIdx === -1) return 1;
+
+        const maxUntilClosing = Math.max(1, timeSlots.length - startIdx);
+        let allowed = maxUntilClosing;
+
+        for (let h = 1; h <= maxUntilClosing; h++) {
+          const candidateCheck = checkRangeCollision(court, dateStr, startTime, h);
+          if (!candidateCheck.ok) {
+            allowed = Math.max(1, h - 1);
+            break;
+          }
+        }
+
+        return allowed;
+      }
+
+      function populateDurationSelect(selectEl, maxHours, preferredValue) {
+        if (!selectEl) return;
+        const clampedMax = Math.max(1, maxHours);
+        const safePreferred = Math.min(Math.max(1, preferredValue || 1), clampedMax);
+
+        selectEl.innerHTML = '';
+        for (let h = 1; h <= clampedMax; h++) {
+          const opt = document.createElement('option');
+          opt.value = String(h);
+          opt.textContent = h === 1 ? '1 hora' : `${h} horas`;
+          selectEl.appendChild(opt);
+        }
+
+        selectEl.value = String(safePreferred);
+      }
+
+      function syncQuickBlockDurationOptions() {
+        if (!adminQuickBlockTimeSelect || !adminQuickBlockDurationSelect) return;
+        const court = adminQuickBlockCourtSelect ? adminQuickBlockCourtSelect.value : 'Cancha 1';
+        const dateStr = adminQuickBlockDateInput && adminQuickBlockDateInput.value ? adminQuickBlockDateInput.value : todayStr;
+        const startTime = adminQuickBlockTimeSelect.value || timeSlots[0];
+        const maxHours = getMaxAllowedHoursForBlock(court, dateStr, startTime);
+        const previousValue = parseInt(adminQuickBlockDurationSelect.value, 10) || 1;
+        populateDurationSelect(adminQuickBlockDurationSelect, maxHours, previousValue);
+      }
+
+      function syncManualDurationOptions() {
+        if (!adminManualTimeSelect || !adminManualDurationSelect) return;
+        const court = document.getElementById('admin-m-court')?.value || 'Cancha 1';
+        const dateStr = document.getElementById('admin-m-date')?.value || todayStr;
+        const startTime = adminManualTimeSelect.value || timeSlots[0];
+        const maxHours = getMaxAllowedHoursForBlock(court, dateStr, startTime);
+        const previousValue = parseInt(adminManualDurationSelect.value, 10) || 1;
+        populateDurationSelect(adminManualDurationSelect, maxHours, previousValue);
+      }
+
       timeSlots.forEach(t => {
         const opt = document.createElement('option');
         opt.value = t;
         opt.textContent = `${t} hrs`;
         adminManualTimeSelect.appendChild(opt);
+
+        const qbOpt = document.createElement('option');
+        qbOpt.value = t;
+        qbOpt.textContent = `${t} hrs`;
+        adminQuickBlockTimeSelect.appendChild(qbOpt);
       });
       document.getElementById('admin-m-date').value = todayStr;
+      document.getElementById('admin-qb-date').value = todayStr;
+      syncQuickBlockDurationOptions();
+      syncManualDurationOptions();
 
-      window.openAdminAccess = () => {
-        document.getElementById('mobile-menu').classList.add('hidden');
-        document.getElementById('mobile-menu-icon').className = 'fa-solid fa-bars text-xl';
-
-        if (isAdminAuthenticated) {
-          openAdminDashboard();
-        } else {
-          document.getElementById('admin-pin-input').value = '';
-          const loginModal = document.getElementById('admin-login-modal');
-          loginModal.classList.remove('hidden');
-          loginModal.classList.add('flex');
-          setTimeout(() => document.getElementById('admin-pin-input').focus(), 100);
-        }
-      };
-
-      window.closeAdminLoginModal = () => {
-        const loginModal = document.getElementById('admin-login-modal');
-        loginModal.classList.add('hidden');
-        loginModal.classList.remove('flex');
-      };
-
-      document.getElementById('admin-login-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const enteredPin = document.getElementById('admin-pin-input').value.trim();
-        if (enteredPin === getAdminPin()) {
-          isAdminAuthenticated = true;
-          closeAdminLoginModal();
-          openAdminDashboard();
-          showToast('Acceso concedido al Panel de Administración ROMA.', 'success');
-        } else {
-          showToast('PIN incorrecto. Verifica e intenta nuevamente.', 'error');
-          document.getElementById('admin-pin-input').value = '';
-          document.getElementById('admin-pin-input').focus();
-        }
-      });
-
-      function openAdminDashboard() {
-        const dash = document.getElementById('admin-dashboard-modal');
-        dash.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-        renderAdminDashboard();
+      if (adminQuickBlockTimeSelect) {
+        adminQuickBlockTimeSelect.addEventListener('change', syncQuickBlockDurationOptions);
+      }
+      if (adminQuickBlockCourtSelect) {
+        adminQuickBlockCourtSelect.addEventListener('change', syncQuickBlockDurationOptions);
+      }
+      if (adminQuickBlockDateInput) {
+        adminQuickBlockDateInput.addEventListener('change', syncQuickBlockDurationOptions);
       }
 
-      window.logoutAdmin = () => {
-        isAdminAuthenticated = false;
-        const dash = document.getElementById('admin-dashboard-modal');
-        dash.classList.add('hidden');
-        document.body.style.overflow = '';
-        showToast('Sesión de administrador cerrada.', 'info');
-      };
-
-      window.toggleAdminManualForm = () => {
-        document.getElementById('admin-manual-booking-box').classList.toggle('hidden');
-      };
+      if (adminManualTimeSelect) {
+        adminManualTimeSelect.addEventListener('change', syncManualDurationOptions);
+      }
+      document.getElementById('admin-m-court')?.addEventListener('change', syncManualDurationOptions);
+      document.getElementById('admin-m-date')?.addEventListener('change', syncManualDurationOptions);
 
       window.toggleAdminPinSettings = () => {
         document.getElementById('admin-pin-settings-box').classList.toggle('hidden');
       };
+
+      window.toggleAdminManualForm = () => {
+        const manualBox = document.getElementById('admin-manual-booking-box');
+        if (!manualBox) return;
+        manualBox.classList.toggle('hidden');
+        if (!manualBox.classList.contains('hidden')) {
+          syncManualDurationOptions();
+        }
+      };
+
+      const adminLoginModal = document.getElementById('admin-login-modal');
+      const adminDashboardModal = document.getElementById('admin-dashboard-modal');
+      const adminPinInput = document.getElementById('admin-pin-input');
+
+      function showAdminDashboardModal() {
+        if (!adminDashboardModal) return;
+        adminDashboardModal.classList.remove('hidden');
+        adminDashboardModal.classList.add('block');
+        syncQuickBlockDurationOptions();
+        syncManualDurationOptions();
+        syncQuickBlockButtonState();
+        renderAdminDashboard();
+      }
+
+      window.openAdminAccess = () => {
+        isAdminAuthenticated = sessionStorage.getItem(ADMIN_SESSION_KEY) === 'true' || isAdminAuthenticated;
+        if (isAdminAuthenticated) {
+          showAdminDashboardModal();
+          return;
+        }
+        if (adminLoginModal) {
+          adminLoginModal.classList.remove('hidden');
+          adminLoginModal.classList.add('flex');
+          setTimeout(() => adminPinInput?.focus(), 60);
+        }
+      };
+
+      window.closeAdminLoginModal = () => {
+        if (!adminLoginModal) return;
+        adminLoginModal.classList.add('hidden');
+        adminLoginModal.classList.remove('flex');
+        if (adminPinInput) adminPinInput.value = '';
+      };
+
+      window.logoutAdmin = () => {
+        isAdminAuthenticated = false;
+        sessionStorage.removeItem(ADMIN_SESSION_KEY);
+        if (adminDashboardModal) {
+          adminDashboardModal.classList.add('hidden');
+          adminDashboardModal.classList.remove('block');
+        }
+        showToast('Sesión de administrador cerrada.', 'info');
+      };
+
+      document.getElementById('admin-login-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const enteredPin = (adminPinInput?.value || '').trim();
+        if (enteredPin !== getAdminPin()) {
+          showToast('PIN incorrecto. Verifica e inténtalo nuevamente.', 'error');
+          adminPinInput?.select();
+          return;
+        }
+        isAdminAuthenticated = true;
+        sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
+        window.closeAdminLoginModal();
+        showAdminDashboardModal();
+        showToast('Acceso concedido al Panel de Administración.', 'success');
+      });
+
+      adminLoginModal?.addEventListener('click', (e) => {
+        if (e.target === adminLoginModal) {
+          window.closeAdminLoginModal();
+        }
+      });
+
+      const adminQbReasonInput = document.getElementById('admin-qb-reason');
+      const adminQbSubmitBtn = document.getElementById('admin-qb-submit-btn');
+
+      function syncQuickBlockButtonState() {
+        if (!adminQbReasonInput || !adminQbSubmitBtn) return;
+        const hasReason = adminQbReasonInput.value.trim().length > 0;
+        adminQbSubmitBtn.disabled = !hasReason;
+        adminQbSubmitBtn.setAttribute('aria-disabled', String(!hasReason));
+        if (hasReason) {
+          adminQbSubmitBtn.className = 'btn-shine w-full py-2 px-3 rounded-xl bg-red-600 hover:bg-red-500 text-white border border-red-400/40 font-display font-bold text-xs uppercase tracking-wider shadow-lg shadow-red-600/25 transition flex items-center justify-center gap-1.5 cursor-pointer';
+        } else {
+          adminQbSubmitBtn.className = 'btn-shine w-full py-2 px-3 rounded-xl bg-red-600/40 text-red-200/60 border border-red-500/20 font-display font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-1.5 disabled:cursor-not-allowed';
+        }
+      }
+
+      if (adminQbReasonInput) {
+        adminQbReasonInput.addEventListener('input', syncQuickBlockButtonState);
+      }
+
+      document.getElementById('admin-quick-block-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const court = document.getElementById('admin-qb-court').value;
+        const date = document.getElementById('admin-qb-date').value || todayStr;
+        const time = document.getElementById('admin-qb-time').value;
+        const duration = Math.max(1, parseInt(document.getElementById('admin-qb-duration').value, 10) || 1);
+        const reason = adminQbReasonInput.value.trim();
+
+        if (!reason) {
+          syncQuickBlockButtonState();
+          showToast('Debes ingresar el motivo del bloqueo para activar el botón.', 'error');
+          adminQbReasonInput.focus();
+          return;
+        }
+
+        const check = checkRangeCollision(court, date, time, duration);
+        if (!check.ok) {
+          showToast(check.reason, 'error');
+          return;
+        }
+
+        const blockEntry = {
+          id: 'BLOQ-' + Math.floor(1000 + Math.random() * 9000),
+          service: 'Bloqueo Operativo',
+          isAdminBlock: true,
+          court,
+          date,
+          time,
+          duration,
+          amount: 0,
+          status: 'BLOQUEADA',
+          name: `Bloqueo Admin (${reason})`,
+          phone: 'Operación Interna',
+          email: '',
+          notes: `Hora bloqueada por administración: ${reason}.`,
+          createdAt: 'Bloqueo • Hoy',
+          createdTimestamp: Date.now()
+        };
+
+        allBookings.unshift(blockEntry);
+        persistBookings();
+        renderTimeSlots();
+        updateSummary();
+        renderAdminDashboard();
+        syncQuickBlockDurationOptions();
+        syncManualDurationOptions();
+        adminQbReasonInput.value = '';
+        syncQuickBlockButtonState();
+        showToast(`Bloqueado ${court} el ${date} desde las ${time} hrs (${duration} hr${duration > 1 ? 's' : ''}) — estado Bloqueada / No disponible.`, 'success');
+      });
 
       document.getElementById('change-pin-form').addEventListener('submit', (e) => {
         e.preventDefault();
@@ -2074,51 +2874,65 @@
         const name = document.getElementById('admin-m-name').value.trim();
         const phone = document.getElementById('admin-m-phone').value.trim() || 'Registro Interno';
         const amount = parseInt(document.getElementById('admin-m-amount').value, 10) || 0;
-        const status = document.getElementById('admin-m-status').value;
+        const rawStatus = document.getElementById('admin-m-status').value;
+        const isManualBlock = service.toLowerCase().includes('bloqueo');
+        const status = isManualBlock ? 'BLOQUEADA' : rawStatus;
 
-        const check = isRangeAvailable(court, date, time, duration);
+        const check = checkRangeCollision(court, date, time, duration);
         if (!check.ok) {
           showToast(check.reason, 'error');
           return;
         }
 
         const newBooking = {
-          id: 'ADM-' + Math.floor(1000 + Math.random() * 9000),
+          id: (isManualBlock ? 'BLOQ-' : 'ADM-') + Math.floor(1000 + Math.random() * 9000),
           service,
+          isAdminBlock: isManualBlock,
           court,
           date,
           time,
           duration,
-          amount,
+          amount: isManualBlock ? 0 : amount,
           status,
           name,
           phone,
           email: '',
-          notes: 'Agendado manualmente desde Administración.',
-          createdAt: 'Admin • Hoy'
+          notes: isManualBlock
+            ? `Bloqueo operativo registrado desde Administración: ${name}.`
+            : 'Agendado manualmente desde Administración.',
+          createdAt: 'Admin • Hoy',
+          createdTimestamp: Date.now()
         };
 
         allBookings.unshift(newBooking);
         persistBookings();
         renderTimeSlots();
         renderAdminDashboard();
+        syncQuickBlockDurationOptions();
+        syncManualDurationOptions();
         document.getElementById('admin-m-name').value = '';
         toggleAdminManualForm();
-        showToast(`Hora agendada (${newBooking.id}) en estado ${status}.`, 'success');
+        showToast(`Registro ${newBooking.id} guardado en estado ${status === 'BLOQUEADA' ? 'BLOQUEADA (NO DISPONIBLE)' : status}.`, 'success');
       });
 
       window.toggleBookingPaymentStatus = (bookingId) => {
         const idx = allBookings.findIndex(b => b.id === bookingId);
         if (idx === -1) return;
 
-        const current = allBookings[idx].status;
-        allBookings[idx].status = current === 'TEMPORAL' ? 'CONFIRMADA' : 'TEMPORAL';
+        const entry = allBookings[idx];
+        if (isAdminBlockedEntry(entry)) {
+          showToast('Los bloqueos operativos no corresponden a cobros; usa "Anular Hora" para liberar el bloque.', 'info');
+          return;
+        }
+
+        const current = entry.status;
+        entry.status = current === 'TEMPORAL' ? 'CONFIRMADA' : 'TEMPORAL';
         persistBookings();
         renderTimeSlots();
         updateClientBookingsUI();
         renderAdminDashboard();
 
-        if (allBookings[idx].status === 'CONFIRMADA') {
+        if (entry.status === 'CONFIRMADA') {
           showToast(`Pago validado: Reserva ${bookingId} ahora está CONFIRMADA.`, 'success');
         } else {
           showToast(`Reserva ${bookingId} revertida a TEMPORAL (Pendiente de Pago).`, 'warning');
@@ -2129,9 +2943,10 @@
         const b = allBookings.find(item => item.id === bookingId);
         if (!b) return;
         pendingDeleteId = bookingId;
+        const blocked = isAdminBlockedEntry(b);
         document.getElementById('confirm-delete-desc').innerHTML = `
-          ¿Seguro que deseas anular la reserva <strong class="text-white">${b.id}</strong> de <strong class="text-roma-goldLight">${b.name}</strong> (${b.court} • ${b.date} a las ${b.time} hrs)?<br><br>
-          <span class="text-roma-turf text-xs font-semibold"><i class="fa-solid fa-circle-check mr-1"></i>La cancha quedará disponible de inmediato para otros clientes.</span>
+          ¿Seguro que deseas ${blocked ? 'levantar el bloqueo' : 'anular la reserva'} <strong class="text-white">${b.id}</strong> de <strong class="text-roma-goldLight">${b.name}</strong> (${b.court} • ${b.date} a las ${b.time} hrs)?<br><br>
+          <span class="text-roma-turf text-xs font-semibold"><i class="fa-solid fa-circle-check mr-1"></i>La cancha o espacio quedará disponible de inmediato para otros clientes.</span>
         `;
         const delModal = document.getElementById('confirm-delete-modal');
         delModal.classList.remove('hidden');
@@ -2154,7 +2969,7 @@
         renderTimeSlots();
         updateClientBookingsUI();
         renderAdminDashboard();
-        showToast(`Reserva ${deletedId} anulada y hora liberada en el calendario.`, 'info');
+        showToast(`Registro ${deletedId} eliminado y hora liberada en el calendario.`, 'info');
       });
 
       const adminFilterDate = document.getElementById('admin-filter-date');
@@ -2174,13 +2989,18 @@
 
       function renderAdminDashboard() {
         const totalCount = allBookings.length;
-        const temporalCount = allBookings.filter(b => b.status === 'TEMPORAL').length;
-        const confirmedList = allBookings.filter(b => b.status === 'CONFIRMADA');
-        const confirmedRevenue = confirmedList.reduce((sum, b) => sum + (Number(b.amount) || 0), 0);
+        const temporalCount = allBookings.filter(b => !isAdminBlockedEntry(b) && b.status === 'TEMPORAL').length;
+        const blockedCount = allBookings.filter(b => isAdminBlockedEntry(b)).length;
+        const confirmedPaidList = allBookings.filter(b => !isAdminBlockedEntry(b) && b.status === 'CONFIRMADA');
+        const confirmedRevenue = confirmedPaidList.reduce((sum, b) => sum + (Number(b.amount) || 0), 0);
 
         document.getElementById('kpi-total').textContent = totalCount;
         document.getElementById('kpi-temporal').textContent = temporalCount;
-        document.getElementById('kpi-confirmed').textContent = confirmedList.length;
+        document.getElementById('kpi-confirmed').textContent = confirmedPaidList.length + blockedCount;
+        const subEl = document.getElementById('kpi-confirmed-sub');
+        if (subEl) {
+          subEl.textContent = `${confirmedPaidList.length} pagadas • ${blockedCount} bloqueos`;
+        }
         document.getElementById('kpi-revenue').textContent = formatCLP(confirmedRevenue);
 
         const fDate = adminFilterDate.value;
@@ -2189,11 +3009,14 @@
         const fQuery = adminSearchInput.value.trim().toLowerCase();
 
         const filtered = allBookings.filter(b => {
+          const isBlocked = isAdminBlockedEntry(b);
           if (fDate && b.date !== fDate) return false;
-          if (fCourt !== 'ALL' && b.court !== fCourt) return false;
-          if (fStatus !== 'ALL' && b.status !== fStatus) return false;
+          if (fCourt !== 'ALL' && b.court !== fCourt && !b.court.startsWith(fCourt)) return false;
+          if (fStatus === 'BLOQUEADA' && !isBlocked) return false;
+          if (fStatus === 'CONFIRMADA' && (isBlocked || b.status !== 'CONFIRMADA')) return false;
+          if (fStatus === 'TEMPORAL' && (isBlocked || b.status !== 'TEMPORAL')) return false;
           if (fQuery) {
-            const haystack = `${b.id} ${b.name} ${b.phone} ${b.service} ${b.court}`.toLowerCase();
+            const haystack = `${b.id} ${b.name} ${b.phone} ${b.service} ${b.court} ${b.notes || ''}`.toLowerCase();
             if (!haystack.includes(fQuery)) return false;
           }
           return true;
@@ -2204,7 +3027,7 @@
           container.innerHTML = `
             <div class="p-10 rounded-3xl bg-roma-card border border-zinc-800 text-center text-zinc-400">
               <i class="fa-regular fa-folder-open text-4xl text-zinc-600 mb-3 block"></i>
-              <p class="font-semibold text-white">No se encontraron reservas con los filtros actuales</p>
+              <p class="font-semibold text-white">No se encontraron registros con los filtros actuales</p>
               <p class="text-xs mt-1">Prueba limpiando el filtro de fecha o cambiando el estado.</p>
             </div>
           `;
@@ -2212,31 +3035,44 @@
         }
 
         container.innerHTML = filtered.map(b => {
-          const isConfirmed = b.status === 'CONFIRMADA';
+          const isBlocked = isAdminBlockedEntry(b);
+          const isConfirmed = !isBlocked && b.status === 'CONFIRMADA';
           const [y, m, d] = b.date.split('-');
           const cleanPhone = (b.phone || '').replace(/[^0-9]/g, '');
-          const waLink = cleanPhone.length >= 8
+          const waLink = !isBlocked && cleanPhone.length >= 8
             ? `https://wa.me/${cleanPhone.startsWith('56') ? cleanPhone : '56' + cleanPhone}?text=${encodeURIComponent(`Hola ${b.name}, te escribimos de Complejo Deportivo ROMA respecto a tu reserva ${b.id} (${b.court}, ${d}/${m}/${y} a las ${b.time} hrs).`)}`
             : null;
 
+          const cardBorderClass = isBlocked
+            ? 'border-zinc-600/50'
+            : isConfirmed
+              ? 'border-roma-turf/35'
+              : 'border-amber-500/40';
+
+          const statusBadgeHtml = isBlocked
+            ? `<span class="px-2.5 py-0.5 rounded-full bg-zinc-800 border border-zinc-500/50 text-zinc-200 text-xs font-bold"><i class="fa-solid fa-ban mr-1 text-red-400"></i>BLOQUEADA / NO DISPONIBLE</span>`
+            : isConfirmed
+              ? `<span class="px-2.5 py-0.5 rounded-full bg-roma-turf/15 border border-roma-turf/40 text-roma-turf text-xs font-bold"><i class="fa-solid fa-circle-check mr-1"></i>CONFIRMADA / PAGADA</span>`
+              : `<span class="px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-bold"><i class="fa-solid fa-hourglass-half mr-1"></i>RESERVA TEMPORAL (PENDIENTE PAGO)</span>`;
+
           return `
-            <div class="p-4 sm:p-5 rounded-2xl bg-roma-card border ${isConfirmed ? 'border-roma-turf/35' : 'border-amber-500/40'} flex flex-col lg:flex-row lg:items-center justify-between gap-4 transition-all">
+            <div class="p-4 sm:p-5 rounded-2xl bg-roma-card border ${cardBorderClass} flex flex-col lg:flex-row lg:items-center justify-between gap-4 transition-all">
 
               <div class="space-y-1.5 flex-1">
                 <div class="flex flex-wrap items-center gap-2">
                   <span class="px-2.5 py-0.5 rounded-lg bg-zinc-900 border border-zinc-700 font-mono text-xs font-bold text-roma-gold">${b.id}</span>
-                  ${isConfirmed
-                    ? `<span class="px-2.5 py-0.5 rounded-full bg-roma-turf/15 border border-roma-turf/40 text-roma-turf text-xs font-bold"><i class="fa-solid fa-circle-check mr-1"></i>CONFIRMADA / PAGADA</span>`
-                    : `<span class="px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-bold"><i class="fa-solid fa-hourglass-half mr-1"></i>RESERVA TEMPORAL (PENDIENTE PAGO)</span>`
-                  }
-                  <span class="text-xs font-semibold text-zinc-400">• ${b.service}</span>
+                  ${statusBadgeHtml}
+                  <span class="text-xs font-semibold text-zinc-400">• ${isBlocked ? 'Bloqueo Operativo' : b.service}</span>
                 </div>
 
                 <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-white pt-1">
                   <span><i class="fa-solid fa-futbol text-roma-turf mr-1.5"></i><strong>${b.court}</strong></span>
                   <span><i class="fa-regular fa-calendar text-roma-gold mr-1.5"></i><strong>${d}/${m}/${y}</strong></span>
                   <span><i class="fa-regular fa-clock text-roma-gold mr-1.5"></i><strong>${b.time} hrs</strong> (${b.duration} hr${b.duration > 1 ? 's' : ''})</span>
-                  <span><i class="fa-solid fa-money-bill-wave text-roma-turf mr-1.5"></i><strong>${formatCLP(b.amount)}</strong></span>
+                  ${isBlocked
+                    ? `<span class="text-xs text-zinc-400"><i class="fa-solid fa-shield-halved text-zinc-500 mr-1"></i>Sin cobro (Bloqueo interno)</span>`
+                    : `<span><i class="fa-solid fa-money-bill-wave text-roma-turf mr-1.5"></i><strong>${formatCLP(b.amount)}</strong></span>`
+                  }
                 </div>
 
                 <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-zinc-300 pt-0.5">
@@ -2249,17 +3085,21 @@
               </div>
 
               <div class="flex flex-wrap sm:flex-nowrap items-center gap-2.5 pt-2 lg:pt-0 border-t lg:border-t-0 border-zinc-800">
-                ${!isConfirmed
-                  ? `<button type="button" onclick="toggleBookingPaymentStatus('${b.id}')" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-roma-turf hover:bg-roma-turfDark text-black font-display font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-roma-turf/20 transition flex items-center justify-center gap-1.5">
-                      <i class="fa-solid fa-check-double"></i> Confirmar Pago
-                    </button>`
-                  : `<button type="button" onclick="toggleBookingPaymentStatus('${b.id}')" class="flex-1 sm:flex-initial px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-amber-500/20 border border-zinc-700 hover:border-amber-500/40 text-amber-300 font-semibold text-xs transition flex items-center justify-center gap-1.5" title="Volver a estado Temporal">
-                      <i class="fa-solid fa-rotate-left"></i> Pasar a Temporal
-                    </button>`
+                ${isBlocked
+                  ? `<span class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700/80 text-zinc-400 text-xs font-semibold flex items-center gap-1.5" title="Bloqueo administrativo sin cobro">
+                      <i class="fa-solid fa-ban text-zinc-500"></i> Operativo
+                    </span>`
+                  : !isConfirmed
+                    ? `<button type="button" onclick="toggleBookingPaymentStatus('${b.id}')" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-roma-turf hover:bg-roma-turfDark text-black font-display font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-roma-turf/20 transition flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-check-double"></i> Confirmar Pago
+                      </button>`
+                    : `<button type="button" onclick="toggleBookingPaymentStatus('${b.id}')" class="flex-1 sm:flex-initial px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-amber-500/20 border border-zinc-700 hover:border-amber-500/40 text-amber-300 font-semibold text-xs transition flex items-center justify-center gap-1.5" title="Volver a estado Temporal">
+                        <i class="fa-solid fa-rotate-left"></i> Pasar a Temporal
+                      </button>`
                 }
 
                 <button type="button" onclick="requestDeleteBooking('${b.id}')" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-red-950/70 hover:bg-red-600 border border-red-500/40 hover:border-red-500 text-red-200 hover:text-white font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5">
-                  <i class="fa-solid fa-trash-can"></i> Anular Hora
+                  <i class="fa-solid fa-trash-can"></i> ${isBlocked ? 'Liberar Hora' : 'Anular Hora'}
                 </button>
               </div>
             </div>
@@ -2320,6 +3160,11 @@
       }
 
       // Inicialización
+      syncHoursSelectUI();
+      syncQuickBlockDurationOptions();
+      syncManualDurationOptions();
+      syncQuickBlockButtonState();
+      updateNotesCounter();
       renderTimeSlots();
       updateSummary();
       updateClientBookingsUI();
