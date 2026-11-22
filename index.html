@@ -146,9 +146,7 @@
       left: 130%;
     }
 
-    /* =========================================================
-       EFECTOS VISUALES PREMIUM: REFLECTORES, PARTÍCULAS Y BANNER LED
-    ========================================================== */
+    /* Reflectores, partículas y banner LED */
     @keyframes stadiumBeamLeft {
       0%, 100% { transform: rotate(-28deg) translateX(0) scaleY(1); opacity: 0.42; }
       50% { transform: rotate(-16deg) translateX(25px) scaleY(1.06); opacity: 0.72; }
@@ -206,7 +204,6 @@
       animation: pulseAurora 8s ease-in-out infinite;
     }
 
-    /* Banner en movimiento continuo tipo tablero LED */
     .marquee-wrapper {
       overflow: hidden;
       position: relative;
@@ -224,7 +221,6 @@
       animation-play-state: paused;
     }
 
-    /* Tarjetas con brillo dinámico al pasar el puntero */
     .glow-card {
       position: relative;
       transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease;
@@ -902,13 +898,13 @@
 
             <div id="time-slots-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2.5"></div>
 
-            <!-- Matriz Independiente por Cancha (1 a 6) y Espacio de Eventos -->
+            <!-- Matriz Independiente por Cancha (1 a 6) y Espacio de Eventos (Solo Informativa) -->
             <div class="mt-6 pt-5 border-t border-zinc-800/90">
               <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                 <span class="text-xs font-bold uppercase tracking-wider text-roma-goldLight">
                   <i class="fa-solid fa-table-cells mr-1.5 text-roma-turf"></i>Horario Independiente por Cancha (1 a 6) y Espacio de Eventos
                 </span>
-                <span id="matrix-date-badge" class="text-[11px] text-zinc-400">Selección única: haz clic en un bloque libre</span>
+                <span id="matrix-date-badge" class="text-[11px] text-zinc-400">Vista informativa • Selecciona tu hora arriba</span>
               </div>
               <div class="overflow-x-auto rounded-2xl border border-zinc-800 bg-zinc-950/75">
                 <table class="w-full text-left border-collapse min-w-[680px]">
@@ -1647,7 +1643,6 @@
         }
       }
 
-      // Normaliza timestamp para ordenar por prioridad de selección / llegada
       allBookings = allBookings.map((b, idx) => ({
         ...b,
         createdTimestamp: Number(b.createdTimestamp) || (Date.now() - (allBookings.length - idx) * 1000)
@@ -1685,7 +1680,6 @@
         selectedAt: null
       };
 
-      // Cerrojo atómico para evitar condiciones de carrera al agendar
       let isSubmittingBooking = false;
 
       const baseRates = {
@@ -1793,7 +1787,6 @@
         return courtLabel;
       }
 
-      // Evalúa el estado de un recurso en una hora y duración dadas, ordenando reservas por antigüedad (quien llegó primero prevalece)
       function getResourceSlotStatus(resourceName, dateStr, startTime, duration = 1) {
         const startIdx = timeSlots.indexOf(startTime);
         if (startIdx === -1) return 'AVAILABLE';
@@ -1846,7 +1839,6 @@
         return foundTemporal ? 'TEMPORAL' : 'AVAILABLE';
       }
 
-      // Verifica la reserva o bloqueo existente en una hora puntual (duration = 1) respetando prioridad de registro
       function getExactHourBooking(court, date, time) {
         const slotIdx = timeSlots.indexOf(time);
         if (slotIdx === -1) return null;
@@ -1891,7 +1883,6 @@
         return foundBlocked || foundTemporal;
       }
 
-      // Revisa si a partir de startTime y con la cantidad de horas elegida se topa con alguna hora ocupada, bloqueada o temporal
       function checkRangeCollision(court, date, startTime, duration) {
         const startIdx = timeSlots.indexOf(startTime);
         if (startIdx === -1) {
@@ -1929,7 +1920,6 @@
         }
       }
 
-      // Aplica una única selección sincronizada entre grilla principal, matriz y selector de cancha
       function setSingleSelection(targetCourt, targetTime, notifyText = '') {
         state.court = targetCourt;
         state.time = targetTime;
@@ -2003,7 +1993,6 @@
         }
       }
 
-      // Renderizar grilla pública de horarios con selección única delimitada
       function renderTimeSlots() {
         const grid = document.getElementById('time-slots-grid');
         grid.innerHTML = '';
@@ -2111,7 +2100,7 @@
 
         if (badgeEl) {
           const [y, m, d] = state.date.split('-');
-          badgeEl.textContent = `${d}/${m}/${y} • ${state.duration} hr${state.duration > 1 ? 's' : ''} (Selección única)`;
+          badgeEl.textContent = `${d}/${m}/${y} • Solo informativo`;
         }
 
         headRow.innerHTML = '<th class="py-2.5 px-3 sticky left-0 bg-zinc-900 z-10 border-r border-zinc-800">Cancha / Espacio</th>';
@@ -2123,9 +2112,6 @@
         });
 
         bodyEl.innerHTML = '';
-
-        const activeStartIdx = state.time ? timeSlots.indexOf(state.time) : -1;
-        const activeEndIdx = activeStartIdx !== -1 ? Math.min(activeStartIdx + state.duration - 1, timeSlots.length - 1) : -1;
 
         MATRIX_ROWS.forEach(rowResource => {
           const tr = document.createElement('tr');
@@ -2139,59 +2125,30 @@
             : `<i class="fa-solid fa-futbol text-roma-turf mr-1.5"></i>${rowResource}`;
           tr.appendChild(nameTd);
 
-          timeSlots.forEach((slot, slotIdx) => {
+          timeSlots.forEach(slot => {
             const st = getResourceSlotStatus(rowResource, state.date, slot, 1);
-            const isChosen =
-              activeStartIdx !== -1 &&
-              slotIdx >= activeStartIdx &&
-              slotIdx <= activeEndIdx &&
-              (state.court === rowResource ||
-                state.court === 'Todas las Canchas' ||
-                (state.court === 'Espacio de Eventos + Cancha' && isEventRow));
 
             const td = document.createElement('td');
             td.className = 'py-1.5 px-1 text-center';
 
-            const cellBtn = document.createElement('button');
-            cellBtn.type = 'button';
+            const statusBadge = document.createElement('span');
+            statusBadge.setAttribute('aria-disabled', 'true');
 
             if (st === 'BLOCKED') {
-              cellBtn.className = 'w-full py-1 px-1.5 rounded bg-zinc-800/90 border border-zinc-600/50 text-zinc-300 text-[10px] font-semibold cursor-not-allowed';
-              cellBtn.textContent = 'No disp.';
-              cellBtn.disabled = true;
+              statusBadge.className = 'inline-block w-full py-1 px-1.5 rounded bg-zinc-800/90 border border-zinc-600/50 text-zinc-300 text-[10px] font-semibold select-none';
+              statusBadge.textContent = 'No disp.';
             } else if (st === 'CONFIRMED') {
-              cellBtn.className = 'w-full py-1 px-1.5 rounded bg-red-950/50 border border-red-500/40 text-red-300 text-[10px] font-bold cursor-not-allowed';
-              cellBtn.textContent = 'Ocup.';
-              cellBtn.disabled = true;
+              statusBadge.className = 'inline-block w-full py-1 px-1.5 rounded bg-red-950/50 border border-red-500/40 text-red-300 text-[10px] font-bold select-none';
+              statusBadge.textContent = 'Ocup.';
             } else if (st === 'TEMPORAL') {
-              cellBtn.className = 'w-full py-1 px-1.5 rounded bg-amber-500/20 border border-amber-400/50 text-amber-200 cursor-not-allowed text-[10px] font-semibold';
-              cellBtn.textContent = 'Temp.';
-              cellBtn.disabled = true;
-            } else if (isChosen) {
-              cellBtn.className = 'w-full py-1 px-1.5 rounded bg-roma-gold text-black text-[10px] font-extrabold shadow';
-              cellBtn.textContent = 'Elegido';
+              statusBadge.className = 'inline-block w-full py-1 px-1.5 rounded bg-amber-500/20 border border-amber-400/50 text-amber-200 text-[10px] font-semibold select-none';
+              statusBadge.textContent = 'Temp.';
             } else {
-              cellBtn.className = 'w-full py-1 px-1.5 rounded bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-800/40 text-[10px] font-semibold transition';
-              cellBtn.textContent = 'Libre';
+              statusBadge.className = 'inline-block w-full py-1 px-1.5 rounded bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-[10px] font-semibold select-none';
+              statusBadge.textContent = 'Libre';
             }
 
-            if (!cellBtn.disabled) {
-              cellBtn.addEventListener('click', () => {
-                const validation = checkRangeCollision(rowResource, state.date, slot, state.duration);
-                if (!validation.ok) {
-                  setCollisionAlert(validation.reason);
-                  showToast(validation.reason, 'error');
-                  return;
-                }
-                setSingleSelection(
-                  rowResource,
-                  slot,
-                  `Selección única: ${rowResource} desde las ${slot} hrs (${state.duration} hr${state.duration > 1 ? 's' : ''}).`
-                );
-              });
-            }
-
-            td.appendChild(cellBtn);
+            td.appendChild(statusBadge);
             tr.appendChild(td);
           });
 
@@ -2430,7 +2387,6 @@
         try {
           await new Promise(resolve => setTimeout(resolve, 250));
 
-          // Sincroniza registros existentes para respetar estrictamente el orden de llegada
           syncLatestBookingsFromStorage();
 
           const check = checkRangeCollision(state.court, state.date, state.time, state.duration);
@@ -2616,7 +2572,6 @@
       const adminQuickBlockTimeSelect = document.getElementById('admin-qb-time');
       const adminQuickBlockDurationSelect = document.getElementById('admin-qb-duration');
 
-      // Calcula el máximo de horas consecutivas permitidas desde startTime considerando el cierre (00:00 hrs) y topes existentes
       function getMaxAllowedHoursForBlock(court, dateStr, startTime) {
         const startIdx = timeSlots.indexOf(startTime);
         if (startIdx === -1) return 1;
