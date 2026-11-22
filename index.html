@@ -1712,6 +1712,21 @@
           : `Desde ${formatCLP(total)}`;
       }
 
+      // Limpia el formulario del cliente y restablece el bloque horario tras agendar
+      function resetBookingFormAfterSubmit() {
+        document.getElementById('booking-form').reset();
+        state.time = null;
+        state.duration = 1;
+        durationBtns.forEach(b => {
+          const isFirst = parseInt(b.dataset.hours, 10) === 1;
+          b.className = isFirst
+            ? 'duration-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-roma-gold text-black border border-roma-gold'
+            : 'duration-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-zinc-300 border border-zinc-700 hover:border-zinc-500';
+        });
+        renderTimeSlots();
+        updateSummary();
+      }
+
       // Listeners de Servicio
       const serviceBtns = document.querySelectorAll('.service-btn');
       function setActiveService(serviceName) {
@@ -1862,8 +1877,7 @@
         const booking = createClientTemporalBooking();
         if (booking) {
           showToast(`Reserva Temporal ${booking.id} registrada. Recuerda enviar tu comprobante de pago por WhatsApp para confirmarla.`, 'warning');
-          state.time = null;
-          updateSummary();
+          resetBookingFormAfterSubmit();
         }
       });
 
@@ -1895,8 +1909,7 @@
         const whatsappUrl = `https://wa.me/56932291414?text=${encodeURIComponent(message)}`;
         showToast(`Reserva Temporal ${booking.id} creada. Abriendo WhatsApp para envío de comprobante...`, 'success');
 
-        state.time = null;
-        updateSummary();
+        resetBookingFormAfterSubmit();
 
         setTimeout(() => {
           window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
