@@ -10,9 +10,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Fonts: Cinzel / Oswald (Títulos épicos ROMA), Plus Jakarta Sans (Cuerpo), Caveat (Script elegante) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;700;800&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;700;800&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome 6 for Sports & UI Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -73,17 +73,66 @@
   </script>
 
   <style>
+    :root {
+      --roma-black: #09090b;
+      --roma-dark: #111113;
+      --roma-card: #16161a;
+      --roma-border: #27272a;
+      --roma-gold: #d4af37;
+      --roma-gold-light: #f3e5ab;
+      --roma-gold-dark: #aa8222;
+      --roma-turf: #22c55e;
+      --roma-turf-dark: #16a34a;
+      --roma-amber: #f59e0b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: #09090b;
+      color: #f4f4f5;
+    }
+
     body {
       background-color: #09090b;
       color: #f4f4f5;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       overflow-x: hidden;
+      margin: 0;
+    }
+
+    /* Respaldo explícito de utilidades clave para garantizar estilos en cualquier visor o iframe */
+    .bg-roma-black { background-color: #09090b; }
+    .bg-roma-dark { background-color: #111113; }
+    .bg-roma-card { background-color: #16161a; }
+    .border-roma-border { border-color: #27272a; }
+    .text-roma-gold { color: #d4af37; }
+    .text-roma-goldLight { color: #f3e5ab; }
+    .border-roma-gold { border-color: #d4af37; }
+    .bg-roma-gold { background-color: #d4af37; }
+    .text-roma-turf { color: #22c55e; }
+    .bg-roma-turf { background-color: #22c55e; }
+    .bg-roma-turfDark { background-color: #16a34a; }
+    .font-display { font-family: 'Oswald', sans-serif; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+    .font-script { font-family: 'Caveat', cursive; }
+
+    .bg-gold-gradient {
+      background-image: linear-gradient(135deg, #aa8222 0%, #f3e5ab 45%, #d4af37 75%, #8a6614 100%);
+    }
+
+    .bg-turf-glow {
+      background-image: radial-gradient(circle at center, rgba(34, 197, 94, 0.18) 0%, transparent 70%);
+    }
+
+    .bg-gold-glow {
+      background-image: radial-gradient(circle at center, rgba(212, 175, 55, 0.16) 0%, transparent 70%);
     }
 
     /* Textura y degradado dorado metálico */
     .text-gold-metallic {
       background: linear-gradient(180deg, #fff3c4 0%, #e6c25b 45%, #b68920 100%);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -98,7 +147,6 @@
       background-image:
         linear-gradient(90deg, rgba(9,9,11,0.97) 0%, rgba(9,9,11,0.88) 48%, rgba(9,9,11,0.45) 100%),
         linear-gradient(180deg, rgba(9,9,11,0.65) 0%, rgba(9,9,11,0.2) 50%, rgba(9,9,11,1) 100%),
-        url('image_b835b9.jpg'),
         url('https://images.unsplash.com/photo-1518605368461-1ee7e33f2e86?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center right;
@@ -238,44 +286,44 @@
     <svg viewBox="0 0 240 240" class="w-full h-full p-1.5" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="romaGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#f3e5ab"/>
-          <stop offset="50%" stop-color="#d4af37"/>
-          <stop offset="100%" stop-color="#8a6614"/>
+          <stop offset="0%" stop-color="#f3e5ab" />
+          <stop offset="50%" stop-color="#d4af37" />
+          <stop offset="100%" stop-color="#8a6614" />
         </linearGradient>
       </defs>
-      <circle cx="120" cy="120" r="112" fill="#09090b" stroke="url(#romaGoldGrad)" stroke-width="2.5"/>
-      <circle cx="120" cy="120" r="102" fill="none" stroke="url(#romaGoldGrad)" stroke-width="0.8" stroke-dasharray="4 3"/>
-      <path d="M52 145 C36 115, 42 75, 68 52" fill="none" stroke="url(#romaGoldGrad)" stroke-width="3" stroke-linecap="round"/>
-      <path d="M188 145 C204 115, 198 75, 172 52" fill="none" stroke="url(#romaGoldGrad)" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="120" cy="120" r="112" fill="#09090b" stroke="url(#romaGoldGrad)" stroke-width="2.5" />
+      <circle cx="120" cy="120" r="102" fill="none" stroke="url(#romaGoldGrad)" stroke-width="0.8" stroke-dasharray="4 3" />
+      <path d="M52 145 C36 115, 42 75, 68 52" fill="none" stroke="url(#romaGoldGrad)" stroke-width="3" stroke-linecap="round" />
+      <path d="M188 145 C204 115, 198 75, 172 52" fill="none" stroke="url(#romaGoldGrad)" stroke-width="3" stroke-linecap="round" />
       <g fill="url(#romaGoldGrad)">
-        <ellipse cx="44" cy="125" rx="7" ry="3.5" transform="rotate(-35 44 125)"/>
-        <ellipse cx="41" cy="105" rx="7" ry="3.5" transform="rotate(-20 41 105)"/>
-        <ellipse cx="45" cy="85" rx="7" ry="3.5" transform="rotate(10 45 85)"/>
-        <ellipse cx="55" cy="67" rx="7" ry="3.5" transform="rotate(35 55 67)"/>
-        <ellipse cx="196" cy="125" rx="7" ry="3.5" transform="rotate(35 196 125)"/>
-        <ellipse cx="199" cy="105" rx="7" ry="3.5" transform="rotate(20 199 105)"/>
-        <ellipse cx="195" cy="85" rx="7" ry="3.5" transform="rotate(-10 195 85)"/>
-        <ellipse cx="185" cy="67" rx="7" ry="3.5" transform="rotate(-35 185 67)"/>
+        <ellipse cx="44" cy="125" rx="7" ry="3.5" transform="rotate(-35 44 125)" />
+        <ellipse cx="41" cy="105" rx="7" ry="3.5" transform="rotate(-20 41 105)" />
+        <ellipse cx="45" cy="85" rx="7" ry="3.5" transform="rotate(10 45 85)" />
+        <ellipse cx="55" cy="67" rx="7" ry="3.5" transform="rotate(35 55 67)" />
+        <ellipse cx="196" cy="125" rx="7" ry="3.5" transform="rotate(35 196 125)" />
+        <ellipse cx="199" cy="105" rx="7" ry="3.5" transform="rotate(20 199 105)" />
+        <ellipse cx="195" cy="85" rx="7" ry="3.5" transform="rotate(-10 195 85)" />
+        <ellipse cx="185" cy="67" rx="7" ry="3.5" transform="rotate(-35 185 67)" />
       </g>
-      <circle cx="120" cy="46" r="13" fill="#111113" stroke="url(#romaGoldGrad)" stroke-width="2"/>
-      <polygon points="120,39 126,44 124,51 116,51 114,44" fill="url(#romaGoldGrad)"/>
-      <path d="M72 128 L72 86 L98 78 L122 88 L168 94 L168 128 Z" fill="none" stroke="url(#romaGoldGrad)" stroke-width="2.2" stroke-linejoin="round"/>
-      <line x1="66" y1="128" x2="174" y2="128" stroke="url(#romaGoldGrad)" stroke-width="2.5"/>
+      <circle cx="120" cy="46" r="13" fill="#111113" stroke="url(#romaGoldGrad)" stroke-width="2" />
+      <polygon points="120,39 126,44 124,51 116,51 114,44" fill="url(#romaGoldGrad)" />
+      <path d="M72 128 L72 86 L98 78 L122 88 L168 94 L168 128 Z" fill="none" stroke="url(#romaGoldGrad)" stroke-width="2.2" stroke-linejoin="round" />
+      <line x1="66" y1="128" x2="174" y2="128" stroke="url(#romaGoldGrad)" stroke-width="2.5" />
       <g fill="url(#romaGoldGrad)">
-        <rect x="80" y="92" width="6" height="10" rx="3"/>
-        <rect x="91" y="90" width="6" height="12" rx="3"/>
-        <rect x="102" y="93" width="6" height="9" rx="3"/>
-        <rect x="80" y="110" width="6" height="14" rx="3"/>
-        <rect x="91" y="110" width="6" height="14" rx="3"/>
-        <rect x="102" y="110" width="6" height="14" rx="3"/>
-        <rect x="115" y="110" width="6" height="14" rx="3"/>
-        <rect x="128" y="110" width="6" height="14" rx="3"/>
-        <rect x="141" y="110" width="6" height="14" rx="3"/>
-        <rect x="154" y="110" width="6" height="14" rx="3"/>
+        <rect x="80" y="92" width="6" height="10" rx="3" />
+        <rect x="91" y="90" width="6" height="12" rx="3" />
+        <rect x="102" y="93" width="6" height="9" rx="3" />
+        <rect x="80" y="110" width="6" height="14" rx="3" />
+        <rect x="91" y="110" width="6" height="14" rx="3" />
+        <rect x="102" y="110" width="6" height="14" rx="3" />
+        <rect x="115" y="110" width="6" height="14" rx="3" />
+        <rect x="128" y="110" width="6" height="14" rx="3" />
+        <rect x="141" y="110" width="6" height="14" rx="3" />
+        <rect x="154" y="110" width="6" height="14" rx="3" />
       </g>
       <text x="120" y="148" text-anchor="middle" fill="#f3e5ab" font-family="Oswald, sans-serif" font-size="9" letter-spacing="2.2" font-weight="600">COMPLEJO DEPORTIVO</text>
       <text x="120" y="182" text-anchor="middle" fill="url(#romaGoldGrad)" font-family="Cinzel, serif" font-size="34" letter-spacing="4" font-weight="800">ROMA</text>
-      <line x1="65" y1="191" x2="175" y2="191" stroke="url(#romaGoldGrad)" stroke-width="1.5"/>
+      <line x1="65" y1="191" x2="175" y2="191" stroke="url(#romaGoldGrad)" stroke-width="1.5" />
     </svg>
   </template>
 
@@ -442,7 +490,7 @@
               </div>
               <div class="flex items-center justify-between text-sm">
                 <span class="text-zinc-400"><i class="fa-solid fa-clock text-roma-turf mr-2"></i>Horario</span>
-                <span class="font-semibold text-white">10:00 a 00:00 hrs</span>
+                <span class="font-semibold text-white">10:00 a 23:00 hrs</span>
               </div>
             </div>
 
@@ -833,8 +881,8 @@
                 <label for="hours-scroll-select" class="block font-display font-bold text-base uppercase tracking-wider text-white">
                   <i class="fa-solid fa-hourglass-half text-roma-gold mr-1.5"></i> Cantidad de Horas a Utilizar
                 </label>
-                <p class="text-xs text-zinc-400 mt-0.5">
-                  Elige cuántas horas utilizarás. Si el rango topa con una hora reservada o temporal, te avisaremos de inmediato.
+                <p id="hours-scroll-hint" class="text-xs text-zinc-400 mt-0.5">
+                  Elige cuántas horas utilizarás (tope diario 23:00 hrs). Si eliges más horas que las restantes del día, solo se considerarán las correspondientes hasta las 23:00 hrs.
                 </p>
               </div>
               <div class="sm:w-52 flex-shrink-0">
@@ -1479,12 +1527,59 @@
        LÓGICA JAVASCRIPT DINÁMICA
   ========================================================== -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('current-year').textContent = new Date().getFullYear();
+    function initRomaApp() {
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      // Almacenamiento seguro (con fallback en memoria si el entorno restringe storage)
+      const memoryStorage = {};
+      const safeStorage = {
+        getItem(key) {
+          try {
+            return window.localStorage.getItem(key);
+          } catch (err) {
+            return Object.prototype.hasOwnProperty.call(memoryStorage, key) ? memoryStorage[key] : null;
+          }
+        },
+        setItem(key, value) {
+          try {
+            window.localStorage.setItem(key, value);
+          } catch (err) {
+            memoryStorage[key] = String(value);
+          }
+        }
+      };
+
+      const safeSession = {
+        getItem(key) {
+          try {
+            return window.sessionStorage.getItem(key);
+          } catch (err) {
+            return Object.prototype.hasOwnProperty.call(memoryStorage, 'sess_' + key) ? memoryStorage['sess_' + key] : null;
+          }
+        },
+        setItem(key, value) {
+          try {
+            window.sessionStorage.setItem(key, value);
+          } catch (err) {
+            memoryStorage['sess_' + key] = String(value);
+          }
+        },
+        removeItem(key) {
+          try {
+            window.sessionStorage.removeItem(key);
+          } catch (err) {
+            delete memoryStorage['sess_' + key];
+          }
+        }
+      };
 
       // Generar partículas doradas sutiles en el Hero
       const particlesContainer = document.getElementById('hero-particles');
       if (particlesContainer) {
+        particlesContainer.innerHTML = '';
         for (let i = 0; i < 18; i++) {
           const dot = document.createElement('span');
           const size = Math.random() * 3 + 2;
@@ -1521,46 +1616,49 @@
       ];
 
       const courtsGrid = document.getElementById('courts-grid');
-      courtsData.forEach(court => {
-        const card = document.createElement('div');
-        card.className = 'glow-card rounded-3xl bg-roma-card border border-zinc-800 hover:border-roma-gold/50 p-6 flex flex-col justify-between group';
-        card.innerHTML = `
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-roma-turf/15 text-roma-turf border border-roma-turf/30">
-                ${court.badge}
-              </span>
-              <span class="text-xs font-semibold text-roma-gold">
-                <i class="fa-solid fa-circle-check mr-1"></i>Operativa
-              </span>
-            </div>
-
-            <div class="h-28 rounded-2xl bg-gradient-to-br from-emerald-950/80 via-zinc-900 to-zinc-950 border border-emerald-500/20 mb-4 relative overflow-hidden flex items-center justify-center">
-              <div class="w-4/5 h-4/5 border border-emerald-400/25 rounded-lg relative flex items-center justify-center">
-                <div class="w-px h-full bg-emerald-400/25"></div>
-                <div class="w-10 h-10 rounded-full border border-emerald-400/25 absolute"></div>
+      if (courtsGrid) {
+        courtsGrid.innerHTML = '';
+        courtsData.forEach(court => {
+          const card = document.createElement('div');
+          card.className = 'glow-card rounded-3xl bg-roma-card border border-zinc-800 hover:border-roma-gold/50 p-6 flex flex-col justify-between group';
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-roma-turf/15 text-roma-turf border border-roma-turf/30">
+                  ${court.badge}
+                </span>
+                <span class="text-xs font-semibold text-roma-gold">
+                  <i class="fa-solid fa-circle-check mr-1"></i>Operativa
+                </span>
               </div>
-              <span class="absolute font-display font-bold text-3xl tracking-wider text-white/90 drop-shadow">
-                ${court.id.toUpperCase()}
-              </span>
+
+              <div class="h-28 rounded-2xl bg-gradient-to-br from-emerald-950/80 via-zinc-900 to-zinc-950 border border-emerald-500/20 mb-4 relative overflow-hidden flex items-center justify-center">
+                <div class="w-4/5 h-4/5 border border-emerald-400/25 rounded-lg relative flex items-center justify-center">
+                  <div class="w-px h-full bg-emerald-400/25"></div>
+                  <div class="w-10 h-10 rounded-full border border-emerald-400/25 absolute"></div>
+                </div>
+                <span class="absolute font-display font-bold text-3xl tracking-wider text-white/90 drop-shadow">
+                  ${court.id.toUpperCase()}
+                </span>
+              </div>
+
+              <h3 class="font-display font-bold text-2xl uppercase text-white">${court.name}</h3>
+              <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">${court.desc}</p>
+
+              <div class="mt-4 pt-3 border-t border-zinc-800/80 flex flex-wrap gap-3 text-xs text-zinc-300">
+                <span><i class="fa-solid fa-users text-roma-gold mr-1"></i>${court.type}</span>
+                <span><i class="fa-solid fa-bolt text-roma-turf mr-1"></i>${court.lighting}</span>
+              </div>
             </div>
 
-            <h3 class="font-display font-bold text-2xl uppercase text-white">${court.name}</h3>
-            <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">${court.desc}</p>
-
-            <div class="mt-4 pt-3 border-t border-zinc-800/80 flex flex-wrap gap-3 text-xs text-zinc-300">
-              <span><i class="fa-solid fa-users text-roma-gold mr-1"></i>${court.type}</span>
-              <span><i class="fa-solid fa-bolt text-roma-turf mr-1"></i>${court.lighting}</span>
-            </div>
-          </div>
-
-          <button type="button" onclick="selectCourtAndScroll('${court.id}')"
-                  class="mt-5 w-full py-3 rounded-xl bg-zinc-900 group-hover:bg-gold-gradient group-hover:text-black border border-zinc-700 group-hover:border-transparent text-white font-display font-bold uppercase tracking-wider text-sm transition-all">
-            Reservar ${court.id}
-          </button>
-        `;
-        courtsGrid.appendChild(card);
-      });
+            <button type="button" onclick="selectCourtAndScroll('${court.id}')"
+                    class="mt-5 w-full py-3 rounded-xl bg-zinc-900 group-hover:bg-gold-gradient group-hover:text-black border border-zinc-700 group-hover:border-transparent text-white font-display font-bold uppercase tracking-wider text-sm transition-all">
+              Reservar ${court.id}
+            </button>
+          `;
+          courtsGrid.appendChild(card);
+        });
+      }
 
       // -------------------------------------------------------
       // 2. PERSISTENCIA Y DATOS INICIALES (ORDEN DE LLEGADA + ESTADOS)
@@ -1582,7 +1680,7 @@
       const tomorrowStr = tomorrowDate.toISOString().split('T')[0];
 
       let allBookings = [];
-      const rawSaved = localStorage.getItem(STORAGE_KEY);
+      const rawSaved = safeStorage.getItem(STORAGE_KEY);
       if (rawSaved === null) {
         allBookings = [
           {
@@ -1634,7 +1732,7 @@
             createdTimestamp: Date.now() - 86400000
           }
         ];
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(allBookings));
+        safeStorage.setItem(STORAGE_KEY, JSON.stringify(allBookings));
       } else {
         try {
           allBookings = JSON.parse(rawSaved) || [];
@@ -1650,21 +1748,23 @@
 
       let myClientBookingIds = [];
       try {
-        myClientBookingIds = JSON.parse(localStorage.getItem(CLIENT_IDS_KEY) || '[]') || [];
+        myClientBookingIds = JSON.parse(safeStorage.getItem(CLIENT_IDS_KEY) || '[]') || [];
       } catch (err) {
         myClientBookingIds = [];
       }
 
       function persistBookings() {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(allBookings));
+        safeStorage.setItem(STORAGE_KEY, JSON.stringify(allBookings));
       }
 
       // -------------------------------------------------------
-      // 3. ESTADO ÚNICO DELIMITADO ENTRE SECCIONES Y LÓGICA DE BLOQUEO
+      // 3. ESTADO ÚNICO DELIMITADO ENTRE SECCIONES Y TOPE DIARIO 23:00 HRS
       // -------------------------------------------------------
       const dateInput = document.getElementById('booking-date');
-      dateInput.value = todayStr;
-      dateInput.min = todayStr;
+      if (dateInput) {
+        dateInput.value = todayStr;
+        dateInput.min = todayStr;
+      }
 
       const hoursSelect = document.getElementById('hours-scroll-select');
       const collisionAlertEl = document.getElementById('hours-collision-alert');
@@ -1706,7 +1806,38 @@
         );
       }
 
+      // Devuelve el máximo de bloques de 1 hora que caben en el día desde startTime hasta las 23:00 hrs (cierre 00:00 hrs)
+      function getMaxDailyHoursFromTime(startTime) {
+        if (!startTime) return timeSlots.length;
+        const startIdx = timeSlots.indexOf(startTime);
+        if (startIdx === -1) return 1;
+        return Math.max(1, timeSlots.length - startIdx);
+      }
+
+      // Ajusta la duración solicitada para no superar las horas restantes del día hasta las 23:00 hrs
+      function clampDurationToDailyCutoff(startTime, requestedDuration) {
+        const safeRequested = Math.max(1, parseInt(requestedDuration, 10) || 1);
+        const maxDailyHours = getMaxDailyHoursFromTime(startTime);
+        const effectiveDuration = Math.min(safeRequested, maxDailyHours);
+        return {
+          effectiveDuration,
+          wasCapped: Boolean(startTime) && safeRequested > maxDailyHours,
+          maxDailyHours
+        };
+      }
+
       function syncHoursSelectUI() {
+        const hintEl = document.getElementById('hours-scroll-hint');
+        if (state.time) {
+          const { effectiveDuration, maxDailyHours } = clampDurationToDailyCutoff(state.time, state.duration);
+          state.duration = effectiveDuration;
+          if (hintEl) {
+            hintEl.textContent = `Desde las ${state.time} hrs el tope diario es hasta las 23:00 hrs (máximo ${maxDailyHours} hora${maxDailyHours > 1 ? 's' : ''} en el día). Se considerarán ${effectiveDuration} hora${effectiveDuration > 1 ? 's' : ''}.`;
+          }
+        } else if (hintEl) {
+          hintEl.textContent = 'Elige cuántas horas utilizarás (tope diario 23:00 hrs). Si eliges más horas que las restantes del día, solo se considerarán las correspondientes hasta las 23:00 hrs.';
+        }
+
         if (hoursSelect) {
           hoursSelect.value = String(state.duration);
         }
@@ -1791,8 +1922,9 @@
         const startIdx = timeSlots.indexOf(startTime);
         if (startIdx === -1) return 'AVAILABLE';
 
-        const endIdx = Math.min(startIdx + duration - 1, timeSlots.length - 1);
-        const targetResources = expandTargetResources(resourceName, dateStr, startTime, duration);
+        const { effectiveDuration } = clampDurationToDailyCutoff(startTime, duration);
+        const endIdx = Math.min(startIdx + effectiveDuration - 1, timeSlots.length - 1);
+        const targetResources = expandTargetResources(resourceName, dateStr, startTime, effectiveDuration);
         const cleanTargetList = targetResources.map(r => String(r || '').replace(/\s*\(Evento\)$/i, '').trim());
 
         const orderedBookings = [...allBookings]
@@ -1889,7 +2021,8 @@
           return { ok: false, reason: 'Horario inválido.' };
         }
 
-        const endIdx = Math.min(startIdx + duration - 1, timeSlots.length - 1);
+        const { effectiveDuration } = clampDurationToDailyCutoff(startTime, duration);
+        const endIdx = Math.min(startIdx + effectiveDuration - 1, timeSlots.length - 1);
         for (let i = startIdx; i <= endIdx; i++) {
           const checkTime = timeSlots[i];
           const existing = getExactHourBooking(court, date, checkTime);
@@ -1901,12 +2034,12 @@
               ok: false,
               collisionTime: checkTime,
               booking: existing,
-              reason: `No se puede seleccionar ${duration} hora${duration > 1 ? 's' : ''} desde las ${startTime} hrs porque topa con el horario de las ${checkTime} hrs (${estadoTexto} en ${existing.court || court}).`
+              reason: `No se puede seleccionar ${effectiveDuration} hora${effectiveDuration > 1 ? 's' : ''} desde las ${startTime} hrs porque topa con el horario de las ${checkTime} hrs (${estadoTexto} en ${existing.court || court}).`
             };
           }
         }
 
-        return { ok: true };
+        return { ok: true, effectiveDuration };
       }
 
       function setCollisionAlert(message) {
@@ -1925,12 +2058,24 @@
         state.time = targetTime;
         state.selectedAt = targetTime ? Date.now() : null;
 
+        if (targetTime) {
+          const { effectiveDuration, wasCapped, maxDailyHours } = clampDurationToDailyCutoff(targetTime, state.duration);
+          state.duration = effectiveDuration;
+          if (wasCapped) {
+            showToast(
+              `Tope del día a las 23:00 hrs: desde las ${targetTime} hrs solo se considera ${maxDailyHours} hora${maxDailyHours > 1 ? 's' : ''}.`,
+              'info'
+            );
+          }
+        }
+
         const courtSelect = document.getElementById('court-select');
         if (courtSelect && courtSelect.value !== targetCourt) {
           courtSelect.value = targetCourt;
         }
 
         setCollisionAlert('');
+        syncHoursSelectUI();
         renderTimeSlots();
         updateSummary();
         updateEventFallbackBanner();
@@ -1995,6 +2140,7 @@
 
       function renderTimeSlots() {
         const grid = document.getElementById('time-slots-grid');
+        if (!grid) return;
         grid.innerHTML = '';
 
         const targetLabelEl = document.getElementById('slot-grid-target-label');
@@ -2025,7 +2171,9 @@
         }
 
         if (state.time) {
-          const check = checkRangeCollision(state.court, state.date, state.time, state.duration);
+          const { effectiveDuration } = clampDurationToDailyCutoff(state.time, state.duration);
+          state.duration = effectiveDuration;
+          const check = checkRangeCollision(state.court, state.date, state.time, effectiveDuration);
           if (!check.ok) {
             setCollisionAlert(check.reason);
             state.time = null;
@@ -2067,6 +2215,7 @@
               state.time = null;
               state.selectedAt = null;
               setCollisionAlert('');
+              syncHoursSelectUI();
               renderTimeSlots();
               updateSummary();
               updateEventFallbackBanner();
@@ -2075,7 +2224,8 @@
             btn.className = 'py-3 px-2 rounded-xl bg-zinc-900 hover:bg-roma-turf/15 border border-zinc-800 hover:border-roma-turf text-white text-xs font-semibold transition-all flex flex-col items-center';
             btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-roma-turf mt-0.5">Disponible</span>`;
             btn.addEventListener('click', () => {
-              const validation = checkRangeCollision(state.court, state.date, time, state.duration);
+              const { effectiveDuration } = clampDurationToDailyCutoff(time, state.duration);
+              const validation = checkRangeCollision(state.court, state.date, time, effectiveDuration);
               if (!validation.ok) {
                 setCollisionAlert(validation.reason);
                 showToast(validation.reason, 'error');
@@ -2160,37 +2310,51 @@
         const hourNum = state.time ? parseInt(state.time.split(':')[0], 10) : 19;
         const rateObj = baseRates[state.service] || baseRates['Arriendo de Cancha'];
         const unitPrice = hourNum >= 18 ? rateObj.night : rateObj.day;
+        const effectiveDuration = state.time
+          ? clampDurationToDailyCutoff(state.time, state.duration).effectiveDuration
+          : state.duration;
         let multiplier = 1;
         if (state.court === 'Todas las Canchas') multiplier = 4;
         else if (state.court === EVENT_SPACE || state.court === 'Cancha para Evento (Respaldo)') multiplier = 1.25;
         else if (state.court === 'Espacio de Eventos + Cancha') multiplier = 1.65;
-        return Math.round((unitPrice * state.duration * multiplier) / 500) * 500;
+        return Math.round((unitPrice * effectiveDuration * multiplier) / 500) * 500;
       }
 
       function updateSummary() {
-        document.getElementById('summary-service').textContent = state.service;
+        const serviceEl = document.getElementById('summary-service');
+        const courtEl = document.getElementById('summary-court');
+        const dateSummaryEl = document.getElementById('summary-date');
+        const timeEl = document.getElementById('summary-time');
+        const priceEl = document.getElementById('summary-price');
+
+        if (serviceEl) serviceEl.textContent = state.service;
         const effectiveCourt = state.time
           ? resolveEffectiveCourt(state.court, state.date, state.time, state.duration)
           : state.court;
-        document.getElementById('summary-court').textContent = effectiveCourt;
+        if (courtEl) courtEl.textContent = effectiveCourt;
 
         const [y, m, d] = state.date.split('-');
-        document.getElementById('summary-date').textContent = `${d}/${m}/${y}`;
+        if (dateSummaryEl) dateSummaryEl.textContent = `${d}/${m}/${y}`;
 
-        const durationLabel = `${state.duration} hr${state.duration > 1 ? 's' : ''}`;
         if (state.time) {
+          const { effectiveDuration } = clampDurationToDailyCutoff(state.time, state.duration);
+          state.duration = effectiveDuration;
+          const durationLabel = `${effectiveDuration} hr${effectiveDuration > 1 ? 's' : ''}`;
           const startHour = parseInt(state.time.split(':')[0], 10);
-          const endHour = startHour + state.duration;
-          const endLabel = endHour >= 24 ? `${String(endHour - 24).padStart(2, '0')}:00 (día sig.)` : `${String(endHour).padStart(2, '0')}:00`;
-          document.getElementById('summary-time').textContent = `${state.time} a ${endLabel} hrs (${durationLabel})`;
+          const endHour = Math.min(startHour + effectiveDuration, 24);
+          const endLabel = `${String(endHour).padStart(2, '0')}:00`;
+          if (timeEl) timeEl.textContent = `${state.time} a ${endLabel} hrs (${durationLabel})`;
         } else {
-          document.getElementById('summary-time').textContent = `Selecciona un horario (${durationLabel})`;
+          const durationLabel = `${state.duration} hr${state.duration > 1 ? 's' : ''}`;
+          if (timeEl) timeEl.textContent = `Selecciona un horario (${durationLabel})`;
         }
 
         const total = calculateCurrentAmount();
-        document.getElementById('summary-price').textContent = state.service === 'Arriendo de Cancha'
-          ? formatCLP(total)
-          : `Desde ${formatCLP(total)}`;
+        if (priceEl) {
+          priceEl.textContent = state.service === 'Arriendo de Cancha'
+            ? formatCLP(total)
+            : `Desde ${formatCLP(total)}`;
+        }
       }
 
       const notesTextarea = document.getElementById('client-notes');
@@ -2210,7 +2374,7 @@
       }
 
       function resetBookingFormAfterSubmit() {
-        document.getElementById('booking-form').reset();
+        document.getElementById('booking-form')?.reset();
         state.time = null;
         state.selectedAt = null;
         setCollisionAlert('');
@@ -2234,6 +2398,7 @@
           }
         });
         setCollisionAlert('');
+        syncHoursSelectUI();
         renderTimeSlots();
         updateSummary();
         updateEventFallbackBanner();
@@ -2245,36 +2410,51 @@
 
       if (hoursSelect) {
         hoursSelect.addEventListener('change', (e) => {
-          const newDur = Math.max(1, parseInt(e.target.value, 10) || 1);
+          const requestedDur = Math.max(1, parseInt(e.target.value, 10) || 1);
+          const { effectiveDuration, wasCapped, maxDailyHours } = state.time
+            ? clampDurationToDailyCutoff(state.time, requestedDur)
+            : { effectiveDuration: requestedDur, wasCapped: false, maxDailyHours: timeSlots.length };
+
           if (state.time) {
-            const check = checkRangeCollision(state.court, state.date, state.time, newDur);
+            const check = checkRangeCollision(state.court, state.date, state.time, effectiveDuration);
             if (!check.ok) {
               setCollisionAlert(check.reason);
               showToast(check.reason, 'error');
-              state.duration = newDur;
+              state.duration = effectiveDuration;
+              syncHoursSelectUI();
               renderTimeSlots();
               updateSummary();
               updateEventFallbackBanner();
               return;
             }
           }
+
           setCollisionAlert('');
-          state.duration = newDur;
+          state.duration = effectiveDuration;
+          syncHoursSelectUI();
           renderTimeSlots();
           updateSummary();
           updateEventFallbackBanner();
+
+          if (wasCapped) {
+            showToast(
+              `Solo se considerará ${maxDailyHours} hora${maxDailyHours > 1 ? 's' : ''} (tope hasta las 23:00 hrs del día).`,
+              'info'
+            );
+          }
         });
       }
 
-      document.getElementById('court-select').addEventListener('change', (e) => {
+      document.getElementById('court-select')?.addEventListener('change', (e) => {
         setSingleSelection(e.target.value, null);
       });
 
-      dateInput.addEventListener('change', (e) => {
+      dateInput?.addEventListener('change', (e) => {
         state.date = e.target.value || todayStr;
         state.time = null;
         state.selectedAt = null;
         setCollisionAlert('');
+        syncHoursSelectUI();
         renderTimeSlots();
         updateSummary();
         updateEventFallbackBanner();
@@ -2288,18 +2468,19 @@
           if (evBooking) {
             const freeCourt = findAvailableCourtForEvent(state.date, checkSlot, 1);
             state.court = freeCourt || EVENT_SPACE;
-            document.getElementById('court-select').value = state.court;
+            const courtSel = document.getElementById('court-select');
+            if (courtSel) courtSel.value = state.court;
             renderTimeSlots();
             updateSummary();
           }
         }
-        document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('agendar')?.scrollIntoView({ behavior: 'smooth' });
         showToast(`Servicio "${serviceName}" seleccionado. Selección única habilitada.`, 'info');
       };
 
       window.selectCourtAndScroll = (courtName) => {
         setSingleSelection(courtName, null);
-        document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('agendar')?.scrollIntoView({ behavior: 'smooth' });
         showToast(`${courtName} seleccionada. Escoge cantidad de horas y horario.`, 'info');
       };
 
@@ -2324,7 +2505,7 @@
         } else {
           setSingleSelection(EVENT_SPACE, null, 'Espacio de Eventos seleccionado como selección única.');
         }
-        document.getElementById('agendar').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('agendar')?.scrollIntoView({ behavior: 'smooth' });
       };
 
       window.copyLocationLink = () => {
@@ -2353,7 +2534,7 @@
       // -------------------------------------------------------
       function syncLatestBookingsFromStorage() {
         try {
-          const latest = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+          const latest = JSON.parse(safeStorage.getItem(STORAGE_KEY) || '[]');
           if (Array.isArray(latest) && latest.length > 0) {
             allBookings = latest;
           }
@@ -2367,10 +2548,10 @@
           setBookingSubmittingUI(false);
         }
 
-        const name = document.getElementById('client-name').value.trim();
-        const phone = document.getElementById('client-phone').value.trim();
-        const email = document.getElementById('client-email').value.trim();
-        const notes = document.getElementById('client-notes').value.trim().slice(0, 300);
+        const name = (document.getElementById('client-name')?.value || '').trim();
+        const phone = (document.getElementById('client-phone')?.value || '').trim();
+        const email = (document.getElementById('client-email')?.value || '').trim();
+        const notes = (document.getElementById('client-notes')?.value || '').trim().slice(0, 300);
 
         if (!state.time) {
           showToast('Selecciona un horario disponible en el paso 4.', 'error');
@@ -2381,6 +2562,9 @@
           return null;
         }
 
+        const { effectiveDuration } = clampDurationToDailyCutoff(state.time, state.duration);
+        state.duration = effectiveDuration;
+
         isSubmittingBooking = true;
         setBookingSubmittingUI(true, 'local');
 
@@ -2389,7 +2573,7 @@
 
           syncLatestBookingsFromStorage();
 
-          const check = checkRangeCollision(state.court, state.date, state.time, state.duration);
+          const check = checkRangeCollision(state.court, state.date, state.time, effectiveDuration);
           if (!check.ok) {
             setCollisionAlert(check.reason);
             showToast(`Otro registro tomó o reservó primero este horario: ${check.reason}`, 'error');
@@ -2399,7 +2583,7 @@
           }
 
           setCollisionAlert('');
-          const effectiveCourt = resolveEffectiveCourt(state.court, state.date, state.time, state.duration);
+          const effectiveCourt = resolveEffectiveCourt(state.court, state.date, state.time, effectiveDuration);
           const arrivalTimestamp = state.selectedAt || Date.now();
 
           const booking = {
@@ -2408,7 +2592,7 @@
             court: effectiveCourt,
             date: state.date,
             time: state.time,
-            duration: state.duration,
+            duration: effectiveDuration,
             amount: calculateCurrentAmount(),
             status: 'TEMPORAL',
             name,
@@ -2424,7 +2608,7 @@
           persistBookings();
 
           myClientBookingIds.unshift(booking.id);
-          localStorage.setItem(CLIENT_IDS_KEY, JSON.stringify(myClientBookingIds));
+          safeStorage.setItem(CLIENT_IDS_KEY, JSON.stringify(myClientBookingIds));
 
           updateClientBookingsUI();
           renderTimeSlots();
@@ -2438,7 +2622,7 @@
         }
       }
 
-      document.getElementById('btn-save-local').addEventListener('click', async () => {
+      document.getElementById('btn-save-local')?.addEventListener('click', async () => {
         const booking = await createClientTemporalBookingWithPriority();
         if (booking) {
           showToast(`Reserva Temporal ${booking.id} registrada en ${booking.court} (${booking.duration} hr${booking.duration > 1 ? 's' : ''}). Envía tu comprobante por WhatsApp para confirmarla.`, 'warning');
@@ -2446,7 +2630,7 @@
         }
       });
 
-      document.getElementById('booking-form').addEventListener('submit', async (e) => {
+      document.getElementById('booking-form')?.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (isSubmittingBooking) {
           isSubmittingBooking = false;
@@ -2506,6 +2690,7 @@
       const listContainer = document.getElementById('saved-bookings-list');
 
       function updateClientBookingsUI() {
+        if (!countSpan || !listContainer) return;
         const clientBookings = allBookings.filter(b => myClientBookingIds.includes(b.id));
         countSpan.textContent = clientBookings.length;
 
@@ -2541,28 +2726,28 @@
         }).join('');
       }
 
-      document.getElementById('view-my-bookings-btn').addEventListener('click', () => {
+      document.getElementById('view-my-bookings-btn')?.addEventListener('click', () => {
         updateClientBookingsUI();
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
+        modal?.classList.remove('hidden');
+        modal?.classList.add('flex');
       });
 
       const closeModal = () => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        modal?.classList.add('hidden');
+        modal?.classList.remove('flex');
       };
-      document.getElementById('close-modal-btn').addEventListener('click', closeModal);
-      document.getElementById('close-modal-footer-btn').addEventListener('click', closeModal);
-      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+      document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
+      document.getElementById('close-modal-footer-btn')?.addEventListener('click', closeModal);
+      modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
       // -------------------------------------------------------
       // 6. PANEL DE ADMINISTRACIÓN (ACCESO EN CUALQUIER MOMENTO + BLOQUEO DE HORAS)
       // -------------------------------------------------------
-      let isAdminAuthenticated = sessionStorage.getItem(ADMIN_SESSION_KEY) === 'true';
+      let isAdminAuthenticated = safeSession.getItem(ADMIN_SESSION_KEY) === 'true';
       let pendingDeleteId = null;
 
       function getAdminPin() {
-        return localStorage.getItem(ADMIN_PIN_KEY) || '1234';
+        return safeStorage.getItem(ADMIN_PIN_KEY) || '1234';
       }
 
       const adminManualTimeSelect = document.getElementById('admin-m-time');
@@ -2626,40 +2811,37 @@
         populateDurationSelect(adminManualDurationSelect, maxHours, previousValue);
       }
 
-      timeSlots.forEach(t => {
-        const opt = document.createElement('option');
-        opt.value = t;
-        opt.textContent = `${t} hrs`;
-        adminManualTimeSelect.appendChild(opt);
+      if (adminManualTimeSelect && adminQuickBlockTimeSelect) {
+        timeSlots.forEach(t => {
+          const opt = document.createElement('option');
+          opt.value = t;
+          opt.textContent = `${t} hrs`;
+          adminManualTimeSelect.appendChild(opt);
 
-        const qbOpt = document.createElement('option');
-        qbOpt.value = t;
-        qbOpt.textContent = `${t} hrs`;
-        adminQuickBlockTimeSelect.appendChild(qbOpt);
-      });
-      document.getElementById('admin-m-date').value = todayStr;
-      document.getElementById('admin-qb-date').value = todayStr;
+          const qbOpt = document.createElement('option');
+          qbOpt.value = t;
+          qbOpt.textContent = `${t} hrs`;
+          adminQuickBlockTimeSelect.appendChild(qbOpt);
+        });
+      }
+
+      const adminMDateEl = document.getElementById('admin-m-date');
+      if (adminMDateEl) adminMDateEl.value = todayStr;
+      if (adminQuickBlockDateInput) adminQuickBlockDateInput.value = todayStr;
+
       syncQuickBlockDurationOptions();
       syncManualDurationOptions();
 
-      if (adminQuickBlockTimeSelect) {
-        adminQuickBlockTimeSelect.addEventListener('change', syncQuickBlockDurationOptions);
-      }
-      if (adminQuickBlockCourtSelect) {
-        adminQuickBlockCourtSelect.addEventListener('change', syncQuickBlockDurationOptions);
-      }
-      if (adminQuickBlockDateInput) {
-        adminQuickBlockDateInput.addEventListener('change', syncQuickBlockDurationOptions);
-      }
+      adminQuickBlockTimeSelect?.addEventListener('change', syncQuickBlockDurationOptions);
+      adminQuickBlockCourtSelect?.addEventListener('change', syncQuickBlockDurationOptions);
+      adminQuickBlockDateInput?.addEventListener('change', syncQuickBlockDurationOptions);
 
-      if (adminManualTimeSelect) {
-        adminManualTimeSelect.addEventListener('change', syncManualDurationOptions);
-      }
+      adminManualTimeSelect?.addEventListener('change', syncManualDurationOptions);
       document.getElementById('admin-m-court')?.addEventListener('change', syncManualDurationOptions);
       document.getElementById('admin-m-date')?.addEventListener('change', syncManualDurationOptions);
 
       window.toggleAdminPinSettings = () => {
-        document.getElementById('admin-pin-settings-box').classList.toggle('hidden');
+        document.getElementById('admin-pin-settings-box')?.classList.toggle('hidden');
       };
 
       window.toggleAdminManualForm = () => {
@@ -2686,7 +2868,7 @@
       }
 
       window.openAdminAccess = () => {
-        isAdminAuthenticated = sessionStorage.getItem(ADMIN_SESSION_KEY) === 'true' || isAdminAuthenticated;
+        isAdminAuthenticated = safeSession.getItem(ADMIN_SESSION_KEY) === 'true' || isAdminAuthenticated;
         if (isAdminAuthenticated) {
           showAdminDashboardModal();
           return;
@@ -2707,7 +2889,7 @@
 
       window.logoutAdmin = () => {
         isAdminAuthenticated = false;
-        sessionStorage.removeItem(ADMIN_SESSION_KEY);
+        safeSession.removeItem(ADMIN_SESSION_KEY);
         if (adminDashboardModal) {
           adminDashboardModal.classList.add('hidden');
           adminDashboardModal.classList.remove('block');
@@ -2724,7 +2906,7 @@
           return;
         }
         isAdminAuthenticated = true;
-        sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
+        safeSession.setItem(ADMIN_SESSION_KEY, 'true');
         window.closeAdminLoginModal();
         showAdminDashboardModal();
         showToast('Acceso concedido al Panel de Administración.', 'success');
@@ -2751,22 +2933,20 @@
         }
       }
 
-      if (adminQbReasonInput) {
-        adminQbReasonInput.addEventListener('input', syncQuickBlockButtonState);
-      }
+      adminQbReasonInput?.addEventListener('input', syncQuickBlockButtonState);
 
-      document.getElementById('admin-quick-block-form').addEventListener('submit', (e) => {
+      document.getElementById('admin-quick-block-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        const court = document.getElementById('admin-qb-court').value;
-        const date = document.getElementById('admin-qb-date').value || todayStr;
-        const time = document.getElementById('admin-qb-time').value;
-        const duration = Math.max(1, parseInt(document.getElementById('admin-qb-duration').value, 10) || 1);
-        const reason = adminQbReasonInput.value.trim();
+        const court = document.getElementById('admin-qb-court')?.value || 'Cancha 1';
+        const date = document.getElementById('admin-qb-date')?.value || todayStr;
+        const time = document.getElementById('admin-qb-time')?.value || timeSlots[0];
+        const duration = Math.max(1, parseInt(document.getElementById('admin-qb-duration')?.value, 10) || 1);
+        const reason = (adminQbReasonInput?.value || '').trim();
 
         if (!reason) {
           syncQuickBlockButtonState();
           showToast('Debes ingresar el motivo del bloqueo para activar el botón.', 'error');
-          adminQbReasonInput.focus();
+          adminQbReasonInput?.focus();
           return;
         }
 
@@ -2801,35 +2981,37 @@
         renderAdminDashboard();
         syncQuickBlockDurationOptions();
         syncManualDurationOptions();
-        adminQbReasonInput.value = '';
+        if (adminQbReasonInput) adminQbReasonInput.value = '';
         syncQuickBlockButtonState();
         showToast(`Bloqueado ${court} el ${date} desde las ${time} hrs (${duration} hr${duration > 1 ? 's' : ''}) — estado Bloqueada / No disponible.`, 'success');
       });
 
-      document.getElementById('change-pin-form').addEventListener('submit', (e) => {
+      document.getElementById('change-pin-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        const newPin = document.getElementById('new-admin-pin').value.trim();
+        const pinField = document.getElementById('new-admin-pin');
+        const newPin = (pinField?.value || '').trim();
         if (newPin.length < 4) {
           showToast('El PIN debe tener al menos 4 dígitos.', 'error');
           return;
         }
-        localStorage.setItem(ADMIN_PIN_KEY, newPin);
-        document.getElementById('new-admin-pin').value = '';
+        safeStorage.setItem(ADMIN_PIN_KEY, newPin);
+        if (pinField) pinField.value = '';
         toggleAdminPinSettings();
         showToast('PIN de administrador actualizado correctamente.', 'success');
       });
 
-      document.getElementById('admin-manual-form').addEventListener('submit', (e) => {
+      document.getElementById('admin-manual-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        const service = document.getElementById('admin-m-service').value;
-        const court = document.getElementById('admin-m-court').value;
-        const date = document.getElementById('admin-m-date').value;
-        const time = document.getElementById('admin-m-time').value;
-        const duration = parseInt(document.getElementById('admin-m-duration').value, 10);
-        const name = document.getElementById('admin-m-name').value.trim();
-        const phone = document.getElementById('admin-m-phone').value.trim() || 'Registro Interno';
-        const amount = parseInt(document.getElementById('admin-m-amount').value, 10) || 0;
-        const rawStatus = document.getElementById('admin-m-status').value;
+        const service = document.getElementById('admin-m-service')?.value || 'Arriendo de Cancha';
+        const court = document.getElementById('admin-m-court')?.value || 'Cancha 1';
+        const date = document.getElementById('admin-m-date')?.value || todayStr;
+        const time = document.getElementById('admin-m-time')?.value || timeSlots[0];
+        const duration = parseInt(document.getElementById('admin-m-duration')?.value, 10) || 1;
+        const nameInput = document.getElementById('admin-m-name');
+        const name = (nameInput?.value || '').trim();
+        const phone = (document.getElementById('admin-m-phone')?.value || '').trim() || 'Registro Interno';
+        const amount = parseInt(document.getElementById('admin-m-amount')?.value, 10) || 0;
+        const rawStatus = document.getElementById('admin-m-status')?.value || 'CONFIRMADA';
         const isManualBlock = service.toLowerCase().includes('bloqueo');
         const status = isManualBlock ? 'BLOQUEADA' : rawStatus;
 
@@ -2865,7 +3047,7 @@
         renderAdminDashboard();
         syncQuickBlockDurationOptions();
         syncManualDurationOptions();
-        document.getElementById('admin-m-name').value = '';
+        if (nameInput) nameInput.value = '';
         toggleAdminManualForm();
         showToast(`Registro ${newBooking.id} guardado en estado ${status === 'BLOQUEADA' ? 'BLOQUEADA (NO DISPONIBLE)' : status}.`, 'success');
       });
@@ -2899,23 +3081,26 @@
         if (!b) return;
         pendingDeleteId = bookingId;
         const blocked = isAdminBlockedEntry(b);
-        document.getElementById('confirm-delete-desc').innerHTML = `
-          ¿Seguro que deseas ${blocked ? 'levantar el bloqueo' : 'anular la reserva'} <strong class="text-white">${b.id}</strong> de <strong class="text-roma-goldLight">${b.name}</strong> (${b.court} • ${b.date} a las ${b.time} hrs)?<br><br>
-          <span class="text-roma-turf text-xs font-semibold"><i class="fa-solid fa-circle-check mr-1"></i>La cancha o espacio quedará disponible de inmediato para otros clientes.</span>
-        `;
+        const descEl = document.getElementById('confirm-delete-desc');
+        if (descEl) {
+          descEl.innerHTML = `
+            ¿Seguro que deseas ${blocked ? 'levantar el bloqueo' : 'anular la reserva'} <strong class="text-white">${b.id}</strong> de <strong class="text-roma-goldLight">${b.name}</strong> (${b.court} • ${b.date} a las ${b.time} hrs)?<br><br>
+            <span class="text-roma-turf text-xs font-semibold"><i class="fa-solid fa-circle-check mr-1"></i>La cancha o espacio quedará disponible de inmediato para otros clientes.</span>
+          `;
+        }
         const delModal = document.getElementById('confirm-delete-modal');
-        delModal.classList.remove('hidden');
-        delModal.classList.add('flex');
+        delModal?.classList.remove('hidden');
+        delModal?.classList.add('flex');
       };
 
       window.closeDeleteConfirmModal = () => {
         pendingDeleteId = null;
         const delModal = document.getElementById('confirm-delete-modal');
-        delModal.classList.add('hidden');
-        delModal.classList.remove('flex');
+        delModal?.classList.add('hidden');
+        delModal?.classList.remove('flex');
       };
 
-      document.getElementById('confirm-delete-execute-btn').addEventListener('click', () => {
+      document.getElementById('confirm-delete-execute-btn')?.addEventListener('click', () => {
         if (!pendingDeleteId) return;
         const deletedId = pendingDeleteId;
         allBookings = allBookings.filter(b => b.id !== deletedId);
@@ -2933,35 +3118,42 @@
       const adminSearchInput = document.getElementById('admin-search-input');
 
       [adminFilterDate, adminFilterCourt, adminFilterStatus].forEach(el => {
-        el.addEventListener('change', renderAdminDashboard);
+        el?.addEventListener('change', renderAdminDashboard);
       });
-      adminSearchInput.addEventListener('input', renderAdminDashboard);
+      adminSearchInput?.addEventListener('input', renderAdminDashboard);
 
-      document.getElementById('admin-clear-date-btn').addEventListener('click', () => {
-        adminFilterDate.value = '';
+      document.getElementById('admin-clear-date-btn')?.addEventListener('click', () => {
+        if (adminFilterDate) adminFilterDate.value = '';
         renderAdminDashboard();
       });
 
       function renderAdminDashboard() {
+        const container = document.getElementById('admin-bookings-container');
+        if (!container) return;
+
         const totalCount = allBookings.length;
         const temporalCount = allBookings.filter(b => !isAdminBlockedEntry(b) && b.status === 'TEMPORAL').length;
         const blockedCount = allBookings.filter(b => isAdminBlockedEntry(b)).length;
         const confirmedPaidList = allBookings.filter(b => !isAdminBlockedEntry(b) && b.status === 'CONFIRMADA');
         const confirmedRevenue = confirmedPaidList.reduce((sum, b) => sum + (Number(b.amount) || 0), 0);
 
-        document.getElementById('kpi-total').textContent = totalCount;
-        document.getElementById('kpi-temporal').textContent = temporalCount;
-        document.getElementById('kpi-confirmed').textContent = confirmedPaidList.length + blockedCount;
+        const kpiTotal = document.getElementById('kpi-total');
+        const kpiTemporal = document.getElementById('kpi-temporal');
+        const kpiConfirmed = document.getElementById('kpi-confirmed');
+        const kpiRevenue = document.getElementById('kpi-revenue');
+        if (kpiTotal) kpiTotal.textContent = totalCount;
+        if (kpiTemporal) kpiTemporal.textContent = temporalCount;
+        if (kpiConfirmed) kpiConfirmed.textContent = confirmedPaidList.length + blockedCount;
         const subEl = document.getElementById('kpi-confirmed-sub');
         if (subEl) {
           subEl.textContent = `${confirmedPaidList.length} pagadas • ${blockedCount} bloqueos`;
         }
-        document.getElementById('kpi-revenue').textContent = formatCLP(confirmedRevenue);
+        if (kpiRevenue) kpiRevenue.textContent = formatCLP(confirmedRevenue);
 
-        const fDate = adminFilterDate.value;
-        const fCourt = adminFilterCourt.value;
-        const fStatus = adminFilterStatus.value;
-        const fQuery = adminSearchInput.value.trim().toLowerCase();
+        const fDate = adminFilterDate?.value || '';
+        const fCourt = adminFilterCourt?.value || 'ALL';
+        const fStatus = adminFilterStatus?.value || 'ALL';
+        const fQuery = (adminSearchInput?.value || '').trim().toLowerCase();
 
         const filtered = allBookings.filter(b => {
           const isBlocked = isAdminBlockedEntry(b);
@@ -2977,7 +3169,6 @@
           return true;
         });
 
-        const container = document.getElementById('admin-bookings-container');
         if (filtered.length === 0) {
           container.innerHTML = `
             <div class="p-10 rounded-3xl bg-roma-card border border-zinc-800 text-center text-zinc-400">
@@ -3069,7 +3260,8 @@
       const mobileMenu = document.getElementById('mobile-menu');
       const mobileMenuIcon = document.getElementById('mobile-menu-icon');
 
-      mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn?.addEventListener('click', () => {
+        if (!mobileMenu || !mobileMenuIcon) return;
         const isHidden = mobileMenu.classList.contains('hidden');
         mobileMenu.classList.toggle('hidden');
         mobileMenuIcon.className = isHidden ? 'fa-solid fa-xmark text-xl' : 'fa-solid fa-bars text-xl';
@@ -3077,13 +3269,14 @@
 
       document.querySelectorAll('.mobile-link').forEach(link => {
         link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          mobileMenuIcon.className = 'fa-solid fa-bars text-xl';
+          mobileMenu?.classList.add('hidden');
+          if (mobileMenuIcon) mobileMenuIcon.className = 'fa-solid fa-bars text-xl';
         });
       });
 
       function showToast(message, type = 'info') {
         const container = document.getElementById('toast-container');
+        if (!container) return;
         const toast = document.createElement('div');
         const borderClass = type === 'error'
           ? 'border-red-500/60'
@@ -3123,7 +3316,23 @@
       renderTimeSlots();
       updateSummary();
       updateClientBookingsUI();
-    });
+    }
+
+    function runSafeRomaApp() {
+      try {
+        initRomaApp();
+      } catch (err) {
+        if (window.console && typeof window.console.error === 'function') {
+          window.console.error('Error al inicializar Complejo Deportivo ROMA:', err);
+        }
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', runSafeRomaApp, { once: true });
+    } else {
+      runSafeRomaApp();
+    }
   </script>
 </body>
 </html>
