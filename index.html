@@ -1007,71 +1007,8 @@
             <p class="text-[11px] text-zinc-400 leading-relaxed pt-1">
               *Tu reserva quedará <span class="text-amber-300 font-semibold">Temporal</span> hasta confirmar el pago/abono vía WhatsApp.
             </p>
-          </div>
-
-          <form id="booking-form" class="space-y-4">
-            <div>
-              <label for="client-name" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">Nombre y Apellido / Empresa *</label>
-              <input type="text" id="client-name" required placeholder="Ej: Matías González / Empresa SpA"
-                     class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold" />
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label for="client-phone" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">Teléfono / WhatsApp *</label>
-                <input type="tel" id="client-phone" required placeholder="+56 9 1234 5678"
-                       class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold" />
-              </div>
-              <div>
-                <label for="client-email" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">Correo Electrónico</label>
-                <input type="email" id="client-email" placeholder="correo@ejemplo.cl"
-                       class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold" />
-              </div>
-            </div>
-
-            <div>
-              <label for="client-notes" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">Comentarios (Cumpleaños, N° jugadores, petos, etc.)</label>
-              <textarea id="client-notes" rows="2" maxlength="300" placeholder="Ej: Cumpleaños, espacio de eventos o cancha alternativa (máx. 300 caracteres)..."
-                        class="w-full px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold"></textarea>
-              <div class="flex justify-end mt-1">
-                <span id="client-notes-counter" class="text-[11px] text-zinc-400">0 / 300 caracteres</span>
-              </div>
-            </div>
-
-            <div class="pt-2 space-y-3">
-              <button type="submit" id="btn-confirm-whatsapp" class="btn-shine w-full py-4 px-5 rounded-2xl bg-roma-turf hover:bg-roma-turfDark text-black font-display font-bold text-lg uppercase tracking-wider shadow-lg shadow-roma-turf/25 transition-all flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-wait">
-                <span id="btn-whatsapp-spinner" class="hidden"><i class="fa-solid fa-circle-notch fa-spin text-lg"></i></span>
-                <span id="btn-whatsapp-icon"><i class="fa-brands fa-whatsapp text-xl"></i></span>
-                <span id="btn-whatsapp-label">Agendar Temporal y Enviar Pago</span>
-              </button>
-
-              <button type="button" id="btn-save-local" class="w-full py-3 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-300 font-semibold text-sm transition-all flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-wait">
-                <span id="btn-local-spinner" class="hidden"><i class="fa-solid fa-circle-notch fa-spin text-sm"></i></span>
-                <span id="btn-local-icon"><i class="fa-regular fa-clock"></i></span>
-                <span id="btn-local-label">Dejar Reserva Temporal en Calendario</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       6. UBICACIÓN EN HUECHURABA & CONTACTO
-  ========================================================== -->
-  <section id="ubicacion" class="py-20 bg-roma-black relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-
-        <div class="lg:col-span-6 space-y-6 flex flex-col justify-between">
-          <div>
-            <span class="text-roma-gold font-semibold text-sm uppercase tracking-widest">¿Cómo Llegar?</span>
-            <h2 class="font-display font-bold text-4xl sm:text-5xl uppercase tracking-tight text-white mt-1">
-              Encuéntranos en <span class="text-gold-metallic">Huechuraba</span>
-            </h2>
-            <p class="text-zinc-400 text-sm sm:text-base mt-3 leading-relaxed">
-              Ubicados en <strong class="text-white">José Joaquín Aguirre Luco 849, Huechuraba</strong>, con acceso rápido desde Américo Vespucio Norte, El Salto y Ciudad Empresarial. Contamos con estacionamiento privado y seguro dentro del recinto.
+            <p id="summary-event-note" class="hidden text-[11px] text-roma-turf bg-roma-turf/10 border border-roma-turf/30 rounded-xl px-3 py-2 leading-relaxed">
+              <i class="fa-solid fa-circle-info mr-1"></i> La cancha asignada cubre la actividad deportiva de respaldo del evento según disponibilidad; para zona social o mesas adicionales se coordina por WhatsApp.
             </p>
           </div>
 
@@ -1415,6 +1352,39 @@
             </button>
           </div>
         </form>
+      </div>
+
+      <!-- Modal/Caja de Edición Rápida de Duración y Monto en Administración -->
+      <div id="admin-edit-booking-modal" class="fixed inset-0 z-[65] hidden items-center justify-center bg-black/85 backdrop-blur-sm p-4">
+        <div class="bg-roma-card border border-roma-gold/45 rounded-3xl max-w-md w-full p-6 shadow-2xl">
+          <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
+            <h4 class="font-display font-bold text-xl uppercase text-white">
+              <i class="fa-solid fa-pen-to-square text-roma-gold mr-1.5"></i> Ajustar Duración y Monto
+            </h4>
+            <button type="button" onclick="closeAdminEditModal()" class="w-8 h-8 rounded-xl bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <p id="admin-edit-subtitle" class="text-xs text-zinc-400 mb-4"></p>
+          <form id="admin-edit-form" class="space-y-4">
+            <div>
+              <label for="admin-edit-duration" class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Cantidad de Horas</label>
+              <select id="admin-edit-duration" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold"></select>
+            </div>
+            <div>
+              <label for="admin-edit-amount" class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Monto Acordado ($ CLP)</label>
+              <input type="number" id="admin-edit-amount" min="0" step="500" required class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold" />
+            </div>
+            <div>
+              <label for="admin-edit-notes" class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Nota Operativa</label>
+              <input type="text" id="admin-edit-notes" maxlength="250" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold" />
+            </div>
+            <div class="flex items-center justify-end gap-2.5 pt-2">
+              <button type="button" onclick="closeAdminEditModal()" class="px-4 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold">Cancelar</button>
+              <button type="submit" class="px-5 py-2.5 rounded-xl bg-gold-gradient text-black font-display font-bold uppercase tracking-wider text-xs shadow-lg">Guardar Cambios</button>
+            </div>
+          </form>
+        </div>
       </div>
 
       <div class="p-5 sm:p-8 space-y-6">
@@ -1861,6 +1831,14 @@
         const endDt = getBookingEndDateTime(entry);
         if (!endDt) return false;
         return Date.now() >= endDt.getTime();
+      }
+
+      // Calcula las horas máximas disponibles en el día desde una hora de inicio hasta las 23:00 hrs
+      function getMaxDailyHoursFromTime(startTime) {
+        if (!startTime) return timeSlots.length;
+        const startIdx = timeSlots.indexOf(startTime);
+        if (startIdx === -1) return 1;
+        return Math.max(1, timeSlots.length - startIdx);
       }
 
       // Ajusta la duración solicitada para no superar las horas restantes del día hasta las 23:00 hrs
@@ -2382,6 +2360,18 @@
           : state.court;
         if (courtEl) courtEl.textContent = effectiveCourt;
 
+        const summaryEventNote = document.getElementById('summary-event-note');
+        if (summaryEventNote) {
+          const isEventWithCourtBackup =
+            ['Cumpleaños', 'Evento Empresas', 'Campeonato / Torneo'].includes(state.service) &&
+            (effectiveCourt.includes('Cancha') || state.court === 'Cancha para Evento (Respaldo)');
+          if (isEventWithCourtBackup) {
+            summaryEventNote.classList.remove('hidden');
+          } else {
+            summaryEventNote.classList.add('hidden');
+          }
+        }
+
         const [y, m, d] = state.date.split('-');
         if (dateSummaryEl) dateSummaryEl.textContent = `${d}/${m}/${y}`;
 
@@ -2439,6 +2429,8 @@
         state.service = serviceName;
         state.time = null;
         state.selectedAt = null;
+        const isEventService = ['Cumpleaños', 'Evento Empresas', 'Campeonato / Torneo'].includes(serviceName);
+        state.duration = isEventService ? 3 : 1;
         serviceBtns.forEach(btn => {
           if (btn.dataset.service === serviceName) {
             btn.className = 'service-btn active-service p-3 rounded-xl border border-roma-gold bg-roma-gold/15 text-left transition-all';
@@ -2495,7 +2487,14 @@
       }
 
       document.getElementById('court-select')?.addEventListener('change', (e) => {
-        setSingleSelection(e.target.value, null);
+        const chosenCourt = e.target.value;
+        if (
+          (chosenCourt === EVENT_SPACE || chosenCourt === 'Espacio de Eventos + Cancha' || chosenCourt === 'Cancha para Evento (Respaldo)') &&
+          state.duration === 1
+        ) {
+          state.duration = 3;
+        }
+        setSingleSelection(chosenCourt, null);
       });
 
       dateInput?.addEventListener('change', (e) => {
@@ -2544,15 +2543,16 @@
             }
           });
         }
+        state.duration = 3;
 
         const checkSlot = '17:00';
         const evBooking = getExactHourBooking(EVENT_SPACE, state.date, checkSlot);
-        const freeCourt = findAvailableCourtForEvent(state.date, checkSlot, 1);
+        const freeCourt = findAvailableCourtForEvent(state.date, checkSlot, 3);
 
         if (evBooking && freeCourt) {
-          setSingleSelection(freeCourt, null, `Espacio de Eventos ocupado a las ${checkSlot} hrs; se asignó ${freeCourt} como selección única.`);
+          setSingleSelection(freeCourt, null, `Espacio de Eventos ocupado a las ${checkSlot} hrs; se asignó ${freeCourt} (3 hrs sugeridas para evento).`);
         } else {
-          setSingleSelection(EVENT_SPACE, null, 'Espacio de Eventos seleccionado como selección única.');
+          setSingleSelection(EVENT_SPACE, null, 'Espacio de Eventos seleccionado (3 hrs sugeridas para eventos, ajustables).');
         }
         document.getElementById('agendar')?.scrollIntoView({ behavior: 'smooth' });
       };
@@ -2794,84 +2794,124 @@
       // -------------------------------------------------------
       let isAdminAuthenticated = safeSession.getItem(ADMIN_SESSION_KEY) === 'true';
       let pendingDeleteId = null;
+      let pendingEditId = null;
+
+      window.openAdminEditModal = (bookingId) => {
+        const b = allBookings.find(item => item.id === bookingId);
+        if (!b || isAdminBlockedEntry(b)) return;
+        pendingEditId = bookingId;
+
+        const subEl = document.getElementById('admin-edit-subtitle');
+        const durSelect = document.getElementById('admin-edit-duration');
+        const amtInput = document.getElementById('admin-edit-amount');
+        const notesInput = document.getElementById('admin-edit-notes');
+
+        if (subEl) {
+          subEl.textContent = `${b.id} • ${b.name} (${b.court} • ${b.date} desde las ${b.time} hrs)`;
+        }
+        if (durSelect) {
+          const maxDaily = getMaxDailyHoursFromTime(b.time);
+          populateDurationSelect(durSelect, maxDaily, Math.max(1, parseInt(b.duration, 10) || 1));
+        }
+        if (amtInput) amtInput.value = Number(b.amount) || 0;
+        if (notesInput) notesInput.value = b.notes || '';
+
+        const editModal = document.getElementById('admin-edit-booking-modal');
+        editModal?.classList.remove('hidden');
+        editModal?.classList.add('flex');
+      };
+
+      window.closeAdminEditModal = () => {
+        pendingEditId = null;
+        const editModal = document.getElementById('admin-edit-booking-modal');
+        editModal?.classList.add('hidden');
+        editModal?.classList.remove('flex');
+      };
+
+      document.getElementById('admin-edit-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!pendingEditId) return;
+        const idx = allBookings.findIndex(item => item.id === pendingEditId);
+        if (idx === -1) return;
+
+        const target = allBookings[idx];
+        const newDuration = Math.max(1, parseInt(document.getElementById('admin-edit-duration')?.value, 10) || 1);
+        const newAmount = Math.max(0, parseInt(document.getElementById('admin-edit-amount')?.value, 10) || 0);
+        const newNotes = (document.getElementById('admin-edit-notes')?.value || '').trim();
+
+        const otherBookings = allBookings.filter(item => item.id !== pendingEditId);
+        const backupBookings = allBookings;
+        allBookings = otherBookings;
+        const collisionCheck = checkRangeCollision(target.court, target.date, target.time, newDuration);
+        allBookings = backupBookings;
+
+        if (!collisionCheck.ok) {
+          showToast(collisionCheck.reason, 'error');
+          return;
+        }
+
+        target.duration = newDuration;
+        target.amount = newAmount;
+        target.notes = newNotes;
+
+        persistBookings();
+        renderTimeSlots();
+        updateClientBookingsUI();
+        renderAdminDashboard();
+        window.closeAdminEditModal();
+        showToast(`Reserva ${target.id} actualizada (${newDuration} hr${newDuration > 1 ? 's' : ''} • ${formatCLP(newAmount)}).`, 'success');
+      });
 
       function getAdminPin() {
         return safeStorage.getItem(ADMIN_PIN_KEY) || '1234';
       }
 
-      const adminManualTimeSelect = document.getElementById('admin-m-time');
-      const adminManualDurationSelect = document.getElementById('admin-m-duration');
       const adminQuickBlockCourtSelect = document.getElementById('admin-qb-court');
       const adminQuickBlockDateInput = document.getElementById('admin-qb-date');
       const adminQuickBlockTimeSelect = document.getElementById('admin-qb-time');
       const adminQuickBlockDurationSelect = document.getElementById('admin-qb-duration');
+      const adminManualTimeSelect = document.getElementById('admin-m-time');
+      const adminManualDurationSelect = document.getElementById('admin-m-duration');
 
-      function getMaxAllowedHoursForBlock(court, dateStr, startTime) {
-        const startIdx = timeSlots.indexOf(startTime);
-        if (startIdx === -1) return 1;
-
-        const maxUntilClosing = Math.max(1, timeSlots.length - startIdx);
-        let allowed = maxUntilClosing;
-
-        for (let h = 1; h <= maxUntilClosing; h++) {
-          const candidateCheck = checkRangeCollision(court, dateStr, startTime, h);
-          if (!candidateCheck.ok) {
-            allowed = Math.max(1, h - 1);
-            break;
-          }
-        }
-
-        return allowed;
-      }
-
-      function populateDurationSelect(selectEl, maxHours, preferredValue) {
-        if (!selectEl) return;
-        const clampedMax = Math.max(1, maxHours);
-        const safePreferred = Math.min(Math.max(1, preferredValue || 1), clampedMax);
-
-        selectEl.innerHTML = '';
-        for (let h = 1; h <= clampedMax; h++) {
-          const opt = document.createElement('option');
-          opt.value = String(h);
-          opt.textContent = h === 1 ? '1 hora' : `${h} horas`;
-          selectEl.appendChild(opt);
-        }
-
-        selectEl.value = String(safePreferred);
-      }
-
-      function syncQuickBlockDurationOptions() {
-        if (!adminQuickBlockTimeSelect || !adminQuickBlockDurationSelect) return;
-        const court = adminQuickBlockCourtSelect ? adminQuickBlockCourtSelect.value : 'Cancha 1';
-        const dateStr = adminQuickBlockDateInput && adminQuickBlockDateInput.value ? adminQuickBlockDateInput.value : todayStr;
-        const startTime = adminQuickBlockTimeSelect.value || timeSlots[0];
-        const maxHours = getMaxAllowedHoursForBlock(court, dateStr, startTime);
-        const previousValue = parseInt(adminQuickBlockDurationSelect.value, 10) || 1;
-        populateDurationSelect(adminQuickBlockDurationSelect, maxHours, previousValue);
-      }
-
-      function syncManualDurationOptions() {
-        if (!adminManualTimeSelect || !adminManualDurationSelect) return;
-        const court = document.getElementById('admin-m-court')?.value || 'Cancha 1';
-        const dateStr = document.getElementById('admin-m-date')?.value || todayStr;
-        const startTime = adminManualTimeSelect.value || timeSlots[0];
-        const maxHours = getMaxAllowedHoursForBlock(court, dateStr, startTime);
-        const previousValue = parseInt(adminManualDurationSelect.value, 10) || 1;
-        populateDurationSelect(adminManualDurationSelect, maxHours, previousValue);
-      }
-
-      if (adminManualTimeSelect && adminQuickBlockTimeSelect) {
+      [adminQuickBlockTimeSelect, adminManualTimeSelect].forEach(sel => {
+        if (!sel) return;
+        sel.innerHTML = '';
         timeSlots.forEach(t => {
           const opt = document.createElement('option');
           opt.value = t;
           opt.textContent = `${t} hrs`;
-          adminManualTimeSelect.appendChild(opt);
-
-          const qbOpt = document.createElement('option');
-          qbOpt.value = t;
-          qbOpt.textContent = `${t} hrs`;
-          adminQuickBlockTimeSelect.appendChild(qbOpt);
+          sel.appendChild(opt);
         });
+      });
+
+      function populateDurationSelect(selectEl, maxHours, selectedVal = 1) {
+        if (!selectEl) return;
+        const safeMax = Math.max(1, maxHours);
+        const safeSelected = Math.min(Math.max(1, Number(selectedVal) || 1), safeMax);
+        selectEl.innerHTML = '';
+        for (let h = 1; h <= safeMax; h++) {
+          const opt = document.createElement('option');
+          opt.value = String(h);
+          opt.textContent = h === 1 ? '1 hora' : `${h} horas`;
+          if (h === safeSelected) opt.selected = true;
+          selectEl.appendChild(opt);
+        }
+      }
+
+      function syncQuickBlockDurationOptions() {
+        if (!adminQuickBlockDurationSelect) return;
+        const startTime = adminQuickBlockTimeSelect?.value || timeSlots[0];
+        const maxDaily = getMaxDailyHoursFromTime(startTime);
+        const currentVal = parseInt(adminQuickBlockDurationSelect.value, 10) || 1;
+        populateDurationSelect(adminQuickBlockDurationSelect, maxDaily, currentVal);
+      }
+
+      function syncManualDurationOptions() {
+        if (!adminManualDurationSelect) return;
+        const startTime = adminManualTimeSelect?.value || timeSlots[0];
+        const maxDaily = getMaxDailyHoursFromTime(startTime);
+        const currentVal = parseInt(adminManualDurationSelect.value, 10) || 1;
+        populateDurationSelect(adminManualDurationSelect, maxDaily, currentVal);
       }
 
       const adminMDateEl = document.getElementById('admin-m-date');
@@ -3160,6 +3200,35 @@
         delModal?.classList.add('flex');
       };
 
+      window.closeDeleteConfirmModal = () => {
+        pendingDeleteId = null;
+        const delModal = document.getElementById('confirm-delete-modal');
+        delModal?.classList.add('hidden');
+        delModal?.classList.remove('flex');
+      };
+
+      document.getElementById('confirm-delete-execute-btn')?.addEventListener('click', () => {
+        if (!pendingDeleteId) return;
+        const target = allBookings.find(item => item.id === pendingDeleteId);
+        allBookings = allBookings.filter(item => item.id !== pendingDeleteId);
+        persistBookings();
+        renderTimeSlots();
+        updateClientBookingsUI();
+        renderAdminDashboard();
+        syncQuickBlockDurationOptions();
+        syncManualDurationOptions();
+        window.closeDeleteConfirmModal();
+        if (target) {
+          const wasExpired = isBookingExpired(target);
+          showToast(
+            wasExpired
+              ? `Registro vencido ${target.id} eliminado del listado.`
+              : `Reserva ${target.id} anulada y horario liberado en ${target.court}.`,
+            'info'
+          );
+        }
+      });
+
       document.getElementById('admin-purge-expired-btn')?.addEventListener('click', () => {
         const expiredList = allBookings.filter(b => isBookingExpired(b));
         if (expiredList.length === 0) {
@@ -3365,6 +3434,12 @@
               </div>
 
               <div class="flex flex-wrap sm:flex-nowrap items-center gap-2.5 pt-2 lg:pt-0 border-t lg:border-t-0 border-zinc-800">
+                ${!isBlocked && !expired
+                  ? `<button type="button" onclick="openAdminEditModal('${b.id}')" class="flex-1 sm:flex-initial px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-roma-gold/20 border border-zinc-700 hover:border-roma-gold/50 text-roma-goldLight font-semibold text-xs transition flex items-center justify-center gap-1.5" title="Ajustar horas o monto acordado">
+                      <i class="fa-solid fa-pen"></i> Ajustar
+                    </button>`
+                  : ''
+                }
                 ${isBlocked
                   ? `<span class="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700/80 text-zinc-400 text-xs font-semibold flex items-center gap-1.5" title="Bloqueo administrativo sin cobro">
                       <i class="fa-solid fa-ban text-zinc-500"></i> Operativo
