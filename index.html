@@ -1762,11 +1762,36 @@
       const ADMIN_PIN_KEY = 'roma_admin_pin_v1';
       const ADMIN_SESSION_KEY = 'roma_admin_session_active_v1';
 
+      function formatLocalDateISO(dateObj) {
+        const y = dateObj.getFullYear();
+        const m = String(dateObj.getMonth() + 1).padStart(2, '0');
+        const d = String(dateObj.getDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+      }
+
       const todayDate = new Date();
-      const todayStr = todayDate.toISOString().split('T')[0];
-      const tomorrowDate = new Date(todayDate);
-      tomorrowDate.setDate(todayDate.getDate() + 1);
-      const tomorrowStr = tomorrowDate.toISOString().split('T')[0];
+      const todayStr = formatLocalDateISO(todayDate);
+      const tomorrowDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate() + 1);
+      const tomorrowStr = formatLocalDateISO(tomorrowDate);
+
+      function isPastTimeSlotForDate(dateStr, slotTime) {
+        if (!dateStr || !slotTime || dateStr > todayStr) return false;
+        if (dateStr < todayStr) return true;
+        const now = new Date();
+        const [slotHour, slotMin] = String(slotTime).split(':').map(Number);
+        if (Number.isNaN(slotHour)) return false;
+        // Consideramos vigente el bloque actual y futuros hasta las 23:00 hrs (margen de 30 min para partidos nocturnos)
+        const slotCutoff = new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate(),
+          slotHour,
+          (slotMin || 0) + 30,
+          0,
+          0
+        );
+        return now.getTime() > slotCutoff.getTime();
+      }
 
       let allBookings = [];
       const rawSaved = safeStorage.getItem(STORAGE_KEY);
@@ -2289,18 +2314,18 @@
         timeSlots.forEach((time, idx) => {
           const existingBooking = getExactHourBooking(state.court, state.date, time);
           const isBlockedByAdmin = isAdminBlockedEntry(existingBooking);
-          const isSelected = selStartIdx !== -1 && idx >= selStartIdx && idx <= selEndIdx;
+          const isPastSlot = isPastTimeSlotForDate(state.date, time);
+          const isSelected = !isPastSlot && selStartIdx !== -1 && idx >= selStartIdx && idx <= selEndIdx;
 
           const btn = document.createElement('button');
           btn.type = 'button';
 
-          if (existingBooking && isBlockedByAdmin) {
+          if (isPastSlot && !existingBooking) {
             btn.disabled = true;
             btn.setAttribute('aria-disabled', 'true');
-            btn.className = 'py-3 px-2 rounded-xl bg-zinc-900/90 border border-zinc-600/50 text-zinc-400 text-xs font-semibold cursor-not-allowed opacity-85 flex flex-col items-center';
-            btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-zinc-400 font-bold uppercase mt-0.5"><i class="fa-solid fa-ban text-[9px] mr-0.5"></i>No disponible</span>`;
-          } else if (existingBooking && existingBooking.status === 'CONFIRMADA') {
-            btn.disabled = true;
+            btn.className = 'py-3 px-2 rounded-xl bg-zinc-900/50 border border-zinc-800/70 text-zinc-500 text-xs font-semibold cursor-not-allowed opacity-60 flex flex-col items-center';
+            btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-zinc-500 font-semibold uppercase mt-0.5">Pasada</span>`;
+          } else if (existingBooking && isBlockedByAdmin) {
             btn.setAttribute('aria-disabled', 'true');
             btn.className = 'py-3 px-2 rounded-xl bg-red-950/55 border border-red-500/45 text-red-300/75 text-xs font-semibold cursor-not-allowed opacity-85 flex flex-col items-center';
             btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-red-400 font-bold uppercase mt-0.5"><i class="fa-solid fa-lock text-[9px] mr-0.5"></i>Reservada</span>`;
@@ -2379,6 +2404,7 @@
 
           timeSlots.forEach(slot => {
             const st = getResourceSlotStatus(rowResource, state.date, slot, 1);
+            const isPastSlot = isPastTimeSlotForDate(state.date, slot);
 
             const td = document.createElement('td');
             td.className = 'py-1.5 px-1 text-center';
@@ -2395,6 +2421,9 @@
             } else if (st === 'TEMPORAL') {
               statusBadge.className = 'inline-block w-full py-1 px-1.5 rounded bg-amber-500/20 border border-amber-400/50 text-amber-200 text-[10px] font-semibold select-none';
               statusBadge.textContent = 'Temp.';
+            } else if (isPastSlot) {
+              statusBadge.className = 'inline-block w-full py-1 px-1.5 rounded bg-zinc-900/70 border border-zinc-800 text-zinc-500 text-[10px] font-semibold select-none';
+              statusBadge.textContent = 'Pasada';
             } else {
               statusBadge.className = 'inline-block w-full py-1 px-1.5 rounded bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-[10px] font-semibold select-none';
               statusBadge.textContent = 'Libre';
