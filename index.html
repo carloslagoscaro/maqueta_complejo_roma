@@ -1026,7 +1026,7 @@
                 <label for="client-phone" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">
                   Teléfono / WhatsApp *
                 </label>
-                <input type="tel" id="client-phone" required placeholder="+56 9 1234 5678"
+                <input type="tel" id="client-phone" required value="+56 9" placeholder="+56 9 1234 5678"
                        class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold transition" />
               </div>
 
@@ -1439,7 +1439,7 @@
           </div>
           <div>
             <label class="block text-[11px] font-semibold uppercase text-zinc-400 mb-1">Teléfono</label>
-            <input type="tel" id="admin-m-phone" placeholder="+56 9 ..." class="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-xs" />
+            <input type="tel" id="admin-m-phone" value="+56 9" placeholder="+56 9 ..." class="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-xs" />
           </div>
           <div>
             <label class="block text-[11px] font-semibold uppercase text-zinc-400 mb-1">Monto ($ CLP)</label>
@@ -2729,6 +2729,11 @@
 
         const name = (document.getElementById('client-name')?.value || '').trim();
         const phone = (document.getElementById('client-phone')?.value || '').trim();
+        // Procesar teléfono: si es el valor por defecto, completar con número interno
+        const defaultPhones = ['+56 9', '56 9', '+569', '569'];
+        if (defaultPhones.includes(phone)) {
+          phone = '+56 9 2222 3333';
+        }
         const email = (document.getElementById('client-email')?.value || '').trim();
         const notes = (document.getElementById('client-notes')?.value || '').trim().slice(0, 300);
 
@@ -3285,7 +3290,7 @@
         const duration = parseInt(document.getElementById('admin-m-duration')?.value, 10) || 1;
         const nameInput = document.getElementById('admin-m-name');
         const name = (nameInput?.value || '').trim();
-        const phone = (document.getElementById('admin-m-phone')?.value || '').trim() || 'Registro Interno';
+        const phone = processAdminPhone();
         const amount = parseInt(document.getElementById('admin-m-amount')?.value, 10) || 0;
         const status = document.getElementById('admin-m-status')?.value || 'CONFIRMADA';
 
@@ -3713,6 +3718,20 @@
       renderTimeSlots();
       updateSummary();
       updateClientBookingsUI();
+
+      // Función para formatear el teléfono del admin para WhatsApp
+      function processAdminPhone() {
+        const phoneInput = document.getElementById('admin-m-phone');
+        if (!phoneInput) return;
+        let phone = (phoneInput.value || '').trim();
+        // Si el teléfono es el valor por defecto "+56 9", completar con un número interno
+        if (phone === '+56 9' || phone === '56 9' || phone === '+569' || phone === '569') {
+          phone = '+56 9 2222 3333'; // Número interno de contacto
+        }
+        // Limpiar caracteres no numéricos para validación, pero guardar el original
+        phoneInput.__originalValue = phoneInput.value;
+        return phone;
+      }
 
       // Seguridad: invalidar sesiones persistidas por versiones anteriores.
       safeSession.removeItem(LEGACY_ADMIN_SESSION_KEY);
