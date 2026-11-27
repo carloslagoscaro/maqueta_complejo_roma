@@ -1262,16 +1262,16 @@
         </div>
 
         <div class="grid grid-cols-2 gap-2.5 w-full sm:w-auto sm:flex sm:flex-wrap sm:items-center">
-          <button type="button" id="admin-open-agendar-btn" onclick="toggleAdminManualForm()" aria-expanded="false" aria-controls="admin-manual-booking-box" class="px-2.5 sm:px-4 py-2.5 rounded-xl bg-roma-turf hover:bg-roma-turfDark text-black font-display font-bold text-[10px] sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5 whitespace-nowrap">
+          <button type="button" id="admin-open-agendar-btn" onclick="openAdminManualForm()" aria-expanded="false" aria-controls="admin-manual-booking-box" class="px-2.5 sm:px-4 py-2.5 rounded-xl bg-roma-turf hover:bg-roma-turfDark text-black font-display font-bold text-[10px] sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5 whitespace-nowrap">
             <i class="fa-solid fa-calendar-plus"></i> Agendar Hora
           </button>
-          <button type="button" id="admin-open-block-btn" onclick="toggleAdminQuickBlockForm()" aria-expanded="false" aria-controls="admin-quick-block-box" class="px-2.5 sm:px-4 py-2.5 rounded-xl bg-red-600/15 hover:bg-red-600/25 border border-red-500/40 text-red-200 font-display font-bold text-[10px] sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5 whitespace-nowrap">
+          <button type="button" id="admin-open-block-btn" onclick="openAdminQuickBlockForm()" aria-expanded="false" aria-controls="admin-quick-block-box" class="px-2.5 sm:px-4 py-2.5 rounded-xl bg-red-600/15 hover:bg-red-600/25 border border-red-500/40 text-red-200 font-display font-bold text-[10px] sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5 whitespace-nowrap">
             <i class="fa-solid fa-lock"></i> Bloquear Hora
           </button>
-          <button type="button" onclick="toggleAdminPriceSettings()" class="px-2.5 sm:px-4 py-2.5 rounded-xl bg-roma-gold/15 hover:bg-roma-gold/20 border border-roma-gold/30 text-roma-gold font-display font-bold text-[10px] sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5 whitespace-nowrap">
+          <button type="button" onclick="openAdminPriceSettings()" class="px-2.5 sm:px-4 py-2.5 rounded-xl bg-roma-gold/15 hover:bg-roma-gold/20 border border-roma-gold/30 text-roma-gold font-display font-bold text-[10px] sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5 whitespace-nowrap">
             <i class="fa-solid fa-dollar-sign"></i> Precios
           </button>
-          <button type="button" onclick="toggleAdminPinSettings()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-semibold transition flex items-center justify-center gap-1.5 whitespace-nowrap">
+          <button type="button" onclick="openAdminPinSettings()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-semibold transition flex items-center justify-center gap-1.5 whitespace-nowrap">
             <i class="fa-solid fa-key text-roma-gold"></i> Cambiar PIN
           </button>
           <button type="button" onclick="logoutAdmin()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-red-950/60 border border-zinc-700 hover:border-red-500/50 text-zinc-300 hover:text-red-300 text-xs font-semibold transition flex items-center justify-center gap-1.5 whitespace-nowrap">
@@ -1287,7 +1287,7 @@
               <span class="text-[10px] font-bold uppercase tracking-widest text-roma-gold">
                 <i class="fa-solid fa-ban mr-1"></i> Control Operativo de Canchas y Eventos
               </span>
-              <button type="button" onclick="toggleAdminQuickBlockForm()" aria-label="Cerrar panel de bloqueo" class="w-8 h-8 -mt-1 -mr-1 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center flex-shrink-0">
+              <button type="button" onclick="closeAdminQuickBlockForm()" aria-label="Cerrar panel de bloqueo" class="w-8 h-8 -mt-1 -mr-1 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center flex-shrink-0">
                 <i class="fa-solid fa-xmark"></i>
               </button>
             </div>
@@ -1361,6 +1361,14 @@
       </div>
 
       <div id="admin-pin-settings-box" class="hidden bg-zinc-900/90 border-b border-zinc-800 px-5 sm:px-8 py-4">
+        <div class="flex items-center justify-between gap-3 mb-3">
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider text-roma-goldLight">
+            <i class="fa-solid fa-key mr-1.5 text-roma-gold"></i> Cambiar PIN de Administrador
+          </h4>
+          <button type="button" onclick="closeAdminPinSettings()" aria-label="Cerrar panel de PIN" class="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
         <form id="change-pin-form" class="flex flex-wrap items-end gap-3 max-w-xl">
           <div class="flex-1 min-w-[180px]">
             <label class="block text-xs font-semibold text-zinc-400 mb-1">Nuevo PIN de Administrador (4 a 8 dígitos)</label>
@@ -1368,11 +1376,19 @@
                    class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold" />
           </div>
           <button type="submit" class="px-4 py-2 rounded-xl bg-roma-gold text-black font-bold text-xs uppercase tracking-wider">Guardar PIN</button>
-          <button type="button" onclick="toggleAdminPinSettings()" class="px-3 py-2 rounded-xl bg-zinc-800 text-zinc-300 text-xs">Cancelar</button>
+          <button type="button" onclick="closeAdminPinSettings()" class="px-3 py-2 rounded-xl bg-zinc-800 text-zinc-300 text-xs">Cancelar</button>
         </form>
       </div>
 
       <div id="admin-price-settings-box" class="hidden bg-zinc-900/90 border-b border-roma-gold/30 px-5 sm:px-8 py-6">
+        <div class="flex items-center justify-between mb-4">
+          <h4 class="font-display font-bold text-lg uppercase text-roma-goldLight">
+            <i class="fa-solid fa-dollar-sign mr-1.5 text-roma-gold"></i> Configuración de Precios
+          </h4>
+          <button type="button" onclick="closeAdminPriceSettings()" aria-label="Cerrar panel de precios" class="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
         <form id="change-price-form" class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
           <div>
             <label class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Canchas</label>
@@ -1399,7 +1415,7 @@
                     class="flex-1 py-3 rounded-xl bg-roma-gold text-black font-display font-bold text-xs uppercase tracking-wider shadow-lg">
               Guardar Precios
             </button>
-            <button type="button" onclick="toggleAdminPriceSettings()" class="px-4 py-3 rounded-xl bg-zinc-800 text-zinc-300 text-xs">Cancelar</button>
+            <button type="button" onclick="closeAdminPriceSettings()" class="px-4 py-3 rounded-xl bg-zinc-800 text-zinc-300 text-xs">Cancelar</button>
           </div>
         </form>
       </div>
@@ -1409,7 +1425,7 @@
           <h4 class="font-display font-bold text-lg uppercase text-roma-goldLight">
             <i class="fa-solid fa-calendar-plus mr-1.5"></i> Agendar Reserva Directa
           </h4>
-          <button type="button" onclick="toggleAdminManualForm()" class="text-zinc-400 hover:text-white text-sm"><i class="fa-solid fa-xmark"></i></button>
+          <button type="button" onclick="closeAdminManualForm()" aria-label="Cerrar panel de agendamiento" class="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="admin-manual-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div>
@@ -3063,43 +3079,71 @@
       document.getElementById('admin-m-court')?.addEventListener('change', syncManualDurationOptions);
       document.getElementById('admin-m-date')?.addEventListener('change', syncManualDurationOptions);
 
+      window.openAdminPinSettings = () => {
+        document.getElementById('admin-pin-settings-box')?.classList.remove('hidden');
+      };
+      window.closeAdminPinSettings = () => {
+        document.getElementById('admin-pin-settings-box')?.classList.add('hidden');
+      };
       window.toggleAdminPinSettings = () => {
-        document.getElementById('admin-pin-settings-box')?.classList.toggle('hidden');
+        const pinBox = document.getElementById('admin-pin-settings-box');
+        if (!pinBox) return;
+        if (pinBox.classList.contains('hidden')) {
+          window.openAdminPinSettings();
+        } else {
+          window.closeAdminPinSettings();
+        }
       };
 
       function setAdminActionExpanded(buttonId, expanded) {
         document.getElementById(buttonId)?.setAttribute('aria-expanded', String(expanded));
       }
 
+      window.openAdminQuickBlockForm = () => {
+        const quickBox = document.getElementById('admin-quick-block-box');
+        if (!quickBox) return;
+        quickBox.classList.remove('hidden');
+        document.getElementById('admin-manual-booking-box')?.classList.add('hidden');
+        syncQuickBlockDurationOptions();
+        syncQuickBlockButtonState();
+        setAdminActionExpanded('admin-open-block-btn', true);
+        setAdminActionExpanded('admin-open-agendar-btn', false);
+      };
+      window.closeAdminQuickBlockForm = () => {
+        document.getElementById('admin-quick-block-box')?.classList.add('hidden');
+        setAdminActionExpanded('admin-open-block-btn', false);
+      };
       window.toggleAdminQuickBlockForm = () => {
         const quickBox = document.getElementById('admin-quick-block-box');
         if (!quickBox) return;
-        const willOpen = quickBox.classList.contains('hidden');
-        quickBox.classList.toggle('hidden', !willOpen);
-
-        if (willOpen) {
-          document.getElementById('admin-manual-booking-box')?.classList.add('hidden');
-          syncQuickBlockDurationOptions();
-          syncQuickBlockButtonState();
+        if (quickBox.classList.contains('hidden')) {
+          window.openAdminQuickBlockForm();
+        } else {
+          window.closeAdminQuickBlockForm();
         }
-
-        setAdminActionExpanded('admin-open-block-btn', willOpen);
-        setAdminActionExpanded('admin-open-agendar-btn', false);
       };
 
+      window.openAdminManualForm = () => {
+        const manualBox = document.getElementById('admin-manual-booking-box');
+        if (!manualBox) return;
+        manualBox.classList.remove('hidden');
+        document.getElementById('admin-quick-block-box')?.classList.add('hidden');
+        syncManualDurationOptions();
+        setAdminActionExpanded('admin-open-agendar-btn', true);
+        setAdminActionExpanded('admin-open-block-btn', false);
+      };
+      window.closeAdminManualForm = () => {
+        document.getElementById('admin-manual-booking-box')?.classList.add('hidden');
+        setAdminActionExpanded('admin-open-agendar-btn', false);
+      };
       window.toggleAdminManualForm = () => {
         const manualBox = document.getElementById('admin-manual-booking-box');
         if (!manualBox) return;
-        const willOpen = manualBox.classList.contains('hidden');
-        manualBox.classList.toggle('hidden', !willOpen);
-
-        if (willOpen) {
-          document.getElementById('admin-quick-block-box')?.classList.add('hidden');
-          syncManualDurationOptions();
+        if (manualBox.classList.contains('hidden')) {
+          window.openAdminManualForm();
+        } else {
+          window.closeAdminManualForm();
         }
-
-        setAdminActionExpanded('admin-open-agendar-btn', willOpen);
-        setAdminActionExpanded('admin-open-block-btn', false);
       };
 
       const adminLoginModal = document.getElementById('admin-login-modal');
@@ -3274,7 +3318,7 @@
         }
         safeStorage.setItem(ADMIN_PIN_KEY, newPin);
         if (pinField) pinField.value = '';
-        toggleAdminPinSettings();
+        closeAdminPinSettings();
         showToast('PIN de administrador actualizado correctamente.', 'success');
       });
 
@@ -3332,7 +3376,7 @@
         syncQuickBlockDurationOptions();
         syncManualDurationOptions();
         if (nameInput) nameInput.value = '';
-        toggleAdminManualForm();
+        closeAdminManualForm();
         showToast(`Registro ${newBooking.id} guardado en estado ${status}.`, 'success');
       });
 
@@ -3717,16 +3761,26 @@
           saveAdminPrices(prices);
           updateSummary();
           showToast('Precios guardados correctamente.', 'success');
-          toggleAdminPriceSettings();
+          closeAdminPriceSettings();
         });
       }
 
-      window.toggleAdminPriceSettings = () => {
+      window.openAdminPriceSettings = () => {
         if (priceSettingsBox) {
-          priceSettingsBox.classList.toggle('hidden');
-          if (!priceSettingsBox.classList.contains('hidden')) {
-            loadAdminPrices();
-          }
+          priceSettingsBox.classList.remove('hidden');
+          loadAdminPrices();
+        }
+      };
+      window.closeAdminPriceSettings = () => {
+        priceSettingsBox?.classList.add('hidden');
+      };
+      window.toggleAdminPriceSettings = () => {
+        const priceBox = priceSettingsBox || document.getElementById('admin-price-settings-box');
+        if (!priceBox) return;
+        if (priceBox.classList.contains('hidden')) {
+          window.openAdminPriceSettings();
+        } else {
+          window.closeAdminPriceSettings();
         }
       };
 
