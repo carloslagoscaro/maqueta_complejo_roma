@@ -928,7 +928,7 @@
               </div>
             </div>
 
-            <div id="time-slots-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2.5"></div>
+            <div id="time-slots-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2"></div>
 
             <div class="mt-6 pt-5 border-t border-zinc-800/90">
               <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
@@ -2322,7 +2322,7 @@
           if (isPastSlot && !existingBooking) {
             btn.disabled = true;
             btn.setAttribute('aria-disabled', 'true');
-            btn.className = 'py-3 px-2 rounded-xl bg-zinc-900/50 border border-zinc-800/70 text-zinc-500 text-xs font-semibold cursor-not-allowed opacity-60 flex flex-col items-center';
+            btn.className = 'py-2 px-1.5 rounded-xl bg-zinc-900/50 border border-zinc-800/70 text-zinc-500 text-[9px] font-semibold cursor-not-allowed opacity-60 flex flex-col items-center';
             btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-zinc-500 font-semibold uppercase mt-0.5">Pasada</span>`;
           } else if (existingBooking && isBlockedByAdmin) {
             btn.setAttribute('aria-disabled', 'true');
@@ -2331,11 +2331,11 @@
           } else if (existingBooking && existingBooking.status === 'TEMPORAL') {
             btn.disabled = true;
             btn.setAttribute('aria-disabled', 'true');
-            btn.className = 'py-3 px-2 rounded-xl bg-amber-500/15 border border-amber-500/45 text-amber-200 text-xs font-semibold cursor-not-allowed opacity-85 flex flex-col items-center';
+            btn.className = 'py-2 px-1.5 rounded-xl bg-amber-500/15 border border-amber-500/45 text-amber-200 text-[9px] font-semibold cursor-not-allowed opacity-85 flex flex-col items-center';
             btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-amber-400 font-bold uppercase mt-0.5"><i class="fa-regular fa-clock text-[9px] mr-0.5"></i>Temporal</span>`;
           } else if (isSelected) {
             const blockLabel = idx === selStartIdx ? 'Elegido' : `Hora +${idx - selStartIdx}`;
-            btn.className = 'py-3 px-2 rounded-xl bg-roma-gold text-black border border-roma-goldLight text-xs font-bold shadow-lg shadow-roma-gold/25 flex flex-col items-center scale-[1.03] transition-all';
+            btn.className = 'py-2 px-1.5 rounded-xl bg-roma-gold text-black border border-roma-goldLight text-[9px] font-bold shadow-lg shadow-roma-gold/25 flex flex-col items-center scale-[1.03] transition-all';
             btn.innerHTML = `<span>${time}</span><span class="text-[10px] font-extrabold uppercase mt-0.5">${blockLabel}</span>`;
             btn.addEventListener('click', () => {
               state.time = null;
@@ -2347,7 +2347,7 @@
               updateEventFallbackBanner();
             });
           } else {
-            btn.className = 'py-3 px-2 rounded-xl bg-zinc-900 hover:bg-roma-turf/15 border border-zinc-800 hover:border-roma-turf text-white text-xs font-semibold transition-all flex flex-col items-center';
+            btn.className = 'py-2 px-1.5 rounded-xl bg-zinc-900 hover:bg-roma-turf/15 border border-zinc-800 hover:border-roma-turf text-white text-[9px] font-semibold transition-all flex flex-col items-center';
             btn.innerHTML = `<span>${time}</span><span class="text-[10px] text-roma-turf mt-0.5">Disponible</span>`;
             btn.addEventListener('click', () => {
               const { effectiveDuration } = clampDurationToDailyCutoff(time, state.duration);
