@@ -1243,10 +1243,13 @@
       <form id="admin-login-form" class="space-y-4">
         <div>
           <label for="admin-pin-input" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5 text-center">Ingresa PIN de Seguridad</label>
-          <input type="password" id="admin-pin-input" maxlength="8" inputmode="numeric" required placeholder="••••"
+          <input type="password" id="admin-pin-input" maxlength="8" inputmode="numeric" autocomplete="off" required placeholder="••••"
                  class="w-full px-4 py-3.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-center text-2xl tracking-[0.5em] font-bold focus:outline-none focus:border-roma-gold" />
-          <p class="text-[11px] text-center text-roma-goldLight/80 mt-2 bg-roma-gold/10 border border-roma-gold/20 rounded-lg py-1.5 px-2">
+          <p id="admin-default-pin-hint" class="text-[11px] text-center text-roma-goldLight/80 mt-2 bg-roma-gold/10 border border-roma-gold/20 rounded-lg py-1.5 px-2">
             <i class="fa-solid fa-circle-info mr-1"></i> PIN de acceso inicial: <strong class="font-mono text-white">1234</strong> (modificable dentro del panel)
+          </p>
+          <p class="text-[11px] text-center text-zinc-500 mt-2">
+            <i class="fa-solid fa-shield-halved mr-1 text-roma-turf"></i> La sesión se cierra al recargar la página o tras 15 minutos de inactividad.
           </p>
         </div>
 
@@ -1264,39 +1267,47 @@
     <div class="max-w-7xl mx-auto bg-roma-dark border border-roma-gold/40 rounded-3xl shadow-2xl overflow-hidden my-2">
 
       <div class="bg-roma-card border-b border-zinc-800 px-5 sm:px-8 py-5 flex flex-wrap items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-xl bg-roma-gold/15 border border-roma-gold/40 text-roma-gold flex items-center justify-center text-xl">
+        <div class="flex items-center gap-3 min-w-0 w-full sm:w-auto">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-roma-gold/15 border border-roma-gold/40 text-roma-gold flex items-center justify-center text-lg sm:text-xl flex-shrink-0">
             <i class="fa-solid fa-sliders"></i>
           </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="font-cinzel font-bold text-xl sm:text-2xl uppercase text-white">Administración ROMA</h2>
-              <span class="px-2.5 py-0.5 rounded-full bg-roma-turf/15 border border-roma-turf/30 text-roma-turf text-[10px] font-bold uppercase">En Vivo</span>
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center gap-2">
+              <h2 class="font-cinzel font-bold text-lg sm:text-2xl uppercase text-white leading-tight">Administración ROMA</h2>
+              <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-roma-turf/15 border border-roma-turf/30 text-roma-turf text-[10px] font-bold uppercase">En Vivo</span>
             </div>
             <p class="text-xs text-zinc-400">Valida pagos para confirmar canchas/eventos o anula horas para liberar disponibilidad.</p>
           </div>
         </div>
 
-        <div class="flex flex-wrap items-center gap-2.5">
-          <button type="button" onclick="toggleAdminManualForm()" class="px-4 py-2.5 rounded-xl bg-roma-turf hover:bg-roma-turfDark text-black font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition flex items-center gap-1.5">
-            <i class="fa-solid fa-plus"></i> Bloquear / Agendar Hora
+        <div class="grid grid-cols-2 gap-2.5 w-full sm:w-auto sm:flex sm:flex-wrap sm:items-center">
+          <button type="button" id="admin-open-agendar-btn" onclick="toggleAdminManualForm()" aria-expanded="false" aria-controls="admin-manual-booking-box" class="px-2.5 sm:px-4 py-2.5 rounded-xl bg-roma-turf hover:bg-roma-turfDark text-black font-display font-bold text-[10px] sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5 whitespace-nowrap">
+            <i class="fa-solid fa-calendar-plus"></i> Agendar Hora
           </button>
-          <button type="button" onclick="toggleAdminPinSettings()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <button type="button" id="admin-open-block-btn" onclick="toggleAdminQuickBlockForm()" aria-expanded="false" aria-controls="admin-quick-block-box" class="px-2.5 sm:px-4 py-2.5 rounded-xl bg-red-600/15 hover:bg-red-600/25 border border-red-500/40 text-red-200 font-display font-bold text-[10px] sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5 whitespace-nowrap">
+            <i class="fa-solid fa-lock"></i> Bloquear Hora
+          </button>
+          <button type="button" onclick="toggleAdminPinSettings()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-semibold transition flex items-center justify-center gap-1.5 whitespace-nowrap">
             <i class="fa-solid fa-key text-roma-gold"></i> Cambiar PIN
           </button>
-          <button type="button" onclick="logoutAdmin()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-red-950/60 border border-zinc-700 hover:border-red-500/50 text-zinc-300 hover:text-red-300 text-xs font-semibold transition flex items-center gap-1.5">
+          <button type="button" onclick="logoutAdmin()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-red-950/60 border border-zinc-700 hover:border-red-500/50 text-zinc-300 hover:text-red-300 text-xs font-semibold transition flex items-center justify-center gap-1.5 whitespace-nowrap">
             <i class="fa-solid fa-right-from-bracket"></i> Salir
           </button>
         </div>
       </div>
 
       <!-- Bloque Operativo de Bloqueo Rápido de Horas en Admin -->
-      <div class="bg-zinc-950/85 border-b border-roma-gold/25 px-5 sm:px-8 py-4">
+      <div id="admin-quick-block-box" class="hidden bg-zinc-950/85 border-b border-roma-gold/25 px-5 sm:px-8 py-4">
         <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-4">
           <div class="space-y-1">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-roma-gold">
-              <i class="fa-solid fa-ban mr-1"></i> Control Operativo de Canchas y Eventos
-            </span>
+            <div class="flex items-start justify-between gap-3">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-roma-gold">
+                <i class="fa-solid fa-ban mr-1"></i> Control Operativo de Canchas y Eventos
+              </span>
+              <button type="button" onclick="toggleAdminQuickBlockForm()" aria-label="Cerrar panel de bloqueo" class="w-8 h-8 -mt-1 -mr-1 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
             <h4 class="font-display font-bold text-base uppercase text-white">
               Bloquear Horas en el Calendario
             </h4>
@@ -1305,10 +1316,10 @@
             </p>
           </div>
 
-          <form id="admin-quick-block-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 flex-1 max-w-4xl">
+          <form id="admin-quick-block-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
             <div>
               <label for="admin-qb-court" class="block text-[10px] font-semibold uppercase text-zinc-400 mb-1">Cancha / Espacio</label>
-              <select id="admin-qb-court" class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold">
+              <select id="admin-qb-court" class="w-full sm:w-auto px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold">
                 <option value="Cancha 1">Cancha 1</option>
                 <option value="Cancha 2">Cancha 2</option>
                 <option value="Cancha 3">Cancha 3</option>
@@ -1327,18 +1338,33 @@
 
             <div>
               <label for="admin-qb-time" class="block text-[10px] font-semibold uppercase text-zinc-400 mb-1">Hora Inicio</label>
-              <select id="admin-qb-time" class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold"></select>
+              <select id="admin-qb-time" class="w-full sm:w-auto px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold"></select>
             </div>
 
             <div>
               <label for="admin-qb-duration" class="block text-[10px] font-semibold uppercase text-zinc-400 mb-1">Horas a Bloquear</label>
-              <select id="admin-qb-duration" class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold"></select>
+              <select id="admin-qb-duration" class="w-full sm:w-auto px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold">
+                <option value="1">1 hora</option>
+                <option value="2">2 horas</option>
+                <option value="3">3 horas</option>
+                <option value="4">4 horas</option>
+                <option value="5">5 horas</option>
+                <option value="6">6 horas</option>
+                <option value="7">7 horas</option>
+                <option value="8">8 horas</option>
+              </select>
             </div>
 
             <div>
               <label for="admin-qb-reason" class="block text-[10px] font-semibold uppercase text-zinc-400 mb-1">Motivo *</label>
-              <input type="text" id="admin-qb-reason" maxlength="120" required placeholder="Ingresa motivo (ej: Mantención)"
-                     class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold" />
+              <select id="admin-qb-reason" class="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-white text-xs focus:outline-none focus:border-roma-gold" required>
+                <option value="">Selecciona un motivo</option>
+                <option value="Mantención">Mantención</option>
+                <option value="Liga Interna">Liga Interna</option>
+                <option value="Evento Privado">Evento Privado</option>
+                <option value="Cierre de Recinto">Cierre de Recinto</option>
+                <option value="Otro">Otro</option>
+              </select>
             </div>
 
             <div class="flex items-end">
@@ -1366,19 +1392,18 @@
       <div id="admin-manual-booking-box" class="hidden bg-zinc-900/95 border-b border-roma-gold/30 px-5 sm:px-8 py-6">
         <div class="flex items-center justify-between mb-4">
           <h4 class="font-display font-bold text-lg uppercase text-roma-goldLight">
-            <i class="fa-solid fa-calendar-plus mr-1.5"></i> Agendar Reserva Directa o Bloquear Cancha / Evento
+            <i class="fa-solid fa-calendar-plus mr-1.5"></i> Agendar Reserva Directa
           </h4>
           <button type="button" onclick="toggleAdminManualForm()" class="text-zinc-400 hover:text-white text-sm"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="admin-manual-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div>
-            <label class="block text-[11px] font-semibold uppercase text-zinc-400 mb-1">Tipo / Motivo</label>
+            <label class="block text-[11px] font-semibold uppercase text-zinc-400 mb-1">Tipo de Reserva</label>
             <select id="admin-m-service" class="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-xs">
               <option value="Arriendo de Cancha">Arriendo de Cancha</option>
               <option value="Cumpleaños">Cumpleaños</option>
               <option value="Evento Empresas">Evento Empresas</option>
               <option value="Campeonato / Torneo">Campeonato / Torneo</option>
-              <option value="Bloqueo Interno / Mantención">Bloqueo Interno / Mantención</option>
             </select>
           </div>
           <div>
@@ -1760,7 +1785,9 @@
       const STORAGE_KEY = 'roma_huechuraba_bookings_v2';
       const CLIENT_IDS_KEY = 'roma_client_my_ids_v2';
       const ADMIN_PIN_KEY = 'roma_admin_pin_v1';
-      const ADMIN_SESSION_KEY = 'roma_admin_session_active_v1';
+      const ADMIN_REOPEN_KEY = 'roma_admin_reopen_v1';
+      const LEGACY_ADMIN_SESSION_KEY = 'roma_admin_session_active_v1';
+      const ADMIN_IDLE_TIMEOUT_MS = 15 * 60 * 1000;
 
       function formatLocalDateISO(dateObj) {
         const y = dateObj.getFullYear();
@@ -2896,7 +2923,9 @@
       // -------------------------------------------------------
       // 6. PANEL DE ADMINISTRACIÓN (ACCESO EN CUALQUIER MOMENTO + BLOQUEO DE HORAS)
       // -------------------------------------------------------
-      let isAdminAuthenticated = safeSession.getItem(ADMIN_SESSION_KEY) === 'true';
+      // La autenticación vive solo en memoria: una recarga siempre exige PIN.
+      let isAdminAuthenticated = false;
+      let adminIdleTimer = null;
       let pendingDeleteId = null;
       let pendingEditId = null;
 
@@ -3037,31 +3066,78 @@
         document.getElementById('admin-pin-settings-box')?.classList.toggle('hidden');
       };
 
+      function setAdminActionExpanded(buttonId, expanded) {
+        document.getElementById(buttonId)?.setAttribute('aria-expanded', String(expanded));
+      }
+
+      window.toggleAdminQuickBlockForm = () => {
+        const quickBox = document.getElementById('admin-quick-block-box');
+        if (!quickBox) return;
+        const willOpen = quickBox.classList.contains('hidden');
+        quickBox.classList.toggle('hidden', !willOpen);
+
+        if (willOpen) {
+          document.getElementById('admin-manual-booking-box')?.classList.add('hidden');
+          syncQuickBlockDurationOptions();
+          syncQuickBlockButtonState();
+        }
+
+        setAdminActionExpanded('admin-open-block-btn', willOpen);
+        setAdminActionExpanded('admin-open-agendar-btn', false);
+      };
+
       window.toggleAdminManualForm = () => {
         const manualBox = document.getElementById('admin-manual-booking-box');
         if (!manualBox) return;
-        manualBox.classList.toggle('hidden');
-        if (!manualBox.classList.contains('hidden')) {
+        const willOpen = manualBox.classList.contains('hidden');
+        manualBox.classList.toggle('hidden', !willOpen);
+
+        if (willOpen) {
+          document.getElementById('admin-quick-block-box')?.classList.add('hidden');
           syncManualDurationOptions();
         }
+
+        setAdminActionExpanded('admin-open-agendar-btn', willOpen);
+        setAdminActionExpanded('admin-open-block-btn', false);
       };
 
       const adminLoginModal = document.getElementById('admin-login-modal');
       const adminDashboardModal = document.getElementById('admin-dashboard-modal');
       const adminPinInput = document.getElementById('admin-pin-input');
 
+      function clearAdminIdleTimer() {
+        if (adminIdleTimer) {
+          clearTimeout(adminIdleTimer);
+          adminIdleTimer = null;
+        }
+      }
+
+      function scheduleAdminIdleLogout() {
+        clearAdminIdleTimer();
+        if (!isAdminAuthenticated || !adminDashboardModal || adminDashboardModal.classList.contains('hidden')) return;
+        adminIdleTimer = setTimeout(() => {
+          if (!isAdminAuthenticated) return;
+          window.logoutAdmin({ silent: true });
+          showToast('Sesión cerrada por inactividad. Ingresa el PIN nuevamente.', 'warning');
+        }, ADMIN_IDLE_TIMEOUT_MS);
+      }
+
       function showAdminDashboardModal() {
         if (!adminDashboardModal) return;
         adminDashboardModal.classList.remove('hidden');
         adminDashboardModal.classList.add('block');
+        document.getElementById('admin-quick-block-box')?.classList.add('hidden');
+        document.getElementById('admin-manual-booking-box')?.classList.add('hidden');
+        setAdminActionExpanded('admin-open-block-btn', false);
+        setAdminActionExpanded('admin-open-agendar-btn', false);
         syncQuickBlockDurationOptions();
         syncManualDurationOptions();
         syncQuickBlockButtonState();
         renderAdminDashboard();
+        scheduleAdminIdleLogout();
       }
 
       window.openAdminAccess = () => {
-        isAdminAuthenticated = safeSession.getItem(ADMIN_SESSION_KEY) === 'true' || isAdminAuthenticated;
         if (isAdminAuthenticated) {
           showAdminDashboardModal();
           return;
@@ -3080,14 +3156,17 @@
         if (adminPinInput) adminPinInput.value = '';
       };
 
-      window.logoutAdmin = () => {
+      window.logoutAdmin = (options = {}) => {
         isAdminAuthenticated = false;
-        safeSession.removeItem(ADMIN_SESSION_KEY);
+        clearAdminIdleTimer();
+        safeSession.removeItem(ADMIN_REOPEN_KEY);
         if (adminDashboardModal) {
           adminDashboardModal.classList.add('hidden');
           adminDashboardModal.classList.remove('block');
         }
-        showToast('Sesión de administrador cerrada.', 'info');
+        if (!options.silent) {
+          showToast('Sesión de administrador cerrada.', 'info');
+        }
       };
 
       document.getElementById('admin-login-form')?.addEventListener('submit', (e) => {
@@ -3099,7 +3178,8 @@
           return;
         }
         isAdminAuthenticated = true;
-        safeSession.setItem(ADMIN_SESSION_KEY, 'true');
+        // Solo recordamos que el admin estaba abierto para volver a pedir el PIN al recargar.
+        safeSession.setItem(ADMIN_REOPEN_KEY, 'true');
         window.closeAdminLoginModal();
         showAdminDashboardModal();
         showToast('Acceso concedido al Panel de Administración.', 'success');
@@ -3109,6 +3189,10 @@
         if (e.target === adminLoginModal) {
           window.closeAdminLoginModal();
         }
+      });
+
+      ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll'].forEach((evt) => {
+        adminDashboardModal?.addEventListener(evt, scheduleAdminIdleLogout, { passive: true });
       });
 
       const adminQbReasonInput = document.getElementById('admin-qb-reason');
@@ -3204,9 +3288,7 @@
         const name = (nameInput?.value || '').trim();
         const phone = (document.getElementById('admin-m-phone')?.value || '').trim() || 'Registro Interno';
         const amount = parseInt(document.getElementById('admin-m-amount')?.value, 10) || 0;
-        const rawStatus = document.getElementById('admin-m-status')?.value || 'CONFIRMADA';
-        const isManualBlock = service.toLowerCase().includes('bloqueo');
-        const status = isManualBlock ? 'BLOQUEADA' : rawStatus;
+        const status = document.getElementById('admin-m-status')?.value || 'CONFIRMADA';
 
         const check = checkRangeCollision(court, date, time, duration);
         if (!check.ok) {
@@ -3215,21 +3297,19 @@
         }
 
         const newBooking = {
-          id: (isManualBlock ? 'BLOQ-' : 'ADM-') + Math.floor(1000 + Math.random() * 9000),
+          id: 'ADM-' + Math.floor(1000 + Math.random() * 9000),
           service,
-          isAdminBlock: isManualBlock,
+          isAdminBlock: false,
           court,
           date,
           time,
           duration,
-          amount: isManualBlock ? 0 : amount,
+          amount,
           status,
           name,
           phone,
           email: '',
-          notes: isManualBlock
-            ? `Bloqueo operativo registrado desde Administración: ${name}.`
-            : 'Agendado manualmente desde Administración.',
+          notes: 'Agendado manualmente desde Administración.',
           createdAt: 'Admin • Hoy',
           createdTimestamp: Date.now()
         };
@@ -3242,7 +3322,7 @@
         syncManualDurationOptions();
         if (nameInput) nameInput.value = '';
         toggleAdminManualForm();
-        showToast(`Registro ${newBooking.id} guardado en estado ${status === 'BLOQUEADA' ? 'BLOQUEADA (NO DISPONIBLE)' : status}.`, 'success');
+        showToast(`Registro ${newBooking.id} guardado en estado ${status}.`, 'success');
       });
 
       window.toggleBookingPaymentStatus = (bookingId) => {
@@ -3634,6 +3714,16 @@
       renderTimeSlots();
       updateSummary();
       updateClientBookingsUI();
+
+      // Seguridad: invalidar sesiones persistidas por versiones anteriores.
+      safeSession.removeItem(LEGACY_ADMIN_SESSION_KEY);
+
+      // Si el panel estaba abierto antes de recargar, pedir el PIN automáticamente.
+      const shouldPromptAdminLogin = safeSession.getItem(ADMIN_REOPEN_KEY) === 'true';
+      safeSession.removeItem(ADMIN_REOPEN_KEY);
+      if (shouldPromptAdminLogin) {
+        setTimeout(() => window.openAdminAccess(), 350);
+      }
     }
 
     function runSafeRomaApp() {
