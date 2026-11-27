@@ -1198,20 +1198,20 @@
        MODAL MIS SOLICITUDES DEL CLIENTE
   ========================================================== -->
   <div id="bookings-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-    <div class="bg-roma-card border border-roma-gold/40 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+    <div class="bg-roma-card border border-roma-gold/40 rounded-3xl max-w-sm w-full p-4 sm:p-6 shadow-2xl relative">
       <div class="flex items-center justify-between border-b border-zinc-800 pb-4 mb-5">
         <h3 class="font-display font-bold text-2xl uppercase text-white">
           <i class="fa-solid fa-calendar-check text-roma-gold mr-2"></i> Mis Reservas en Curso
         </h3>
-        <button id="close-modal-btn" class="w-9 h-9 rounded-xl bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center">
+        <button id="close-modal-btn" class="w-full rounded-xl bg-zinc-900 text-zinc-400 hover:text-white py-3 text-sm font-semibold text-center">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <div id="saved-bookings-list" class="space-y-3 max-h-80 overflow-y-auto pr-1"></div>
+      <div id="saved-bookings-list" class="space-y-2 overflow-y-auto pr-1.5 pt-2 pb-3">
 
       <div class="mt-6 pt-4 border-t border-zinc-800 flex justify-end items-center">
-        <button id="close-modal-footer-btn" class="px-5 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white text-sm font-semibold">Cerrar</button>
+        <button id="close-modal-footer-btn" class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white text-sm font-semibold w-full">Cerrar</button>
       </div>
     </div>
   </div>
@@ -1279,6 +1279,9 @@
           </button>
           <button type="button" id="admin-open-block-btn" onclick="toggleAdminQuickBlockForm()" aria-expanded="false" aria-controls="admin-quick-block-box" class="px-2.5 sm:px-4 py-2.5 rounded-xl bg-red-600/15 hover:bg-red-600/25 border border-red-500/40 text-red-200 font-display font-bold text-[10px] sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5 whitespace-nowrap">
             <i class="fa-solid fa-lock"></i> Bloquear Hora
+          </button>
+          <button type="button" onclick="toggleAdminPriceSettings()" class="px-2.5 sm:px-4 py-2.5 rounded-xl bg-roma-gold/15 hover:bg-roma-gold/20 border border-roma-gold/30 text-roma-gold font-display font-bold text-[10px] sm:text-sm uppercase tracking-wider transition flex items-center justify-center gap-1.5 whitespace-nowrap">
+            <i class="fa-solid fa-dollar-sign"></i> Precios
           </button>
           <button type="button" onclick="toggleAdminPinSettings()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-semibold transition flex items-center justify-center gap-1.5 whitespace-nowrap">
             <i class="fa-solid fa-key text-roma-gold"></i> Cambiar PIN
@@ -1379,6 +1382,44 @@
           </div>
           <button type="submit" class="px-4 py-2 rounded-xl bg-roma-gold text-black font-bold text-xs uppercase tracking-wider">Guardar PIN</button>
           <button type="button" onclick="toggleAdminPinSettings()" class="px-3 py-2 rounded-xl bg-zinc-800 text-zinc-300 text-xs">Cancelar</button>
+        </form>
+      </div>
+
+      <div id="admin-price-settings-box" class="hidden bg-zinc-900/90 border-b border-roma-gold/30 px-5 sm:px-8 py-6">
+        <form id="change-price-form" class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+          <div>
+            <label class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Canchas</label>
+            <input type="number" id="price-court" min="0" step="500" value="28000"
+                   class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Cumpleaños</label>
+            <input type="number" id="price-birthday" min="0" step="500" value="65000"
+                   class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Eventos Empresas</label>
+            <input type="number" id="price-company" min="0" step="500" value="90000"
+                   class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Campeonatos / Torneos</label>
+            <input type="number" id="price-tournament" min="0" step="500" value="85000"
+                   class="w-full px-3 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white text-sm focus:outline-none focus:border-roma-gold" />
+          </div>
+          <div class="sm:col-span-2 sm:grid-cols-2">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Guardar cambios</label>
+              <button type="submit" id="save-prices-btn"
+                      class="w-full py-3 rounded-xl bg-roma-gold text-black font-display font-bold text-xs uppercase tracking-wider shadow-lg">
+                Guardar Precios
+              </button>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Cancelar</label>
+              <button type="button" onclick="toggleAdminPriceSettings()" class="w-full py-3 rounded-xl bg-zinc-800 text-zinc-300 text-xs">Cancelar</button>
+            </div>
+          </div>
         </form>
       </div>
 
@@ -1916,10 +1957,10 @@
       let isSubmittingBooking = false;
 
       const baseRates = {
-        'Arriendo de Cancha': { day: 28000, night: 35000 },
-        'Cumpleaños': { day: 65000, night: 75000 },
-        'Evento Empresas': { day: 90000, night: 110000 },
-        'Campeonato / Torneo': { day: 85000, night: 105000 }
+        'Arriendo de Cancha': { day: 28000 },
+        'Cumpleaños': { day: 65000 },
+        'Evento Empresas': { day: 90000 },
+        'Campeonato / Torneo': { day: 85000 }
       };
 
       function formatCLP(amount) {
@@ -2458,8 +2499,17 @@
 
       function calculateCurrentAmount() {
         const hourNum = state.time ? parseInt(state.time.split(':')[0], 10) : 19;
-        const rateObj = baseRates[state.service] || baseRates['Arriendo de Cancha'];
-        const unitPrice = hourNum >= 18 ? rateObj.night : rateObj.day;
+        // Primero intentar obtener precio personalizado del admin
+        let unitPrice = 28000; // default court price
+        if (state.service === 'Arriendo de Cancha') {
+          unitPrice = parseInt(document.getElementById('price-court')?.value) || 28000;
+        } else if (state.service === 'Cumpleaños') {
+          unitPrice = parseInt(document.getElementById('price-birthday')?.value) || 65000;
+        } else if (state.service === 'Evento Empresas') {
+          unitPrice = parseInt(document.getElementById('price-company')?.value) || 90000;
+        } else if (state.service === 'Campeonato / Torneo') {
+          unitPrice = parseInt(document.getElementById('price-tournament')?.value) || 85000;
+        }
         const effectiveDuration = state.time
           ? clampDurationToDailyCutoff(state.time, state.duration).effectiveDuration
           : state.duration;
@@ -3687,6 +3737,60 @@
           if (mobileMenuIcon) mobileMenuIcon.className = 'fa-solid fa-bars text-xl';
         });
       });
+
+      // === GESTIÓN DE PRECIOS ADMIN ===
+      const priceSettingsBox = document.getElementById('admin-price-settings-box');
+      const priceForm = document.getElementById('change-price-form');
+      const savePricesBtn = document.getElementById('save-prices-btn');
+
+      // Cargar precios guardados o valores por defecto
+      function loadAdminPrices() {
+        const saved = localStorage.getItem('roma_custom_prices');
+        if (saved) {
+          const prices = JSON.parse(saved);
+          document.getElementById('price-court').value = prices.court || 28000;
+          document.getElementById('price-birthday').value = prices.birthday || 65000;
+          document.getElementById('price-company').value = prices.company || 90000;
+          document.getElementById('price-tournament').value = prices.tournament || 85000;
+        } else {
+          // Valores por defecto
+          saveAdminPrices({court: 28000, birthday: 65000, company: 90000, tournament: 85000});
+        }
+      }
+
+      // Guardar precios en localStorage
+      function saveAdminPrices(prices) {
+        localStorage.setItem('roma_custom_prices', JSON.stringify(prices));
+      }
+
+      // Manejar envío del formulario
+      if (priceForm && savePricesBtn) {
+        priceForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const prices = {
+            court: parseInt(document.getElementById('price-court').value) || 28000,
+            birthday: parseInt(document.getElementById('price-birthday').value) || 65000,
+            company: parseInt(document.getElementById('price-company').value) || 90000,
+            tournament: parseInt(document.getElementById('price-tournament').value) || 85000
+          };
+          saveAdminPrices(prices);
+          showToast('Precios guardados correctamente.', 'success');
+          toggleAdminPriceSettings();
+        });
+      }
+
+      // Función para toggle del modal de precios
+      window.toggleAdminPriceSettings = () => {
+        if (priceSettingsBox) {
+          priceSettingsBox.classList.toggle('hidden');
+          if (!priceSettingsBox.classList.contains('hidden')) {
+            loadAdminPrices();
+          }
+        }
+      };
+
+      // Inicializar precios al cargar
+      loadAdminPrices();
 
       function showToast(message, type = 'info') {
         const container = document.getElementById('toast-container');
