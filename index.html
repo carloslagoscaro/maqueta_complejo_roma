@@ -3852,6 +3852,18 @@
       // Seguridad: invalidar sesiones persistidas por versiones anteriores.
       safeSession.removeItem(LEGACY_ADMIN_SESSION_KEY);
 
+      // Inicializar estado de autenticación - asegurar que sea false por defecto
+      // y no dependa exclusivamente del storage que podría fallar en modo incógnito
+      isAdminAuthenticated = false;
+      
+      // Intentar cargar sesión guardada solo si el storage está disponible
+      if (sessionStorageAvailable) {
+        const stored = safeSession.getItem(ADMIN_SESSION_KEY);
+        if (stored === 'true') {
+          isAdminAuthenticated = true;
+        }
+      }
+
       // Si el panel estaba abierto antes de recargar, pedir el PIN automáticamente.
       const shouldPromptAdminLogin = safeSession.getItem(ADMIN_REOPEN_KEY) === 'true';
       safeSession.removeItem(ADMIN_REOPEN_KEY);
