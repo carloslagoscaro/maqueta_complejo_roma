@@ -2854,12 +2854,18 @@
           resetBookingFormAfterSubmit();
 
           setTimeout(() => {
-            try {
-              window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-            } catch (openErr) {
-              // Ignorar si el navegador bloquea ventanas emergentes en vista previa
-            }
-          }, 250);
+  try {
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    
+    // === OPCIÓN B: Recargar página con confirmación ===
+    setTimeout(() => {
+      location.reload();
+    }, 1500);
+    
+  } catch (openErr) {
+    showToast('No se pudo abrir WhatsApp', 'error');
+  }
+}, 250);
         } finally {
           isSubmittingBooking = false;
           setBookingSubmittingUI(false);
