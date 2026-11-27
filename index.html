@@ -2809,8 +2809,21 @@
       document.getElementById('btn-save-local')?.addEventListener('click', async () => {
         const booking = await createClientTemporalBookingWithPriority();
         if (booking) {
-          showToast(`Reserva Temporal ${booking.id} registrada en ${booking.court} (${booking.duration} hr${booking.duration > 1 ? 's' : ''}). Envía tu comprobante por WhatsApp para confirmarla.`, 'warning');
+          // === MISMA ACCIÓN que btn-confirm-whatsapp: WhatsApp + recarga ===
+          showToast(`Reserva Temporal ${booking.id} creada. Abriendo WhatsApp...`, 'success');
+
           resetBookingFormAfterSubmit();
+
+          setTimeout(() => {
+            try {
+              window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+              setTimeout(() => {
+                location.reload();
+              }, 1500);
+            } catch (openErr) {
+              showToast('No se pudo abrir WhatsApp', 'error');
+            }
+          }, 250);
         }
       });
 
